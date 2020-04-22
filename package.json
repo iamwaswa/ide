@@ -1,9 +1,10 @@
 {
-  "name": "blackandwhite",
+  "name": "IDE",
   "private": true,
-  "description": "A blog by Waswa and Clare-Anne",
+  "description": "An educational IDE platform",
   "version": "0.1.0",
   "license": "MIT",
+  "author": "Waswa Olunga <olungaw@gmail.com>",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop --open --port 8080",
@@ -71,7 +72,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/iamwaswa/blackwhite"
+    "url": "https://github.com/iamwaswa/ide.git"
   },
   "bugs": {
     "url": "https://github.com/gatsbyts/gatsby/issues"
