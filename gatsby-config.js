@@ -3,9 +3,6 @@ require('dotenv').config({
 });
 
 module.exports = {
-  siteMetadata: {
-    title: `IDE`,
-  },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
@@ -15,7 +12,7 @@ module.exports = {
         description: `An educational IDE platform`,
         start_url: `/`,
         background_color: `#F9F9F9`,
-        theme_color: `#12F`,
+        theme_color: `#2196f3`,
         display: `fullscreen`,
         icon: `static/favicon.ico`,
       },

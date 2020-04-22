@@ -1,40 +1,42 @@
 import { Theme, createMuiTheme } from '@material-ui/core/styles';
 
-export const customTheme: Theme = createMuiTheme({
-  palette: {
-    type: `light`,
-    primary: {
-      main: `rgb(156, 156, 156)`,
-      light: `rgb(249, 249, 249)`,
-      dark: `rgb(37, 35, 35)`,
+import { PaletteType } from '@material-ui/core';
+
+export const themeGenerator = (paletteType: PaletteType): Theme =>
+  createMuiTheme({
+    overrides: {
+      MuiCssBaseline: {
+        [`@global`]: {
+          html: {
+            height: `100%`,
+          },
+          body: {
+            height: `100%`,
+          },
+          [`#___gatsby`]: {
+            height: `100%`,
+          },
+          [`#gatsby-focus-wrapper`]: {
+            height: `100%`,
+          },
+          [`.tl-edges`]: {
+            height: `100%`,
+          },
+          [`.tl-wrapper`]: {
+            display: `flex`,
+            flexDirection: `column`,
+            height: `100%`,
+          },
+        },
+      },
     },
-    secondary: {
-      main: `rgb(232, 199, 91)`,
-      light: `rgb(234, 216, 140)`,
+    palette: {
+      type: paletteType,
+      primary: {
+        main: paletteType === `light` ? `#2196f3` : `#1976d2`,
+      },
+      secondary: {
+        main: paletteType === `light` ? `#9c27b0` : `#7b1fa2`,
+      },
     },
-  },
-  typography: {
-    fontFamily: [
-      `'Vollkorn', serif`,
-      `'Rye', cursive`,
-      `'Great Vibes', cursive`,
-    ].join(`,`),
-  },
-});
-
-// * Fonts
-export const hisFont = `'Rye', cursive`;
-export const herFont = `'Great Vibes', cursive`;
-export const ourFont = `'Vollkorn', serif`;
-
-// * Dimensions
-export const menuIconWidth = `40px`;
-
-export const minWidth = `320px`;
-export const minHeight = `480px`;
-
-export const largerMobileWidth = `380px`;
-export const tabletWidth = `750px`;
-export const desktopWidth = `990px`;
-
-export const navigationModalWidth = `100vw`;
+  });
