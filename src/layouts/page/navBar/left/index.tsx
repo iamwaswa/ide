@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { Box, IconButton, Tooltip, Typography } from '@material-ui/core';
+import { Box, IconButton, Tooltip } from '@material-ui/core';
 
 import Brightness5RoundedIcon from '@material-ui/icons/Brightness5Rounded';
 import NightsStayRoundedIcon from '@material-ui/icons/NightsStayRounded';
@@ -25,7 +25,6 @@ export const NavBarLeft: React.FC = () => {
           )}
         </IconButton>
       </Tooltip>
-      <Typography variant="body1">IDE</Typography>
     </Box>
   );
 };

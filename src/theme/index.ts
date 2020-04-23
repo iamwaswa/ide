@@ -13,6 +13,9 @@ export const themeGenerator = (paletteType: PaletteType): Theme =>
           body: {
             height: `100%`,
           },
+          img: {
+            maxWidth: `100%`,
+          },
           [`#___gatsby`]: {
             height: `100%`,
           },
