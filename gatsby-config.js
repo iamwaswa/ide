@@ -35,6 +35,10 @@ module.exports = {
         graphqlTag: 'default',
       },
     },
+    {
+      resolve: `gatsby-plugin-create-client-paths`,
+      options: { prefixes: [`/private/*`] },
+    },
     'gatsby-plugin-typescript',
     `gatsby-plugin-transition-link`,
     `gatsby-transformer-sharp`,
