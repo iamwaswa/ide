@@ -20,16 +20,6 @@
     "@typescript-eslint/no-explicit-any": "off"
   },
   "settings": {
-    "import/resolver": {
-      "alias": [
-        ["@components", "./src/components"],
-        ["@context", "./src/context"],
-        ["@hooks", "./src/hooks"],
-        ["@layouts", "./src/layouts"],
-        ["@theme", "./src/theme"],
-        ["@types", "./src/types"]
-      ]
-    },
     "react": {
       "pragma": "React",
       "version": "detect"

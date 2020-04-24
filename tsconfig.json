@@ -15,10 +15,11 @@
     "preserveConstEnums": true,
     "baseUrl": ".",
     "paths": {
-      "@components": ["./src/components"],
+      "@components/*": ["./src/components/*"],
       "@context": ["./src/context"],
-      "@hooks": ["./src/hooks"],
-      "@layouts": ["./src/layouts"],
+      "@context/*": ["./src/context/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@layouts/*": ["./src/layouts/*"],
       "@theme": ["./src/theme"],
       "@types": ["./src/types"]
     }

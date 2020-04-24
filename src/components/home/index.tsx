@@ -1,7 +1,6 @@
-import React from 'react';
-
 import { Box, Button, Typography } from '@material-ui/core';
 
+import React from 'react';
 import { useStyles } from './styles';
 
 export const Home: React.FC = () => {

@@ -10,4 +10,6 @@ const IndexPage: React.FC = () => {
   );
 };
 
+IndexPage.displayName = `HomePage`;
+
 export default IndexPage;

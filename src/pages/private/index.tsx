@@ -1,10 +1,17 @@
+import { Assessment } from '@components/assessment';
+import { Course } from '@components/course';
+import { Courses } from '@components/courses';
 import React from 'react';
 import { Router } from '@reach/router';
 
-const Dashboard: React.FC = () => {
-  return <Router></Router>;
-};
+const PrivatePage: React.FC = () => (
+  <Router>
+    <Courses path="/private/courses" />
+    <Course path="/private/course" />
+    <Assessment path="/private/assessment" />
+  </Router>
+);
 
-Dashboard.displayName = `Dashboard`;
+PrivatePage.displayName = `PrivatePage`;
 
-export default Dashboard;
+export default PrivatePage;
