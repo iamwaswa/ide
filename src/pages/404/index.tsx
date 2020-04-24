@@ -1,6 +1,5 @@
-import * as React from 'react';
-
 import { PageLayout } from '@layouts/page';
+import React from 'react';
 import { Typography } from '@material-ui/core';
 
 const NotFoundPage: React.FC = () => {

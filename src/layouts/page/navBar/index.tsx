@@ -1,7 +1,6 @@
-import * as React from 'react';
-
 import { Box } from '@material-ui/core';
 import { NavBarLeft } from './left';
+import React from 'react';
 import { useStyles } from './styles';
 
 export const NavBar: React.FC = () => {

@@ -1,9 +1,8 @@
-import * as React from 'react';
-
 import { Box, IconButton, Tooltip } from '@material-ui/core';
 
 import Brightness5RoundedIcon from '@material-ui/icons/Brightness5Rounded';
 import NightsStayRoundedIcon from '@material-ui/icons/NightsStayRounded';
+import React from 'react';
 import { usePaletteType } from './hooks/paletteType';
 import { useStyles } from './styles';
 

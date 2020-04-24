@@ -1,8 +1,7 @@
-import * as React from 'react';
-
 import { Callback, OrNull } from '@types';
 
 import { PaletteType } from '@material-ui/core';
+import React from 'react';
 
 export interface IUseThemePaletteType {
   paletteType: PaletteType;
