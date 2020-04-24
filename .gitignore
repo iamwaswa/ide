@@ -72,3 +72,6 @@ functions/serviceAccount.json
 firebase-private-key.json
 .firebase
 sanity/dist
+# Local Netlify folder
+.netlify
+.env.production

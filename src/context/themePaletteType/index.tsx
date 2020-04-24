@@ -15,9 +15,16 @@ export const ThemePaletteType = React.createContext<
 export const ThemePaletteTypeContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
   children,
 }) => {
-  const [paletteType, setPaletteType] = React.useState<PaletteType>(
-    (localStorage.getItem(`paletteType`) as OrNull<PaletteType>) ?? `dark`
-  );
+  const [paletteType, setPaletteType] = React.useState<PaletteType>(`dark`);
+
+  React.useEffect((): void => {
+    if (typeof window !== undefined) {
+      setPaletteType(
+        (window.localStorage.getItem(`paletteType`) as OrNull<PaletteType>) ??
+          `dark`
+      );
+    }
+  }, []);
 
   return (
     <ThemePaletteType.Provider value={{ paletteType, setPaletteType }}>
