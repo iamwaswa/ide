@@ -1,3 +1,5 @@
+import 'firebase/auth';
+
 import { MaterialUIThemeProvider } from './src/theme/provider';
 import PropTypes from 'prop-types';
 import React from 'react';
