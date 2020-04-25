@@ -7,12 +7,10 @@ import { useAuth } from '@context/auth/hooks';
 const IndexPage: React.FC = () => {
   const { role, uid } = useAuth();
 
-  React.useEffect((): void => {
-    if (role !== null && uid) {
-      navigate(`/private/courses`);
-      return;
-    }
-  }, []);
+  if (role !== null && uid) {
+    navigate(`/session/courses/${uid}`);
+    return null;
+  }
 
   return (
     <PageLayout>
