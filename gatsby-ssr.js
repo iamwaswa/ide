@@ -1,14 +1,14 @@
 import 'firebase/auth';
 
+import { GlobalContextProvider } from './src/context';
 import { MaterialUIThemeProvider } from './src/theme/provider';
 import PropTypes from 'prop-types';
 import React from 'react';
-import { ThemePaletteTypeContextProvider } from './src/context/themePaletteType';
 
 export const wrapRootElement = ({ element }) => (
-  <ThemePaletteTypeContextProvider>
+  <GlobalContextProvider>
     <MaterialUIThemeProvider>{element}</MaterialUIThemeProvider>
-  </ThemePaletteTypeContextProvider>
+  </GlobalContextProvider>
 );
 
 wrapRootElement.propTypes = PropTypes.shape({

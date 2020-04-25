@@ -6,6 +6,7 @@ export const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.getContrastText(theme.palette.primary.main),
     display: `flex`,
     justifyContent: `space-between`,
+    alignItems: `center`,
     padding: theme.spacing(2),
   },
 }));

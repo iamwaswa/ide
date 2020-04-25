@@ -21,7 +21,8 @@
       "@hooks/*": ["./src/hooks/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@theme": ["./src/theme"],
-      "@types": ["./src/types"]
+      "@types": ["./src/types"],
+      "@enums": ["./src/enums"]
     }
   },
   "include": ["./src/**/*"]

@@ -1,3 +1,4 @@
+import { PageLayout } from '@layouts/page';
 import React from 'react';
 
 interface IProps {
@@ -5,5 +6,9 @@ interface IProps {
 }
 
 export const Assessment: React.FC<IProps> = () => {
-  return <div>Assessment page will go here...</div>;
+  return (
+    <PageLayout>
+      <div>Assessment page will go here...</div>
+    </PageLayout>
+  );
 };
