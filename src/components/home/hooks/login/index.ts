@@ -26,15 +26,21 @@ export const useLogin = (): IUseLogin => {
     }
   }, [role, uid]);
 
+  const onLoggedInAsync = (
+    action: ActionEnum.LOGIN_AS_INSTRUCTOR | ActionEnum.LOGIN_AS_STUDENT
+  ): Callback<firebase.auth.UserCredential, Promise<void>> => async ({
+    user,
+  }: firebase.auth.UserCredential): Promise<void> => {
+    if (user) {
+      updateState({ type: action, uid: user.uid });
+    }
+  };
+
   const loginAsInstructorAsync = () => {
     firebase
       .auth()
       .signInWithEmailAndPassword(`instructor@email.ca`, `instructor`)
-      .then(({ user }: firebase.auth.UserCredential): void => {
-        if (user) {
-          updateState({ type: ActionEnum.LOGIN_AS_INSTRUCTOR, uid: user.uid });
-        }
-      })
+      .then(onLoggedInAsync(ActionEnum.LOGIN_AS_INSTRUCTOR))
       .catch(({ message }: Error): void =>
         updateState({ type: ActionEnum.SET_ERROR, message })
       );
@@ -44,13 +50,9 @@ export const useLogin = (): IUseLogin => {
     firebase
       .auth()
       .signInWithEmailAndPassword(`student@email.ca`, `student`)
-      .then(({ user }: firebase.auth.UserCredential): void => {
-        if (user) {
-          updateState({ type: ActionEnum.LOGIN_AS_STUDENT, uid: user.uid });
-        }
-      })
+      .then(onLoggedInAsync(ActionEnum.LOGIN_AS_STUDENT))
       .catch(({ message }: Error): void =>
-        updateState({ type: ActionEnum.ERROR, message })
+        updateState({ type: ActionEnum.SET_ERROR, message })
       );
   };
 
