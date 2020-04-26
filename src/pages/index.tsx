@@ -8,7 +8,7 @@ const IndexPage: React.FC = () => {
   const { role, uid } = useAuth();
 
   if (role !== null && uid) {
-    navigate(`/session/courses/${uid}`);
+    navigate(`/session/${uid}/courses`);
     return null;
   }
 

@@ -7,11 +7,11 @@ import { Router } from '@reach/router';
 
 const PrivatePage: React.FC = () => (
   <Router>
-    <PrivateRoute Component={Courses} path="/session/courses/:uid" />
-    <PrivateRoute Component={Course} path="/session/course/:uid/:courseId" />
+    <PrivateRoute Component={Courses} path="/session/:uid/courses" />
+    <PrivateRoute Component={Course} path="/session/:uid/courses/:courseId" />
     <PrivateRoute
       Component={Assessment}
-      path="/session/assessment/:uid/:courseId/:assessmentId"
+      path="/session/:uid/courses/:courseId/:assessmentId"
     />
   </Router>
 );

@@ -20,7 +20,7 @@ export const AuthContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
 
   React.useEffect((): void => {
     if (role !== null && uid) {
-      navigate(`/session/courses/${uid}`);
+      navigate(`/session/${uid}/courses`);
       return;
     } else {
       navigate(`/`);

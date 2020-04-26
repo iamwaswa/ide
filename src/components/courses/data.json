@@ -1,11 +1,17 @@
 [
   {
-    "title": "CS100"
+    "id": "0",
+    "title": "CS100",
+    "subTitle": "Intro to Programming"
   },
   {
-    "title": "CS101"
+    "id": "1",
+    "title": "CS101",
+    "subTitle": "Intro to Data Structures"
   },
   {
-    "title": "CS102"
+    "id": "2",
+    "title": "CS102",
+    "subTitle": "Intro to Algorithms"
   }
 ]

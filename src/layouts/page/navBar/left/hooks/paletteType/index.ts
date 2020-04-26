@@ -10,7 +10,6 @@ interface IUsePaletteType {
 
 export const usePaletteType = (): IUsePaletteType => {
   const { paletteType, setPaletteType } = useThemePaletteType();
-
   React.useEffect((): void => {
     const storedPaletteType = localStorage.getItem(`paletteType`);
     if (storedPaletteType !== paletteType) {

@@ -6,6 +6,10 @@ export type OrUndefined<T> = T | undefined;
 
 export type MappedType<T> = { [key: string]: T };
 
-export type Course = {
+export type BasicCourse = {
+  id: string;
   title: string;
+  subTitle: string;
 };
+
+export type CompleteCourse = BasicCourse & {};
