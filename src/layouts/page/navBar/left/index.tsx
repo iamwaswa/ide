@@ -1,8 +1,8 @@
 import { Box, IconButton, Tooltip } from '@material-ui/core';
 
-import Brightness5RoundedIcon from '@material-ui/icons/Brightness5Rounded';
 import NightsStayRoundedIcon from '@material-ui/icons/NightsStayRounded';
 import React from 'react';
+import WbSunnyRoundedIcon from '@material-ui/icons/WbSunnyRounded';
 import { usePaletteType } from './hooks/paletteType';
 import { useStyles } from './styles';
 
@@ -18,7 +18,7 @@ export const NavBarLeft: React.FC = () => {
       >
         <IconButton onClick={togglePaletteType}>
           {paletteType === `dark` ? (
-            <Brightness5RoundedIcon />
+            <WbSunnyRoundedIcon />
           ) : (
             <NightsStayRoundedIcon />
           )}

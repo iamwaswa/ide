@@ -8,6 +8,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
     [`& .content`]: {
       margin: theme.spacing(0, `auto`),
       width: `80%`,
+      [`& h4`]: {
+        marginBlockEnd: `${theme.spacing(2)}px`,
+      },
     },
   },
 }));
