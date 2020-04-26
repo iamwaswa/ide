@@ -1,13 +1,21 @@
-import { Box, Button, Typography } from '@material-ui/core';
+import { Box, Typography } from '@material-ui/core';
 
+import { Description } from './description';
 import { ErrorToast } from '@components/error';
+import { Login } from './login';
 import React from 'react';
-import { useLogin } from './hooks/login';
+import { useLogin } from './login/hooks';
 import { useStyles } from './styles';
 
 export const Home: React.FC = () => {
   const classes = useStyles();
-  const { loginAsInstructorAsync, loginAsStudentAsync, ...error } = useLogin();
+  const {
+    loginAsInstructorAsync,
+    loginAsStudentAsync,
+    instructorLoggingIn,
+    studentLoggingIn,
+    ...error
+  } = useLogin();
 
   return (
     <>
@@ -29,67 +37,14 @@ export const Home: React.FC = () => {
             </Typography>
           </Box>
         </Box>
-        <Box className={classes.container}>
-          <Box className={classes.signInContainer}>
-            <Button
-              color="primary"
-              variant="contained"
-              onClick={loginAsInstructorAsync}
-            >
-              Login as an instructor
-            </Button>
-            <Button
-              color="secondary"
-              variant="contained"
-              onClick={loginAsStudentAsync}
-            >
-              Login as a student
-            </Button>
-          </Box>
-        </Box>
-        <Box className={classes.container}>
-          <Box className={classes.secondaryContent}>
-            <Box className="secondaryContent__container">
-              <Typography className="secondaryContent__mainTitle" variant="h5">
-                Title goes here
-              </Typography>
-              <Typography className="secondaryContent__text" variant="body1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                hic, culpa cumque, fugit, vel sed eaque molestiae neque error
-                reiciendis architecto voluptatibus quo ad veritatis officia.
-                Facilis velit laborum quas harum corrupti aut error quis fugit,
-                in, quidem deserunt deleniti, porro repellendus eaque dolor
-                ipsum aperiam magnam quod molestias sint.
-              </Typography>
-            </Box>
-            <Box className="secondaryContent__container">
-              <Typography className="secondaryContent__mainTitle" variant="h5">
-                Title goes here
-              </Typography>
-              <Typography className="secondaryContent__text" variant="body1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                hic, culpa cumque, fugit, vel sed eaque molestiae neque error
-                reiciendis architecto voluptatibus quo ad veritatis officia.
-                Facilis velit laborum quas harum corrupti aut error quis fugit,
-                in, quidem deserunt deleniti, porro repellendus eaque dolor
-                ipsum aperiam magnam quod molestias sint.
-              </Typography>
-            </Box>
-            <Box className="secondaryContent__container">
-              <Typography className="secondaryContent__mainTitle" variant="h5">
-                Title goes here
-              </Typography>
-              <Typography className="secondaryContent__text" variant="body1">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil
-                hic, culpa cumque, fugit, vel sed eaque molestiae neque error
-                reiciendis architecto voluptatibus quo ad veritatis officia.
-                Facilis velit laborum quas harum corrupti aut error quis fugit,
-                in, quidem deserunt deleniti, porro repellendus eaque dolor
-                ipsum aperiam magnam quod molestias sint.
-              </Typography>
-            </Box>
-          </Box>
-        </Box>
+        <Login
+          instructorLoggingIn={instructorLoggingIn}
+          studentLoggingIn={studentLoggingIn}
+          loginAsInstructorAsync={loginAsInstructorAsync}
+          loginAsStudentAsync={loginAsStudentAsync}
+          {...classes}
+        />
+        <Description {...classes} />
       </Box>
     </>
   );

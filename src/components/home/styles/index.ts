@@ -25,14 +25,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
       },
     },
   },
-  signInContainer: {
-    display: `flex`,
-    flexDirection: `column`,
-    alignItems: `flex-start`,
-    [`& button + button`]: {
-      marginBlockStart: `${theme.spacing(2)}px`,
-    },
-  },
   secondaryContent: {
     display: `flex`,
     flexWrap: `wrap`,

@@ -7,16 +7,18 @@ import { useAuth } from '@context/auth/hooks';
 
 interface IUseLogin {
   errorMessage: OrNull<string>;
+  studentLoggingIn: boolean;
+  instructorLoggingIn: boolean;
   clearErrorMessage: () => void;
   loginAsInstructorAsync: Callback<React.MouseEvent, void>;
   loginAsStudentAsync: Callback<React.MouseEvent, void>;
 }
 
 export const useLogin = (): IUseLogin => {
-  const [{ errorMessage, role, uid }, updateState] = React.useReducer(
-    reducer,
-    initialState
-  );
+  const [
+    { errorMessage, studentLoggingIn, instructorLoggingIn, role, uid },
+    updateState,
+  ] = React.useReducer(reducer, initialState);
   const { setRole, setUid } = useAuth();
 
   React.useEffect((): void => {
@@ -37,6 +39,8 @@ export const useLogin = (): IUseLogin => {
   };
 
   const loginAsInstructorAsync = () => {
+    updateState({ type: ActionEnum.INSTRUCTOR_LOGGING_IN });
+
     firebase
       .auth()
       .signInWithEmailAndPassword(`instructor@email.ca`, `instructor`)
@@ -47,6 +51,8 @@ export const useLogin = (): IUseLogin => {
   };
 
   const loginAsStudentAsync = () => {
+    updateState({ type: ActionEnum.STUDENT_LOGGING_IN });
+
     firebase
       .auth()
       .signInWithEmailAndPassword(`student@email.ca`, `student`)
@@ -62,6 +68,8 @@ export const useLogin = (): IUseLogin => {
 
   return {
     errorMessage,
+    studentLoggingIn,
+    instructorLoggingIn,
     clearErrorMessage,
     loginAsInstructorAsync,
     loginAsStudentAsync,
