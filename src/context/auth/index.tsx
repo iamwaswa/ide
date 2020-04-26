@@ -1,8 +1,6 @@
-import { OrNull, OrUndefined } from '@types';
-
+import { OrNull } from '@types';
 import React from 'react';
 import { RoleEnum } from '@enums';
-import firebase from 'gatsby-plugin-firebase';
 import { navigate } from 'gatsby';
 
 export interface IUseAuth {
@@ -19,14 +17,6 @@ export const AuthContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
 }) => {
   const [role, setRole] = React.useState<OrNull<RoleEnum>>(null);
   const [uid, setUid] = React.useState<OrNull<string>>(null);
-
-  React.useEffect((): void => {
-    setRole(
-      (firebase.auth().currentUser?.displayName as OrUndefined<RoleEnum>) ??
-        null
-    );
-    setUid(firebase.auth().currentUser?.uid ?? null);
-  }, []);
 
   React.useEffect((): void => {
     if (role !== null && uid) {
