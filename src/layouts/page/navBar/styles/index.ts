@@ -5,8 +5,13 @@ export const useStyles = makeStyles((theme: Theme) => ({
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.getContrastText(theme.palette.primary.main),
     display: `flex`,
-    justifyContent: `space-between`,
-    alignItems: `center`,
+    flexDirection: `column`,
+    minWidth: 320,
     padding: theme.spacing(2),
+    [theme.breakpoints.up(`sm`)]: {
+      flexDirection: `row`,
+      alignItems: `center`,
+      justifyContent: `space-between`,
+    },
   },
 }));

@@ -5,7 +5,6 @@ import React from 'react';
 import { useStyles } from './styles';
 
 interface IProps {
-  container: string;
   instructorLoggingIn: boolean;
   studentLoggingIn: boolean;
   loginAsInstructorAsync: Callback<React.MouseEvent, void>;
@@ -13,7 +12,6 @@ interface IProps {
 }
 
 export const Login: React.FC<IProps> = ({
-  container,
   instructorLoggingIn,
   studentLoggingIn,
   loginAsInstructorAsync,
@@ -22,42 +20,40 @@ export const Login: React.FC<IProps> = ({
   const classes = useStyles();
 
   return (
-    <Box className={container}>
-      <Box className={classes.signInContainer}>
-        <Box className={`button-container ${classes.buttonContainer}`}>
-          {instructorLoggingIn && (
-            <CircularProgress
-              className={classes.spinner}
-              color="primary"
-              size={20}
-            />
-          )}
-          <Button
+    <Box className="action-content">
+      <Box className={`button-container ${classes.buttonContainer}`}>
+        {instructorLoggingIn && (
+          <CircularProgress
+            className={classes.spinner}
             color="primary"
-            disabled={instructorLoggingIn || studentLoggingIn}
-            variant="contained"
-            onClick={loginAsInstructorAsync}
-          >
-            Login as an instructor
-          </Button>
-        </Box>
-        <Box className={`button-container ${classes.buttonContainer}`}>
-          {studentLoggingIn && (
-            <CircularProgress
-              className={classes.spinner}
-              color="secondary"
-              size={20}
-            />
-          )}
-          <Button
+            size={20}
+          />
+        )}
+        <Button
+          color="primary"
+          disabled={instructorLoggingIn || studentLoggingIn}
+          variant="contained"
+          onClick={loginAsInstructorAsync}
+        >
+          Login as an instructor
+        </Button>
+      </Box>
+      <Box className={`button-container ${classes.buttonContainer}`}>
+        {studentLoggingIn && (
+          <CircularProgress
+            className={classes.spinner}
             color="secondary"
-            disabled={studentLoggingIn || instructorLoggingIn}
-            variant="contained"
-            onClick={loginAsStudentAsync}
-          >
-            Login as a student
-          </Button>
-        </Box>
+            size={20}
+          />
+        )}
+        <Button
+          color="secondary"
+          disabled={studentLoggingIn || instructorLoggingIn}
+          variant="contained"
+          onClick={loginAsStudentAsync}
+        >
+          Login as a student
+        </Button>
       </Box>
     </Box>
   );

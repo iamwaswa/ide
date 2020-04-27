@@ -1,6 +1,5 @@
 import { Box, Typography } from '@material-ui/core';
 
-import { Description } from './description';
 import { ErrorToast } from '@components/error';
 import { Login } from './login';
 import React from 'react';
@@ -22,7 +21,7 @@ export const Home: React.FC = () => {
       <ErrorToast {...error} />
       <Box className={classes.home}>
         <Box className={classes.container}>
-          <Box className="content">
+          <Box className="text-content">
             <Typography className="content__mainTitle" variant="h4">
               Welcome to VirtualClassroom
             </Typography>
@@ -36,15 +35,13 @@ export const Home: React.FC = () => {
               setting up things locally.
             </Typography>
           </Box>
+          <Login
+            instructorLoggingIn={instructorLoggingIn}
+            studentLoggingIn={studentLoggingIn}
+            loginAsInstructorAsync={loginAsInstructorAsync}
+            loginAsStudentAsync={loginAsStudentAsync}
+          />
         </Box>
-        <Login
-          instructorLoggingIn={instructorLoggingIn}
-          studentLoggingIn={studentLoggingIn}
-          loginAsInstructorAsync={loginAsInstructorAsync}
-          loginAsStudentAsync={loginAsStudentAsync}
-          {...classes}
-        />
-        <Description {...classes} />
       </Box>
     </>
   );

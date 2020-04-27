@@ -3,16 +3,17 @@ import { Theme, makeStyles } from '@material-ui/core/styles';
 export const useStyles = makeStyles((theme: Theme) => ({
   home: {
     height: `100%`,
-    minWidth: 320,
     padding: theme.spacing(4),
   },
   container: {
+    display: `flex`,
+    flexWrap: `wrap`,
     margin: theme.spacing(0, `auto`, 3, `auto`),
     maxWidth: theme.breakpoints.values.md,
-    [`& .content`]: {
-      width: `80%`,
+    [`& .text-content`]: {
+      width: `100%`,
       [theme.breakpoints.up(`sm`)]: {
-        width: `60%`,
+        width: `50%`,
       },
       [`& .content__mainTitle`]: {
         marginBlockEnd: `${theme.spacing(2)}px`,
@@ -24,15 +25,21 @@ export const useStyles = makeStyles((theme: Theme) => ({
         marginBlockEnd: `${theme.spacing()}px`,
       },
     },
-  },
-  secondaryContent: {
-    display: `flex`,
-    flexWrap: `wrap`,
-    [`& .secondaryContent__container`]: {
-      flexBasis: 280,
-      margin: theme.spacing(2),
-      [`& .secondaryContent__mainTitle`]: {
-        marginBlockEnd: `${theme.spacing(1.5)}px`,
+    [`& .action-content`]: {
+      flexGrow: 1,
+      display: `flex`,
+      flexDirection: `column`,
+      flexWrap: `wrap`,
+      alignItems: `flex-start`,
+      justifyContent: `flex-start`,
+      marginBlockStart: `${theme.spacing(2)}px`,
+      [`& .button-container + .button-container`]: {
+        margin: theme.spacing(2, 0, 0, 0),
+      },
+      [theme.breakpoints.up(`sm`)]: {
+        alignItems: `center`,
+        justifyContent: `center`,
+        marginBlockStart: 0,
       },
     },
   },

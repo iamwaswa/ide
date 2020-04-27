@@ -1,4 +1,9 @@
-import { Breadcrumbs, Typography } from '@material-ui/core';
+import {
+  Breadcrumbs,
+  Typography,
+  useMediaQuery,
+  useTheme,
+} from '@material-ui/core';
 
 import { Link } from 'gatsby';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
@@ -10,11 +15,15 @@ import { useStyles } from './styles';
 export const NavigationMenu: React.FC = () => {
   useNavigation();
   const { path } = usePathContext();
+  const theme = useTheme();
+  const mobileView = !useMediaQuery(theme.breakpoints.up(`sm`));
   const classes = useStyles();
 
   return path.size > 0 ? (
     <Breadcrumbs
       aria-label="breadcrumb"
+      itemsAfterCollapse={0}
+      maxItems={mobileView ? 1 : undefined}
       separator={<NavigateNextIcon fontSize="small" />}
     >
       {Array.from(path.entries()).map(

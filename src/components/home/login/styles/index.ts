@@ -1,14 +1,6 @@
 import { Theme, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) => ({
-  signInContainer: {
-    display: `flex`,
-    flexDirection: `column`,
-    alignItems: `flex-start`,
-    [`& .button-container + .button-container`]: {
-      marginBlockStart: `${theme.spacing(2)}px`,
-    },
-  },
   buttonContainer: {
     position: `relative`,
   },
