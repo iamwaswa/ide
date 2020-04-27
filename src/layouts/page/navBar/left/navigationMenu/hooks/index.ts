@@ -9,9 +9,14 @@ export const useNavigation = (): Map<string, string> => {
   const params = useParams();
 
   React.useEffect((): void => {
-    if (Object.keys(params).length === 0) {
+    if (Object.keys(params).length === 0 && path.size !== 0) {
       setPath(new Map<string, string>());
-    } else if (uid && courseTitle && Object.keys(params).length === 2) {
+    } else if (
+      uid &&
+      courseTitle &&
+      Object.keys(params).length === 2 &&
+      path.size !== 2
+    ) {
       setPath(
         (currentPath: Map<string, string>): Map<string, string> => {
           currentPath.set(`Courses`, `/session/${uid}/courses`);
@@ -23,7 +28,8 @@ export const useNavigation = (): Map<string, string> => {
       courseId &&
       courseTitle &&
       assessmentTitle &&
-      Object.keys(params).length === 3
+      Object.keys(params).length === 3 &&
+      path.size !== 3
     ) {
       setPath(
         (currentPath: Map<string, string>): Map<string, string> => {
