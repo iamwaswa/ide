@@ -19,6 +19,7 @@ interface IProps {
 }
 
 export const Item: React.FC<IProps> = ({ id, title, subTitle, image }) => {
+  const [readyToNavigate, setReadyToNavigate] = React.useState<boolean>(false);
   const {
     uid,
     courseId,
@@ -29,13 +30,14 @@ export const Item: React.FC<IProps> = ({ id, title, subTitle, image }) => {
   const classes = useStyles();
 
   React.useEffect((): void => {
-    if (uid && courseId && courseTitle) {
+    if (readyToNavigate && uid && courseId && courseTitle) {
       navigate(`/session/${uid}/courses/${courseId}`);
       return;
     }
-  }, [uid, courseId, courseTitle]);
+  }, [courseId, courseTitle, uid, readyToNavigate]);
 
   const goToCoursePage = (): void => {
+    setReadyToNavigate(true);
     setCourseId(id);
     setCourseTitle(title);
   };

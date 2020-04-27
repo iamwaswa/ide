@@ -3,14 +3,19 @@ import { useAuthContext } from '@context/auth/hooks';
 import { useParams } from '@reach/router';
 import { usePathContext } from '@context/path/hooks';
 
-export const useNavigation = (): Map<string, string> => {
+export const useNavigation = (): void => {
   const { uid, courseId, courseTitle, assessmentTitle } = useAuthContext();
   const { path, setPath } = usePathContext();
   const params = useParams();
 
   React.useEffect((): void => {
-    if (Object.keys(params).length === 0 && path.size !== 0) {
-      setPath(new Map<string, string>());
+    if (Object.keys(params).length <= 1 && path.size !== 0) {
+      setPath(
+        (currentPath: Map<string, string>): Map<string, string> => {
+          currentPath.clear();
+          return currentPath;
+        }
+      );
     } else if (
       uid &&
       courseTitle &&
@@ -19,6 +24,7 @@ export const useNavigation = (): Map<string, string> => {
     ) {
       setPath(
         (currentPath: Map<string, string>): Map<string, string> => {
+          currentPath.clear();
           currentPath.set(`Courses`, `/session/${uid}/courses`);
           return currentPath.set(courseTitle, ``);
         }
@@ -33,6 +39,7 @@ export const useNavigation = (): Map<string, string> => {
     ) {
       setPath(
         (currentPath: Map<string, string>): Map<string, string> => {
+          currentPath.clear();
           currentPath.set(`Courses`, `/session/${uid}/courses`);
           currentPath.set(courseTitle, `/session/${uid}/courses/${courseId}`);
           return currentPath.set(assessmentTitle, ``);
@@ -40,6 +47,4 @@ export const useNavigation = (): Map<string, string> => {
       );
     }
   }, [params, path, setPath]);
-
-  return path;
 };
