@@ -2,7 +2,7 @@ import { Callback, OrNull } from '@types';
 
 import React from 'react';
 import firebase from 'gatsby-plugin-firebase';
-import { useAuth } from '@context/auth/hooks';
+import { useAuthContext } from '@context/auth/hooks';
 
 interface IUseLogout {
   errorMessage: OrNull<string>;
@@ -11,7 +11,7 @@ interface IUseLogout {
 }
 
 export const useLogout = (): IUseLogout => {
-  const { setRole, setUid } = useAuth();
+  const { setRole, setUid } = useAuthContext();
   const [errorMessage, setErrorMessage] = React.useState<OrNull<string>>(null);
 
   const logoutAsync = (): void => {

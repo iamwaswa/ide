@@ -1,15 +1,17 @@
 import {
-  IUseThemePaletteType,
-  ThemePaletteType,
+  IUseThemePaletteTypeContext,
+  ThemePaletteTypeContext,
 } from '@context/themePaletteType';
 
 import React from 'react';
 
-export const useThemePaletteType = (): IUseThemePaletteType => {
-  const { paletteType, setPaletteType } = React.useContext(ThemePaletteType);
+export const useThemePaletteTypeContext = (): IUseThemePaletteTypeContext => {
+  const { paletteType, setPaletteType } = React.useContext(
+    ThemePaletteTypeContext
+  );
 
   if (paletteType === undefined || setPaletteType === undefined) {
-    throw Error(`ThemePaletteType is undefined`);
+    throw Error(`ThemePaletteTypeContext is undefined`);
   }
 
   return {

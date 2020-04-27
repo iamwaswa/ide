@@ -2,10 +2,10 @@ import { Home } from '@components/home';
 import { PageLayout } from '@layouts/page';
 import React from 'react';
 import { navigate } from 'gatsby';
-import { useAuth } from '@context/auth/hooks';
+import { useAuthContext } from '@context/auth/hooks';
 
 const IndexPage: React.FC = () => {
-  const { role, uid } = useAuth();
+  const { role, uid } = useAuthContext();
 
   if (role !== null && uid) {
     navigate(`/session/${uid}/courses`);

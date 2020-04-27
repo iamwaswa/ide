@@ -31,14 +31,9 @@ export const Items: React.FC<IProps> = ({ data }) => {
         unmountOnExit={true}
       >
         <Grid container spacing={4}>
-          {data.map(({ id, title, subTitle }, index) => (
-            <Grid item key={id} xs={12} sm={6} lg={4} xl={4}>
-              <Item
-                courseId={id}
-                title={title}
-                subTitle={subTitle}
-                image={courseImages?.[index]}
-              />
+          {data.map((item, index) => (
+            <Grid item key={item.id} xs={12} sm={6} lg={4} xl={4}>
+              <Item {...item} image={courseImages?.[index]} />
             </Grid>
           ))}
         </Grid>

@@ -1,7 +1,7 @@
 import { Callback } from '@types';
 import { PaletteType } from '@material-ui/core';
 import React from 'react';
-import { useThemePaletteType } from '@context/themePaletteType/hooks';
+import { useThemePaletteTypeContext } from '@context/themePaletteType/hooks';
 
 interface IUsePaletteType {
   paletteType: PaletteType;
@@ -9,7 +9,7 @@ interface IUsePaletteType {
 }
 
 export const usePaletteType = (): IUsePaletteType => {
-  const { paletteType, setPaletteType } = useThemePaletteType();
+  const { paletteType, setPaletteType } = useThemePaletteTypeContext();
   React.useEffect((): void => {
     const storedPaletteType = localStorage.getItem(`paletteType`);
     if (storedPaletteType !== paletteType) {

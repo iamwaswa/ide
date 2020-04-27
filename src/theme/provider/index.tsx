@@ -4,10 +4,10 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Helmet } from 'react-helmet';
 import React from 'react';
 import { themeGenerator } from '@theme';
-import { useThemePaletteType } from '@context/themePaletteType/hooks';
+import { useThemePaletteTypeContext } from '@context/themePaletteType/hooks';
 
 export const MaterialUIThemeProvider: React.FC = ({ children }) => {
-  const { paletteType } = useThemePaletteType();
+  const { paletteType } = useThemePaletteTypeContext();
   return (
     <>
       <Helmet>

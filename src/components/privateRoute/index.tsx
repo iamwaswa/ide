@@ -1,19 +1,23 @@
 import React from 'react';
 import { navigate } from 'gatsby';
-import { useAuth } from '@context/auth/hooks';
+import { useAuthContext } from '@context/auth/hooks';
 
-interface IProps {
-  Component: React.ComponentType<{ path: string }>;
+interface IRouteProps {
   path: string;
 }
 
-export const PrivateRoute: React.FC<IProps> = ({ Component, path }) => {
-  const { role, uid } = useAuth();
+interface IProps {
+  Component: React.ComponentType<IRouteProps>;
+  path: string;
+}
+
+export const PrivateRoute: React.FC<IProps> = ({ Component, ...props }) => {
+  const { role, uid } = useAuthContext();
 
   if (role === null && !uid) {
     navigate(`/`);
     return null;
   }
 
-  return <Component path={path} />;
+  return <Component {...props} />;
 };

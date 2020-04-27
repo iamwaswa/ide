@@ -4,15 +4,11 @@ import { Items } from './items';
 import { PageLayout } from '@layouts/page';
 import React from 'react';
 import data from './data.json';
-import { useAuth } from '@context/auth/hooks';
+import { useAuthContext } from '@context/auth/hooks';
 import { useStyles } from './styles';
 
-interface IProps {
-  path: string;
-}
-
-export const Courses: React.FC<IProps> = () => {
-  const { role } = useAuth();
+export const Courses: React.FC = () => {
+  const { role } = useAuthContext();
   const classes = useStyles();
 
   return (

@@ -1,18 +1,16 @@
 import { PaletteType } from '@material-ui/core';
 import React from 'react';
 
-export interface IUseThemePaletteType {
+export interface IUseThemePaletteTypeContext {
   paletteType: PaletteType;
   setPaletteType: React.Dispatch<React.SetStateAction<PaletteType>>;
 }
 
-export const ThemePaletteType = React.createContext<
-  Partial<IUseThemePaletteType>
+export const ThemePaletteTypeContext = React.createContext<
+  Partial<IUseThemePaletteTypeContext>
 >({});
 
-export const ThemePaletteTypeContextProvider: React.FC<React.PropsWithChildren<{}>> = ({
-  children,
-}) => {
+export const ThemePaletteTypeContextProvider: React.FC = ({ children }) => {
   const [paletteType, setPaletteType] = React.useState<PaletteType>(
     (): PaletteType => {
       if (typeof window !== `undefined`) {
@@ -23,17 +21,9 @@ export const ThemePaletteTypeContextProvider: React.FC<React.PropsWithChildren<{
     }
   );
 
-  // React.useEffect((): void => {
-  //   if (typeof window !== `undefined`) {
-  //     setPaletteType(
-  //       (window.localStorage.getItem(`paletteType`) ?? `dark`) as PaletteType
-  //     );
-  //   }
-  // }, []);
-
   return (
-    <ThemePaletteType.Provider value={{ paletteType, setPaletteType }}>
+    <ThemePaletteTypeContext.Provider value={{ paletteType, setPaletteType }}>
       {children}
-    </ThemePaletteType.Provider>
+    </ThemePaletteTypeContext.Provider>
   );
 };

@@ -8,30 +8,36 @@ import {
 
 import React from 'react';
 import { navigate } from 'gatsby';
-import { useAuth } from '@context/auth/hooks';
+import { useAuthContext } from '@context/auth/hooks';
 import { useStyles } from './styles';
 
 interface IProps {
-  courseId: string;
+  id: string;
   title: string;
   subTitle: string;
   image?: string;
 }
 
-export const Item: React.FC<IProps> = ({
-  courseId,
-  title,
-  subTitle,
-  image,
-}) => {
-  const { uid } = useAuth();
+export const Item: React.FC<IProps> = ({ id, title, subTitle, image }) => {
+  const {
+    uid,
+    courseId,
+    courseTitle,
+    setCourseId,
+    setCourseTitle,
+  } = useAuthContext();
   const classes = useStyles();
 
+  React.useEffect((): void => {
+    if (uid && courseId && courseTitle) {
+      navigate(`/session/${uid}/courses/${courseId}`);
+      return;
+    }
+  }, [uid, courseId, courseTitle]);
+
   const goToCoursePage = (): void => {
-    navigate(`/session/${uid}/courses/${courseId}`, {
-      state: { courseId },
-    });
-    return;
+    setCourseId(id);
+    setCourseTitle(title);
   };
 
   return (

@@ -3,7 +3,7 @@ import { Callback, OrNull } from '@types';
 
 import React from 'react';
 import firebase from 'gatsby-plugin-firebase';
-import { useAuth } from '@context/auth/hooks';
+import { useAuthContext } from '@context/auth/hooks';
 
 interface IUseLogin {
   errorMessage: OrNull<string>;
@@ -19,7 +19,7 @@ export const useLogin = (): IUseLogin => {
     { errorMessage, studentLoggingIn, instructorLoggingIn, role, uid },
     updateState,
   ] = React.useReducer(reducer, initialState);
-  const { setRole, setUid } = useAuth();
+  const { setRole, setUid } = useAuthContext();
 
   React.useEffect((): void => {
     if (role !== null && uid) {

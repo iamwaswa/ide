@@ -1,14 +1,13 @@
 import { PageLayout } from '@layouts/page';
 import React from 'react';
+import { useLocation } from '@reach/router';
 
-interface IProps {
-  path: string;
-}
+export const Course: React.FC = () => {
+  const location = useLocation();
 
-export const Course: React.FC<IProps> = () => {
   return (
     <PageLayout>
-      <div>Course page will go here...</div>
+      <div>{`${location.state?.courseId ?? `courseId`}`}</div>
     </PageLayout>
   );
 };
