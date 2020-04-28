@@ -1,4 +1,5 @@
 import React from 'react';
+import { RoutesEnum } from '@enums';
 import { useAuthContext } from '@context/auth/hooks';
 import { useParams } from '@reach/router';
 import { usePathContext } from '@context/path/hooks';
@@ -25,7 +26,7 @@ export const useNavigation = (): void => {
       setPath(
         (currentPath: Map<string, string>): Map<string, string> => {
           currentPath.clear();
-          currentPath.set(`Courses`, `/session/${uid}/courses`);
+          currentPath.set(`Courses`, RoutesEnum.COURSES.replace(/:uid/, uid));
           return currentPath.set(courseTitle, ``);
         }
       );
@@ -40,8 +41,14 @@ export const useNavigation = (): void => {
       setPath(
         (currentPath: Map<string, string>): Map<string, string> => {
           currentPath.clear();
-          currentPath.set(`Courses`, `/session/${uid}/courses`);
-          currentPath.set(courseTitle, `/session/${uid}/courses/${courseId}`);
+          currentPath.set(`Courses`, RoutesEnum.COURSES.replace(/:uid/, uid));
+          currentPath.set(
+            courseTitle,
+            RoutesEnum.COURSE.replace(/:uid/, uid).replace(
+              /:courseId/,
+              courseId
+            )
+          );
           return currentPath.set(assessmentTitle, ``);
         }
       );

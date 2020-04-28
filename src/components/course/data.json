@@ -1,19 +1,26 @@
 {
+  "id": "0",
+  "title": "CS100",
+  "subTitle": "Intro To Programming",
   "overview": {
     "instructor": {
+      "id": "instructor",
       "displayName": "Instructor",
       "email": "instructor@email.ca"
     },
     "teachingAssistants": [
       {
+        "id": "TA1",
         "displayName": "TA1",
         "email": "ta1@email.ca"
       },
       {
+        "id": "TA2",
         "displayName": "TA2",
         "email": "ta2@email.ca"
       },
       {
+        "id": "TA3",
         "displayName": "TA3",
         "email": "ta3@email.ca"
       }
@@ -21,6 +28,389 @@
     "syllabus": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad expedita modi vitae doloremque quos, eum quia dolore eveniet optio aperiam corrupti magnam natus incidunt sed consequatur ea nihil a cupiditate maiores voluptatum. Quo sed ex ea provident, ipsum nam numquam facilis harum esse, eveniet voluptas iste corrupti odit! Ratione, eveniet.",
     "courseDetails": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad expedita modi vitae doloremque quos, eum quia dolore eveniet optio aperiam corrupti magnam natus incidunt sed consequatur ea nihil a cupiditate maiores voluptatum. Quo sed ex ea provident, ipsum nam numquam facilis harum esse, eveniet voluptas iste corrupti odit! Ratione, eveniet."
   },
-  "assignments": [{}],
-  "quizzes": [{}]
+  "assignments": [
+    {
+      "id": "Assignment1",
+      "name": "Assignment 1",
+      "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "type": "ASSIGNMENT",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Assignment1.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    },
+    {
+      "id": "Assignment2",
+      "name": "Assignment 2",
+      "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "type": "ASSIGNMENT",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Assignment2.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    },
+    {
+      "id": "Assignment3",
+      "name": "Assignment 3",
+      "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "type": "ASSIGNMENT",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Assignment3.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    },
+    {
+      "id": "Assignment4",
+      "name": "Assignment 4",
+      "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "type": "ASSIGNMENT",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Assignment4.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    }
+  ],
+  "quizzes": [
+    {
+      "id": "Quiz1",
+      "name": "Quiz 1",
+      "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "durationInSeconds": 600,
+      "type": "QUIZ",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Quiz1.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    },
+    {
+      "id": "Quiz2",
+      "name": "Quiz 2",
+      "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "durationInSeconds": 600,
+      "type": "QUIZ",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Quiz2.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    },
+    {
+      "id": "Quiz3",
+      "name": "Quiz 3",
+      "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "durationInSeconds": 600,
+      "type": "QUIZ",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Quiz3.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    },
+    {
+      "id": "Quiz4",
+      "name": "Quiz 4",
+      "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "durationInSeconds": 600,
+      "type": "QUIZ",
+      "script": "Script goes here...",
+      "file": {
+        "name": "Quiz4.js",
+        "language": "nodejs",
+        "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+        "versionIndex": 3,
+        "data": "Fake data here"
+      },
+      "questions": ["Question 1", "Question 2", "Question 3"],
+      "privateTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "0" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "1" }],
+          "output": "false"
+        },
+        {
+          "id": "2",
+          "inputs": [{ "name": "a", "value": "2" }],
+          "output": "true"
+        }
+      ],
+      "publicTestCases": [
+        {
+          "id": "0",
+          "inputs": [{ "name": "a", "value": "4" }],
+          "output": "true"
+        },
+        {
+          "id": "1",
+          "inputs": [{ "name": "a", "value": "3" }],
+          "output": "false"
+        }
+      ],
+      "submissions": []
+    }
+  ],
+  "students": [
+    {
+      "id": "Student1",
+      "displayName": "John Doe",
+      "email": "john.doe@email.ca"
+    },
+    {
+      "id": "Student2",
+      "displayName": "Jane Doe",
+      "email": "jane.doe@email.ca"
+    },
+    {
+      "id": "Student3",
+      "displayName": "Jan Dee",
+      "email": "jan.dee@email.ca"
+    }
+  ]
 }

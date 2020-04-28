@@ -1,14 +1,15 @@
 import React from 'react';
+import { RoutesEnum } from '@enums';
 import { navigate } from 'gatsby';
 import { useAuthContext } from '@context/auth/hooks';
 
 interface IRouteProps {
-  path: string;
+  path: RoutesEnum;
 }
 
 interface IProps {
   Component: React.ComponentType<IRouteProps>;
-  path: string;
+  path: RoutesEnum;
 }
 
 export const PrivateRoute: React.FC<IProps> = ({ Component, ...props }) => {

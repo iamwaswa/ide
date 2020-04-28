@@ -1,7 +1,7 @@
+import { AssessmentEnum, RoutesEnum } from '@enums';
 import { Assignment, Quiz } from '@types';
 import { Box, Link, TableCell } from '@material-ui/core';
 
-import { AssessmentEnum } from '@enums';
 import React from 'react';
 import { navigate } from 'gatsby';
 import { useAssessmentLink } from './hooks';
@@ -25,7 +25,11 @@ export const AssessmentLink: React.FC<IProps> = ({ assessment }) => {
 
   const goToAssessmentPage = () => {
     if (uid && courseId && assessmentId) {
-      navigate(`/session/${uid}/courses/${courseId}/${assessmentId}`);
+      navigate(
+        RoutesEnum.ASSESSMENT.replace(/:uid/, uid)
+          .replace(/:courseId/, courseId)
+          .replace(/:assessmentId/, assessmentId)
+      );
     }
     /*setAssessment({
       id: props.id,

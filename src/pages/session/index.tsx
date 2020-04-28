@@ -1,21 +1,16 @@
 import { Assessment } from '@components/assessment';
-import { CompleteCourse } from '@components/course';
+import { Course } from '@components/course';
 import { Courses } from '@components/courses';
 import { PrivateRoute } from '@components/privateRoute';
 import React from 'react';
 import { Router } from '@reach/router';
+import { RoutesEnum } from '@enums';
 
 const PrivatePage: React.FC = () => (
   <Router>
-    <PrivateRoute Component={Courses} path="/session/:uid/courses" />
-    <PrivateRoute
-      Component={CompleteCourse}
-      path="/session/:uid/courses/:courseId"
-    />
-    <PrivateRoute
-      Component={Assessment}
-      path="/session/:uid/courses/:courseId/:assessmentId"
-    />
+    <PrivateRoute Component={Courses} path={RoutesEnum.COURSES} />
+    <PrivateRoute Component={Course} path={RoutesEnum.COURSE} />
+    <PrivateRoute Component={Assessment} path={RoutesEnum.ASSESSMENT} />
   </Router>
 );
 

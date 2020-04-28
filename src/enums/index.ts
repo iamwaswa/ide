@@ -7,3 +7,9 @@ export enum AssessmentEnum {
   ASSIGNMENT = 'ASSIGNMENT',
   QUIZ = 'QUIZ',
 }
+
+export enum RoutesEnum {
+  COURSES = '/session/:uid/courses',
+  COURSE = '/session/:uid/courses/:courseId',
+  ASSESSMENT = '/session/:uid/courses/:courseId/:assessmentId',
+}

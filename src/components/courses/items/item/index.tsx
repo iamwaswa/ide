@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 
 import React from 'react';
+import { RoutesEnum } from '@enums';
 import { navigate } from 'gatsby';
 import { useAuthContext } from '@context/auth/hooks';
 import { useStyles } from './styles';
@@ -31,7 +32,9 @@ export const Item: React.FC<IProps> = ({ id, title, subTitle, image }) => {
 
   React.useEffect((): void => {
     if (readyToNavigate && uid && courseId && courseTitle) {
-      navigate(`/session/${uid}/courses/${courseId}`);
+      navigate(
+        RoutesEnum.COURSE.replace(/:uid/, uid).replace(/:courseId/, courseId)
+      );
       return;
     }
   }, [courseId, courseTitle, uid, readyToNavigate]);
