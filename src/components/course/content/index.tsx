@@ -22,18 +22,18 @@ export const Content: React.FC<IProps> = ({ currentSection, course }) => {
       return <Overview overview={course.overview} title={course.title} />;
     }
 
-    // if (section === `assignments` || section === `quizzes`) {
-    //   return (
-    //     <Assessments
-    //       assessments={course[section]}
-    //       type={
-    //         section === `assignments`
-    //           ? AssessmentEnum.ASSIGNMENT
-    //           : AssessmentEnum.QUIZ
-    //       }
-    //     />
-    //   );
-    // }
+    if (section === `assignments` || section === `quizzes`) {
+      return (
+        <Assessments
+          assessments={course[section]}
+          type={
+            section === `assignments`
+              ? AssessmentEnum.ASSIGNMENT
+              : AssessmentEnum.QUIZ
+          }
+        />
+      );
+    }
 
     return null;
   };
