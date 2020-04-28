@@ -1,37 +1,32 @@
-import { Button } from '@material-ui/core';
+import { CompleteCourse, CourseNavigationDrawerSection } from '@types';
+
+import { Box } from '@material-ui/core';
+import { Content } from './content';
+import { NavigationDrawer } from './navigationDrawer';
 import { PageLayout } from '@layouts/page';
 import React from 'react';
-import { navigate } from 'gatsby';
-import { useAuthContext } from '@context/auth/hooks';
+import course from './data.json';
+import { useStyles } from './styles';
 
 export const Course: React.FC = () => {
-  const [readyToNavigate, setReadyToNavigate] = React.useState<boolean>(false);
-  const {
-    uid,
-    courseId,
-    assessmentId,
-    assessmentTitle,
-    setAssessmentId,
-    setAssessmentTitle,
-  } = useAuthContext();
-
-  React.useEffect((): void => {
-    if (readyToNavigate && uid && courseId && assessmentId && assessmentTitle) {
-      navigate(`/session/${uid}/courses/${courseId}/${assessmentId}`);
-      return;
-    }
-  }, [assessmentId, assessmentTitle, courseId, readyToNavigate, uid]);
-
-  const goToAssessmentPage = (): void => {
-    setReadyToNavigate(true);
-    setAssessmentId(`0`);
-    setAssessmentTitle(`Assignment 1`);
-  };
+  const classes = useStyles();
+  const [currentSection, setCurrentSection] = React.useState<
+    CourseNavigationDrawerSection
+  >(Object.keys(course)[0] as CourseNavigationDrawerSection);
 
   return (
     <PageLayout>
-      <div>{courseId}</div>
-      <Button onClick={goToAssessmentPage}>Assessment</Button>
+      <Box className={classes.container}>
+        <NavigationDrawer
+          currentSection={currentSection}
+          setCurrentSection={setCurrentSection}
+          sections={Object.keys(course) as Array<CourseNavigationDrawerSection>}
+        />
+        <Content
+          currentSection={currentSection}
+          course={course as CompleteCourse}
+        />
+      </Box>
     </PageLayout>
   );
 };

@@ -1,0 +1,26 @@
+{
+  "overview": {
+    "instructor": {
+      "displayName": "Instructor",
+      "email": "instructor@email.ca"
+    },
+    "teachingAssistants": [
+      {
+        "displayName": "TA1",
+        "email": "ta1@email.ca"
+      },
+      {
+        "displayName": "TA2",
+        "email": "ta2@email.ca"
+      },
+      {
+        "displayName": "TA3",
+        "email": "ta3@email.ca"
+      }
+    ],
+    "syllabus": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad expedita modi vitae doloremque quos, eum quia dolore eveniet optio aperiam corrupti magnam natus incidunt sed consequatur ea nihil a cupiditate maiores voluptatum. Quo sed ex ea provident, ipsum nam numquam facilis harum esse, eveniet voluptas iste corrupti odit! Ratione, eveniet.",
+    "courseDetails": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ad expedita modi vitae doloremque quos, eum quia dolore eveniet optio aperiam corrupti magnam natus incidunt sed consequatur ea nihil a cupiditate maiores voluptatum. Quo sed ex ea provident, ipsum nam numquam facilis harum esse, eveniet voluptas iste corrupti odit! Ratione, eveniet."
+  },
+  "assignments": [{}],
+  "quizzes": [{}]
+}
