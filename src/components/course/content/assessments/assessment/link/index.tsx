@@ -3,6 +3,7 @@ import { Assignment, Quiz } from '@types';
 import { Box, Link, TableCell } from '@material-ui/core';
 
 import React from 'react';
+import { createNavigationPath } from '@utils';
 import { navigate } from 'gatsby';
 import { useAssessmentLink } from './hooks';
 import { useAuthContext } from '@context/auth/hooks';
@@ -26,9 +27,12 @@ export const AssessmentLink: React.FC<IProps> = ({ assessment }) => {
   const goToAssessmentPage = () => {
     if (uid && courseId && assessmentId) {
       navigate(
-        RoutesEnum.ASSESSMENT.replace(/:uid/, uid)
-          .replace(/:courseId/, courseId)
-          .replace(/:assessmentId/, assessmentId)
+        createNavigationPath({
+          route: RoutesEnum.ASSESSMENT,
+          uid,
+          courseId,
+          assessmentId,
+        })
       );
     }
     /*setAssessment({

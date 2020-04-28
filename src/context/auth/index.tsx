@@ -2,6 +2,7 @@ import { RoleEnum, RoutesEnum } from '@enums';
 
 import { OrNull } from '@types';
 import React from 'react';
+import { createNavigationPath } from '@utils';
 import { navigate } from 'gatsby';
 
 export interface IUseAuthContext {
@@ -33,7 +34,7 @@ export const AuthContextProvider: React.FC = ({ children }) => {
 
   React.useEffect((): void => {
     if (role !== null && uid) {
-      navigate(RoutesEnum.COURSES.replace(/:uid/, uid));
+      navigate(createNavigationPath({ route: RoutesEnum.COURSES, uid }));
       return;
     } else {
       navigate(`/`);

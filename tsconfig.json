@@ -23,7 +23,8 @@
       "@layouts/*": ["./src/layouts/*"],
       "@theme": ["./src/theme"],
       "@types": ["./src/types"],
-      "@enums": ["./src/enums"]
+      "@enums": ["./src/enums"],
+      "@utils": ["./src/utils"]
     }
   },
   "include": ["./src/**/*"]

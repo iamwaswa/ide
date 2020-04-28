@@ -12,6 +12,7 @@ export const onCreateWebpackConfig = ({ actions }) =>
         [`@theme`]: path.resolve(__dirname, `src/theme`),
         [`@types`]: path.resolve(__dirname, `src/types`),
         [`@enums`]: path.resolve(__dirname, `src/enums`),
+        [`@utils`]: path.resolve(__dirname, `src/utils`),
       },
     },
   });

@@ -2,6 +2,7 @@ import { Assignment, Quiz, Submission } from '@types';
 
 import React from 'react';
 import { RoutesEnum } from '@enums';
+import { createNavigationPath } from '@utils';
 import { navigate } from 'gatsby';
 import { useAuthContext } from '@context/auth/hooks';
 
@@ -18,9 +19,12 @@ export const useNavigateToGrading = (
   React.useEffect(() => {
     if (readyToNavigate && uid && courseId && assessmentId) {
       navigate(
-        RoutesEnum.ASSESSMENT.replace(/:uid/, uid)
-          .replace(/:courseId/, courseId)
-          .replace(/:assessmentId/, assessmentId)
+        createNavigationPath({
+          route: RoutesEnum.ASSESSMENT,
+          uid,
+          courseId,
+          assessmentId,
+        })
       );
     }
   }, [assessmentId, courseId, readyToNavigate, uid]);
