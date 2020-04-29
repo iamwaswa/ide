@@ -19,7 +19,9 @@ export const Assessments: React.FC<IProps> = ({ assessments, type }) => {
     const assessmentsToDisplay: Array<JSX.Element> = [];
 
     assessments.forEach((assessment: Assignment | Quiz): void => {
-      assessmentsToDisplay.push(<AssessmentItem assessment={assessment} />);
+      assessmentsToDisplay.push(
+        <AssessmentItem key={assessment.id} assessment={assessment} />
+      );
     });
 
     return <>{assessmentsToDisplay}</>;

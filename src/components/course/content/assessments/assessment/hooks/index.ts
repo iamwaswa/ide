@@ -25,14 +25,14 @@ export const useAssessment = ({ assessment }: IArgs): IUseAssessment => {
   const dueDate = React.useMemo(
     () =>
       assessment.type === AssessmentEnum.ASSIGNMENT
-        ? new Date((assessment as Assignment).dueDate).toUTCString()
+        ? new Date((assessment as Assignment).dueDate).toDateString()
         : `-`,
     [assessment]
   );
   const startDate = React.useMemo(
     () =>
       assessment.type === AssessmentEnum.QUIZ
-        ? new Date((assessment as Quiz).startDate).toUTCString()
+        ? new Date((assessment as Quiz).startDate).toDateString()
         : `-`,
     [assessment]
   );

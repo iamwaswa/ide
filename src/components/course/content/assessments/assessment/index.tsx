@@ -54,6 +54,7 @@ export const AssessmentItem: React.FC<IProps> = ({ assessment }) => {
         {role === RoleEnum.STUDENT && (
           <ToggleFeedback
             submission={submission}
+            showComments={showComments}
             setShowComments={setShowComments}
           />
         )}

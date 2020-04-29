@@ -72,7 +72,44 @@
           "output": "false"
         }
       ],
-      "submissions": []
+      "submissions": [
+        {
+          "id": "0",
+          "student": {
+            "id": "Student1",
+            "displayName": "John Doe",
+            "email": "john.doe@email.ca"
+          },
+          "feedback": {
+            "comments": "Incomplete!",
+            "file": {
+              "name": "Assignment1.js",
+              "language": "nodejs",
+              "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+              "versionIndex": 3,
+              "data": "Fake data here"
+            }
+          },
+          "file": {
+            "name": "Assignment1.js",
+            "language": "nodejs",
+            "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+            "versionIndex": 3,
+            "data": "Fake data here"
+          },
+          "grade": {
+            "score": "0",
+            "total": "100"
+          },
+          "testCases": [
+            {
+              "id": "0",
+              "inputs": [{ "name": "a", "value": "8" }],
+              "output": "true"
+            }
+          ]
+        }
+      ]
     },
     {
       "id": "Assignment2",
