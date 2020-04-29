@@ -1,34 +1,56 @@
 import { Box, Typography } from '@material-ui/core';
 import { CourseOverview, User } from '@types';
 
+import { Contact } from './contact';
+import { ContentComponent } from './component';
+import { EmailClient } from './email';
 import React from 'react';
+import { ToggleEmail } from './email/toggle';
 import { useStyles } from './styles';
 
 interface IProps {
+  subTitle: string;
   overview: CourseOverview;
 }
 
-export const Content: React.FC<IProps> = ({ overview }) => {
+export const Content: React.FC<IProps> = ({
+  subTitle,
+  overview: { courseDetails, instructor, syllabus, teachingAssistants },
+}) => {
+  const [openEmailClient, setOpenEmailClient] = React.useState<boolean>(false);
   const classes = useStyles();
 
   return (
-    <Box className={classes.container}>
-      <Typography className={classes.heading} paragraph={true} variant="body1">
-        Instructor
-      </Typography>
-      <Box className={classes.content}>{overview.instructor.displayName}</Box>
-      <Typography className={classes.heading} paragraph={true} variant="body1">
-        Teaching Assistants
-      </Typography>
-      <Box className={classes.teachingAssistants}>
-        {overview.teachingAssistants.map(({ email, displayName }: User) => (
-          <Box key={email} className={classes.content}>
-            {displayName}
-          </Box>
-        ))}
+    <>
+      <Box className={classes.container}>
+        <Typography variant="h4" gutterBottom={true}>
+          {subTitle}
+        </Typography>
+        <ContentComponent title="Instructor">
+          <Contact contact={instructor} />
+        </ContentComponent>
+        <ContentComponent
+          extraContentClassName={classes.teachingAssistants}
+          title="Teaching assistants"
+        >
+          {teachingAssistants.map(
+            ({ email, displayName, id }: User): JSX.Element => (
+              <Contact key={id} contact={{ id, email, displayName }} />
+            )
+          )}
+        </ContentComponent>
+        <ToggleEmail setOpenEmailClient={setOpenEmailClient} />
+        <ContentComponent title="Syllabus">{syllabus}</ContentComponent>
+        <ContentComponent title="Course details">
+          {courseDetails}
+        </ContentComponent>
       </Box>
-      <Box className={classes.content}>{overview.syllabus}</Box>
-      <Box className={classes.content}>{overview.courseDetails}</Box>
-    </Box>
+      <EmailClient
+        openEmailClient={openEmailClient}
+        setOpenEmailClient={setOpenEmailClient}
+        instructor={instructor}
+        teachingAssistants={teachingAssistants}
+      />
+    </>
   );
 };

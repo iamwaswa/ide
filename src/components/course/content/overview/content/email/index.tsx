@@ -1,18 +1,20 @@
-import { Callback, CourseOverview, EmailData } from '@types';
+import { Callback, EmailData, User } from '@types';
 
 import { EmailForm } from './form';
 import React from 'react';
 
 interface IProps {
-  overview: CourseOverview;
+  instructor: User;
+  teachingAssistants: Array<User>;
   openEmailClient: boolean;
   setOpenEmailClient: Callback<boolean, void>;
 }
 
 export const EmailClient: React.FC<IProps> = ({
-  overview,
   openEmailClient,
   setOpenEmailClient,
+  instructor,
+  teachingAssistants,
 }) => {
   const sendEmailAsync = async (emailData: EmailData) => {
     // TODO: Send email
@@ -39,12 +41,7 @@ export const EmailClient: React.FC<IProps> = ({
       openEmailClient={openEmailClient}
       setOpenEmailClient={setOpenEmailClient}
       sendEmailAsync={sendEmailAsync}
-      possibleRecipients={[
-        {
-          ...overview.instructor,
-        },
-        ...overview.teachingAssistants,
-      ]}
+      possibleRecipients={[instructor, ...teachingAssistants]}
     />
   );
 };

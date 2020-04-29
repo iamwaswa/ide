@@ -1,5 +1,11 @@
-import { CompleteCourse, CourseNavigationDrawerSection } from '@types';
+import {
+  Assignment,
+  CompleteCourse,
+  CourseNavigationDrawerSection,
+  Quiz,
+} from '@types';
 
+import { AssessmentEnum } from '@enums';
 import { Box } from '@material-ui/core';
 import { Content } from './content';
 import { NavigationDrawer } from './navigationDrawer';
@@ -12,7 +18,22 @@ export const Course: React.FC = () => {
   const classes = useStyles();
   const [currentSection, setCurrentSection] = React.useState<
     CourseNavigationDrawerSection
-  >(Object.keys(course)[0] as CourseNavigationDrawerSection);
+  >(`overview`);
+  const { overview, assignments, quizzes, students, ...data } = course;
+  const updatedAssignments = assignments.map(
+    (assignment: any): Assignment => ({
+      ...assignment,
+      type: AssessmentEnum.ASSIGNMENT,
+      dueDate: new Date(assignment.dueDate),
+    })
+  );
+  const updatedQuizzes = quizzes.map(
+    (quiz: any): Quiz => ({
+      ...quiz,
+      type: AssessmentEnum.QUIZ,
+      startDate: new Date(quiz.startDate),
+    })
+  );
 
   return (
     <PageLayout>
@@ -20,11 +41,19 @@ export const Course: React.FC = () => {
         <NavigationDrawer
           currentSection={currentSection}
           setCurrentSection={setCurrentSection}
-          sections={Object.keys(course) as Array<CourseNavigationDrawerSection>}
+          sections={[`overview`, `assignments`, `quizzes`]}
         />
         <Content
           currentSection={currentSection}
-          course={course as CompleteCourse}
+          course={
+            {
+              ...data,
+              overview,
+              students,
+              assignments: updatedAssignments,
+              quizzes: updatedQuizzes,
+            } as CompleteCourse
+          }
         />
       </Box>
     </PageLayout>
