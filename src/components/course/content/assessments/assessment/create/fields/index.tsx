@@ -3,8 +3,10 @@ import { Box, Fade, Typography } from '@material-ui/core';
 
 import { AssessmentEnum } from '@enums';
 import { Callback } from '@types';
+import { DateItem } from './item/date';
+import { DurationUnitItem } from './item/durationUnit';
 import { FileItem } from './item/file';
-import { QuestionItem } from './item/question';
+import { QuestionsItem } from './item/questions';
 import React from 'react';
 import { ScriptItem } from './item/script';
 import { SubmitPrompt } from './submit/prompt';
@@ -16,7 +18,15 @@ interface IProps {
 }
 
 export const Fields: React.FC<IProps> = ({ type }) => {
-  const [fields, updateFields] = React.useReducer(reducer, initialState);
+  const quiz = React.useMemo((): boolean => type === AssessmentEnum.QUIZ, [
+    type,
+  ]);
+  const title = React.useMemo(
+    (): string =>
+      `${type.substring(0, 1).toUpperCase()}${type.substring(1).toLowerCase()}`,
+    [type]
+  );
+  const [fields, updateFields] = React.useReducer(reducer, initialState(type));
   const classes = useStyles();
 
   const handleChange = (
@@ -32,38 +42,40 @@ export const Fields: React.FC<IProps> = ({ type }) => {
   };
 
   return (
-    <Fade
-      in={true}
-      timeout={600}
-      mountOnEnter
-      unmountOnExit
-      style={{ margin: '10px' }}
-    >
+    <Fade in={true} timeout={500} mountOnEnter={true} unmountOnExit={true}>
       <Box>
-        <Typography variant="h4">
-          Create{' '}
-          {`${type.substring(0, 1).toUpperCase()}${type
-            .substring(1)
-            .toLowerCase()}`}
-        </Typography>
+        <Typography variant="h4">{`Create ${title}`}</Typography>
         <Box className={classes.input}>
           <TextItem
-            id="assessment-name"
             label="Name"
-            name="name"
+            name={`${title} name`}
             value={fields.name}
             handleChange={handleChange}
           />
-          {type === AssessmentEnum.QUIZ && (
-            <TextItem
-              disabled={type !== AssessmentEnum.QUIZ}
-              id="duration"
-              label="Duration (minutes)"
-              name="durationInSeconds"
-              value={fields.durationInSeconds}
-              type="number"
-              handleChange={handleChange}
-            />
+          <DateItem
+            addMarginClassName={classes.addMargin}
+            inputClassName={classes.input}
+            label={`${quiz ? `Start` : `Due`} date`}
+            name={`${quiz ? `start` : `due`}Date`}
+            value={quiz ? fields.startDate : fields.dueDate}
+            updateFields={updateFields}
+          />
+          {quiz && (
+            <>
+              <TextItem
+                disabled={type !== AssessmentEnum.QUIZ}
+                label="Duration (minutes)"
+                name="duration"
+                value={fields.duration}
+                type="number"
+                handleChange={handleChange}
+              />
+              <DurationUnitItem
+                addMarginClassName={classes.addMargin}
+                value={fields.durationUnit}
+                updateFields={updateFields}
+              />
+            </>
           )}
           <FileItem
             addMargin={classes.addMargin}
@@ -71,11 +83,16 @@ export const Fields: React.FC<IProps> = ({ type }) => {
             type={type}
             updateFields={updateFields}
           />
+          <ScriptItem
+            addMarginClassName={classes.addMargin}
+            updateFields={updateFields}
+          />
+          <QuestionsItem
+            addMarginClassName={classes.addMargin}
+            questions={fields.questions}
+            updateFields={updateFields}
+          />
         </Box>
-        <QuestionItem fields={fields} setFields={updateFields} index="1" />
-        <QuestionItem fields={fields} setFields={updateFields} index="2" />
-        <QuestionItem fields={fields} setFields={updateFields} index="3" />
-        <ScriptItem fields={fields} setFields={updateFields} />
         <SubmitPrompt fields={fields} />
       </Box>
     </Fade>

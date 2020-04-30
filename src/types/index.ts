@@ -79,8 +79,6 @@ export type Assessment = {
   script: string;
   file: AssessmentFile;
   questions: Array<string>;
-  privateTestCases: Array<TestCase>;
-  publicTestCases?: Array<TestCase>;
   submissions?: Array<Submission>;
 };
 

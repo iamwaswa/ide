@@ -33,8 +33,6 @@ export const SubmitPrompt = ({ fields }) => {
       questions: [fields.q1, fields.q2, fields.q3], // could be fixed a second null question will be generated if it is empty
       file: fileInput,
       script: fields.script,
-      privateTestCases: [],
-      publicTestCases: [],
     });
   };
   const handleClickOpen = () => {

@@ -43,35 +43,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": [
         {
           "id": "0",
@@ -125,35 +96,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": []
     },
     {
@@ -170,35 +112,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": []
     },
     {
@@ -215,35 +128,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": []
     }
   ],
@@ -263,35 +147,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": []
     },
     {
@@ -309,35 +164,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": []
     },
     {
@@ -355,35 +181,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": []
     },
     {
@@ -401,35 +198,6 @@
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
-      "privateTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "0" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "1" }],
-          "output": "false"
-        },
-        {
-          "id": "2",
-          "inputs": [{ "name": "a", "value": "2" }],
-          "output": "true"
-        }
-      ],
-      "publicTestCases": [
-        {
-          "id": "0",
-          "inputs": [{ "name": "a", "value": "4" }],
-          "output": "true"
-        },
-        {
-          "id": "1",
-          "inputs": [{ "name": "a", "value": "3" }],
-          "output": "false"
-        }
-      ],
       "submissions": []
     }
   ],

@@ -18,7 +18,7 @@ interface IProps {
   addMargin: string;
   file: AssessmentFile;
   type: AssessmentEnum;
-  updateFields: React.Dispatch<Action>;
+  updateFields: Callback<Action, void>;
 }
 
 export const FileItem: React.FC<IProps> = ({

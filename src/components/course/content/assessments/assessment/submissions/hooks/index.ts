@@ -41,8 +41,6 @@ export const useNavigateToGrading = (
         name: data.name,
         type: data.type,
         script: data.script,
-        privateTestCases: data.privateTestCases,
-        publicTestCases: data.publicTestCases,
         questions: data.questions,
         studentTestCases: [],
         ...submission,

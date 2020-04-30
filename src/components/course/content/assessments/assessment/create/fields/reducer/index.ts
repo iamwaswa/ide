@@ -1,3 +1,5 @@
+import { AssessmentEnum, DurationUnitEnum } from '@enums';
+
 import { AssessmentFile } from '@types';
 
 export enum ActionEnum {
@@ -26,7 +28,7 @@ export type Action =
   | {
       type: ActionEnum.OTHER_FIELD_CHANGE;
       name: string;
-      value: Date | number | string;
+      value: Date | number | string | DurationUnitEnum;
     };
 
 export type State = {
@@ -36,24 +38,27 @@ export type State = {
   script: string;
   dueDate?: Date;
   startDate?: Date;
-  durationInSeconds?: number;
+  duration?: number;
+  durationUnit?: DurationUnitEnum;
 };
 
-export const initialState: State = {
+export const initialState = (type: AssessmentEnum): State => ({
   file: {
     name: ``,
     language: `nodejs`,
     lastModified: new Date(),
     data: ``,
-    versionIndex: 0,
+    versionIndex: 3,
   },
   name: ``,
   questions: new Map<string, string>(),
   script: ``,
-  dueDate: undefined,
-  startDate: undefined,
-  durationInSeconds: undefined,
-};
+  dueDate: type === AssessmentEnum.ASSIGNMENT ? new Date() : undefined,
+  startDate: type === AssessmentEnum.QUIZ ? new Date() : undefined,
+  duration: type === AssessmentEnum.QUIZ ? 15 : undefined,
+  durationUnit:
+    type === AssessmentEnum.QUIZ ? DurationUnitEnum.MINUTES : undefined,
+});
 
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {

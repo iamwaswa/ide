@@ -42,8 +42,6 @@ export const AssessmentLink: React.FC<IProps> = ({ assessment }) => {
       name: props.name,
       type: props.type,
       script: props.script,
-      privateTestCases: props.privateTestCases,
-      publicTestCases: props.publicTestCases,
       student: props.submissions[0].student,
       file:
         props.submissions.length === 1 && props.submissions[0].file.props

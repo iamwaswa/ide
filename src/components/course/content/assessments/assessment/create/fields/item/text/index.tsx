@@ -3,7 +3,6 @@ import React from 'react';
 import { TextField } from '@material-ui/core';
 
 interface IProps {
-  id: string;
   label: string;
   name: string;
   handleChange: Callback<
@@ -24,6 +23,7 @@ export const TextItem: React.FC<IProps> = ({
   return (
     <TextField
       {...props}
+      id={props.name}
       disabled={disabled}
       type={type}
       variant="outlined"

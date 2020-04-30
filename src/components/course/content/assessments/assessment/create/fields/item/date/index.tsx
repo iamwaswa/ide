@@ -1,40 +1,58 @@
+import { Action, ActionEnum } from '../../reducer';
 import {
   KeyboardDatePicker,
   MuiPickersUtilsProvider,
 } from '@material-ui/pickers';
 
+import { Box } from '@material-ui/core';
+import { Callback } from '@types';
 import DateFnsUtils from '@date-io/date-fns';
+import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import React from 'react';
-import { useStyles } from '../../../../styles';
 
-export const DateItem = ({ fields, setFields, type }) => {
-  const classes = useStyles();
-  const handleDateChange = (field) => (date) => {
-    setFields({
-      ...fields,
-      [field]: date,
-    });
+interface IProps {
+  addMarginClassName: string;
+  inputClassName: string;
+  label: string;
+  name: string;
+  updateFields: Callback<Action, void>;
+  value?: Date;
+}
+
+export const DateItem: React.FC<IProps> = ({
+  addMarginClassName,
+  inputClassName,
+  label,
+  name,
+  value,
+  updateFields,
+}) => {
+  const handleDateChange = (
+    name: string
+  ): Callback<MaterialUiPickersDate, void> => (
+    date: MaterialUiPickersDate
+  ): void => {
+    if (date) {
+      updateFields({ type: ActionEnum.OTHER_FIELD_CHANGE, name, value: date });
+    }
   };
+
   return (
-    <div className={`${classes.input} ${classes.addMargin}`}>
+    <Box className={`${addMarginClassName} ${inputClassName}`}>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
-          disableToolbar
+          disableToolbar={true}
           variant="inline"
           format="MM/dd/yyyy"
-          id="dates"
-          label={type === `quiz` ? 'Start Date' : 'Due Date'}
-          value={type === `quiz` ? fields.startDate : fields.dueDate}
-          onChange={
-            type === `quiz`
-              ? handleDateChange(`startDate`)
-              : handleDateChange(`dueDate`)
-          }
+          id={name}
+          label={label}
+          value={value}
+          onChange={handleDateChange(name)}
           KeyboardButtonProps={{
-            'aria-label': 'change date',
+            [`aria-label`]: name,
           }}
         />
       </MuiPickersUtilsProvider>
-    </div>
+    </Box>
   );
 };

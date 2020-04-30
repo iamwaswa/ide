@@ -8,6 +8,12 @@ export enum AssessmentEnum {
   QUIZ = 'QUIZ',
 }
 
+export enum DurationUnitEnum {
+  HOURS = 'HOURS',
+  MINUTES = 'MINUTES',
+  SECONDS = 'SECONDS',
+}
+
 export enum RoutesEnum {
   COURSES = '/session/:uid/courses',
   COURSE = '/session/:uid/courses/:courseId',

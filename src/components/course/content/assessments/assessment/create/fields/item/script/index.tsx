@@ -1,35 +1,44 @@
-import { TextField, Typography } from '@material-ui/core';
+import { Action, ActionEnum } from '../../reducer';
+import { Box, Typography } from '@material-ui/core';
 
+import { Callback } from '@types';
 import React from 'react';
-import { useStyles } from '../../../styles';
 
-export const ScriptItem = ({ fields, setFields }) => {
-  const classes = useStyles();
-  const handleChange = (field) => (event) => {
-    setFields({
-      ...fields,
-      [field]: event.target.value,
-    });
+interface IProps {
+  addMarginClassName: string;
+  updateFields: Callback<Action, void>;
+}
+
+export const ScriptItem: React.FC<IProps> = ({
+  addMarginClassName,
+  updateFields,
+}) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+    const { files } = event.target;
+
+    if (!files || files.length === 0) {
+      return;
+    }
+
+    const fileReader = new FileReader();
+
+    fileReader.onload = (): void => {
+      updateFields({
+        type: ActionEnum.OTHER_FIELD_CHANGE,
+        name: `script`,
+        value: fileReader.result as string,
+      });
+    };
+
+    fileReader.readAsText(files[0]);
   };
+
   return (
-    <div>
-      <Typography variant="h5" className={classes.addMargin}>
+    <Box>
+      <Typography variant="h5" className={addMarginClassName}>
         Script
       </Typography>
-      <Typography className={classes.addMargin}>
-        Write necessary script for the assessment
-      </Typography>
-      <TextField
-        id="script-text"
-        className={classes.addMargin}
-        variant="outlined"
-        onChange={handleChange(`script`)}
-        type="text"
-        label="Script"
-        fullWidth
-        multiline
-        rows={10}
-      />
-    </div>
+      <input type="file" onChange={handleChange} />
+    </Box>
   );
 };
