@@ -1,0 +1,58 @@
+[
+  {
+    "language": "java",
+    "languageDisplay": "Java"
+  },
+  {
+    "language": "c",
+    "languageDisplay": "C"
+  },
+  {
+    "language": "cpp",
+    "languageDisplay": "C++"
+  },
+  {
+    "language": "cpp14",
+    "languageDisplay": "C++ 14"
+  },
+  {
+    "language": "cpp17",
+    "languageDisplay": "C++ 17"
+  },
+  {
+    "language": "php",
+    "languageDisplay": "PHP"
+  },
+  {
+    "language": "python2",
+    "languageDisplay": "Python 2"
+  },
+  {
+    "language": "python3",
+    "languageDisplay": "Python 3"
+  },
+  {
+    "language": "ruby",
+    "languageDisplay": "Ruby"
+  },
+  {
+    "language": "go",
+    "languageDisplay": "GO Lang"
+  },
+  {
+    "language": "scala",
+    "languageDisplay": "Scala"
+  },
+  {
+    "language": "sql",
+    "languageDisplay": "SQL"
+  },
+  {
+    "language": "csharp",
+    "languageDisplay": "C#"
+  },
+  {
+    "language": "nodejs",
+    "languageDisplay": "NodeJS"
+  }
+]

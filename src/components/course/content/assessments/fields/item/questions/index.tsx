@@ -1,27 +1,26 @@
 import { Action, ActionEnum } from '../../reducer';
-import { Box, Fab, IconButton, TextField } from '@material-ui/core';
+import { Box, Fab, IconButton, TextField, Tooltip } from '@material-ui/core';
 
 import AddIcon from '@material-ui/icons/Add';
 import { Callback } from '@types';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
 import React from 'react';
+import { v4 as uniqueId } from 'uuid';
 import { useStyles } from './styles';
 
 interface IProps {
-  addMarginClassName: string;
   questions: Map<string, string>;
   updateFields: Callback<Action, void>;
 }
 
 export const QuestionsItem: React.FC<IProps> = ({
-  addMarginClassName,
   questions,
   updateFields,
 }) => {
   const classes = useStyles();
 
   const handleAddQuestion = (): void => {
-    updateFields({ type: ActionEnum.ADD_QUESTION, id: `` });
+    updateFields({ type: ActionEnum.ADD_QUESTION, id: uniqueId() });
   };
 
   const handleUpdateQuestion = (
@@ -41,24 +40,37 @@ export const QuestionsItem: React.FC<IProps> = ({
   };
 
   return (
-    <Box className={classes.questionsMargin}>
+    <Box className={classes.questionsContainer}>
       {Array.from(questions.entries()).map(
         ([id, question]: [string, string], index: number): JSX.Element => (
-          <Box key={id} className={addMarginClassName}>
-            <IconButton onClick={handleDeleteQuestion(id)}>
-              <DeleteRoundedIcon color="secondary" />
-            </IconButton>
+          <Box key={id} className={classes.question}>
+            <Tooltip placement="top" title={`Delete question ${index + 1}`}>
+              <IconButton onClick={handleDeleteQuestion(id)}>
+                <DeleteRoundedIcon color="secondary" />
+              </IconButton>
+            </Tooltip>
             <TextField
               helperText="Write detailed instructions for students to follow"
               label={`Question ${index + 1}`}
+              multiline={true}
+              rows={5}
               value={question}
+              variant="outlined"
               onChange={handleUpdateQuestion(id)}
             />
           </Box>
         )
       )}
-      <Fab variant="extended" onClick={handleAddQuestion}>
-        <AddIcon color="primary" />
+      <Fab
+        className={`${classes.addQuestion} ${
+          questions.size > 0 ? classes.addQuestionShifted : ``
+        }`}
+        color="secondary"
+        variant="extended"
+        onClick={handleAddQuestion}
+      >
+        <AddIcon color="inherit" />
+        Add question
       </Fab>
     </Box>
   );

@@ -11,8 +11,6 @@ import { MaterialUiPickersDate } from '@material-ui/pickers/typings/date';
 import React from 'react';
 
 interface IProps {
-  addMarginClassName: string;
-  inputClassName: string;
   label: string;
   name: string;
   updateFields: Callback<Action, void>;
@@ -20,8 +18,6 @@ interface IProps {
 }
 
 export const DateItem: React.FC<IProps> = ({
-  addMarginClassName,
-  inputClassName,
   label,
   name,
   value,
@@ -38,11 +34,11 @@ export const DateItem: React.FC<IProps> = ({
   };
 
   return (
-    <Box className={`${addMarginClassName} ${inputClassName}`}>
+    <Box>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <KeyboardDatePicker
           disableToolbar={true}
-          variant="inline"
+          variant="dialog"
           format="MM/dd/yyyy"
           id={name}
           label={label}

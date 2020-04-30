@@ -44,8 +44,8 @@ export const SubmitPrompt: React.FC<IProps> = ({ fields, type }) => {
 
   return (
     <>
-      <Button variant="outlined" color="secondary" onClick={handleOpen}>
-        Add
+      <Button variant="contained" color="primary" onClick={handleOpen}>
+        Create {lowerCaseType}
       </Button>
       <Dialog
         open={open}
@@ -60,15 +60,10 @@ export const SubmitPrompt: React.FC<IProps> = ({ fields, type }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="secondary">
+          <Button onClick={handleClose} color="inherit">
             Cancel
           </Button>
-          <Button
-            variant="outlined"
-            color="primary"
-            type="submit"
-            onClick={submitAssessment}
-          >
+          <Button color="inherit" type="submit" onClick={submitAssessment}>
             Yes
           </Button>
         </DialogActions>

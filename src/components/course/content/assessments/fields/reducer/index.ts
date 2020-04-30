@@ -3,6 +3,7 @@ import { AssessmentEnum, DurationUnitEnum } from '@enums';
 import { AssessmentFile } from '@types';
 
 export enum ActionEnum {
+  LANGUAGE_FILE_CHANGE,
   VERSION_INDEX_FILE_CHANGE,
   OTHER_FILE_CHANGE,
   ADD_QUESTION,
@@ -15,12 +16,15 @@ export enum ActionEnum {
 export type Action =
   | {
       type: ActionEnum.OTHER_FILE_CHANGE;
-      property: `name` | `language` | `data`;
+      property: `name` | `data`;
+      value: string;
+    }
+  | {
+      type: ActionEnum.LANGUAGE_FILE_CHANGE;
       value: string;
     }
   | {
       type: ActionEnum.VERSION_INDEX_FILE_CHANGE;
-      property: `versionIndex`;
       value: number;
     }
   | { type: ActionEnum.ADD_QUESTION; id: string }
@@ -63,13 +67,24 @@ export const initialState = (type: AssessmentEnum): State => ({
 
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
+    case ActionEnum.LANGUAGE_FILE_CHANGE: {
+      return {
+        ...state,
+        file: {
+          ...state.file,
+          lastModified: new Date(),
+          language: action.value,
+          versionIndex: 0,
+        },
+      };
+    }
     case ActionEnum.VERSION_INDEX_FILE_CHANGE: {
       return {
         ...state,
         file: {
           ...state.file,
           lastModified: new Date(),
-          [action.property]: action.value,
+          versionIndex: action.value,
         },
       };
     }

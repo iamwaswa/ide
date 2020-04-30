@@ -31,7 +31,7 @@ export const ToggleAssessmentView: React.FC<IProps> = ({
     setShowCreate((showing: boolean): boolean => !showing);
 
   return role === RoleEnum.INSTRUCTOR ? (
-    <Button variant="contained" color="primary" onClick={toggleShowCreate}>
+    <Button color="inherit" onClick={toggleShowCreate}>
       {showCreate ? `View ${assessmentPlural}` : `Create ${assessment}`}
     </Button>
   ) : null;

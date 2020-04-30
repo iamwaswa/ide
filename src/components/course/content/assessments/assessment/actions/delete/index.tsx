@@ -51,10 +51,10 @@ export const Delete: React.FC<IProps> = ({ type }) => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleClose} color="inherit">
             No
           </Button>
-          <Button onClick={handleDeleteAsync} color="primary" autoFocus>
+          <Button onClick={handleDeleteAsync} color="inherit" autoFocus>
             Yes
           </Button>
         </DialogActions>

@@ -9,12 +9,15 @@ interface IProps {
     string,
     Callback<React.ChangeEvent<HTMLInputElement>, void>
   >;
+  helperText?: string;
   type?: string;
   value?: string | number;
+  variant?: `outlined` | `standard` | `filled`;
 }
 
 export const TextItem: React.FC<IProps> = ({
   type = `text`,
+  variant = `standard`,
   handleChange,
   ...props
 }) => {
@@ -23,7 +26,7 @@ export const TextItem: React.FC<IProps> = ({
       {...props}
       id={props.name}
       type={type}
-      variant="outlined"
+      variant={variant}
       onChange={handleChange(props.name)}
     />
   );

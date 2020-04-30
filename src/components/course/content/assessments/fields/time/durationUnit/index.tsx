@@ -6,16 +6,11 @@ import { DurationUnitEnum } from '@enums';
 import React from 'react';
 
 interface IProps {
-  addMarginClassName: string;
   updateFields: Callback<Action, void>;
   value?: DurationUnitEnum;
 }
 
-export const DurationUnitItem: React.FC<IProps> = ({
-  addMarginClassName,
-  value,
-  updateFields,
-}) => {
+export const DurationUnitItem: React.FC<IProps> = ({ value, updateFields }) => {
   const handleDurationUnitChange = (
     event: React.ChangeEvent<{ value: unknown }>
   ): void => {
@@ -27,8 +22,8 @@ export const DurationUnitItem: React.FC<IProps> = ({
   };
 
   return (
-    <FormControl variant="outlined" className={addMarginClassName}>
-      <InputLabel id="durationUnitLabel">Duration unit</InputLabel>
+    <FormControl variant="standard">
+      <InputLabel id="durationUnitLabel">Unit</InputLabel>
       <Select
         labelId="durationUnitLabel"
         id="durationUnit"
