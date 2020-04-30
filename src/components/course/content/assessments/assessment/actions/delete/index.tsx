@@ -6,14 +6,20 @@ import {
   DialogContentText,
   DialogTitle,
   IconButton,
+  Tooltip,
 } from '@material-ui/core';
 
+import { AssessmentEnum } from '@enums';
 import Button from '@material-ui/core/Button';
 import DeleteIcon from '@material-ui/icons/Delete';
 import React from 'react';
 import { useDeleteAssessment } from './hooks';
 
-export const Delete: React.FC<IProps> = () => {
+interface IProps {
+  type: AssessmentEnum;
+}
+
+export const Delete: React.FC<IProps> = ({ type }) => {
   const [open, setOpen] = React.useState(false);
   const { deleteAssessmentAsync } = useDeleteAssessment();
 
@@ -26,20 +32,22 @@ export const Delete: React.FC<IProps> = () => {
 
   return (
     <Box>
-      <IconButton>
-        <DeleteIcon color="secondary" onClick={handleClickOpen} />
-      </IconButton>
+      <Tooltip placement="top" title={`Delete ${type.toLowerCase()}`}>
+        <IconButton onClick={handleClickOpen}>
+          <DeleteIcon color="primary" />
+        </IconButton>
+      </Tooltip>
       <Dialog
         open={open}
         onClose={handleClose}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
+        aria-labelledby="delete-title"
+        aria-describedby="delete-description"
       >
-        <DialogTitle id="alert-dialog-title">{'Delete Assessment'}</DialogTitle>
+        <DialogTitle id="delete-title">{`Delete ${type.toLowerCase()}`}</DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-            Once the Assessment is deleted, it will not be able to recover files
-            nor submissions. Do you want to delete the assessment?
+          <DialogContentText id="delete-description">
+            Once the {type.toLowerCase()} is deleted, all submissions will be
+            deleted with it. Are you sure you want to delete it?
           </DialogContentText>
         </DialogContent>
         <DialogActions>

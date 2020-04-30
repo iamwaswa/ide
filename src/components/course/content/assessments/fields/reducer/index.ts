@@ -7,6 +7,7 @@ export enum ActionEnum {
   OTHER_FILE_CHANGE,
   ADD_QUESTION,
   DELETE_QUESTION,
+  DURATION_CHANGE,
   QUESTIONS_CHANGE,
   OTHER_FIELD_CHANGE,
 }
@@ -24,6 +25,7 @@ export type Action =
     }
   | { type: ActionEnum.ADD_QUESTION; id: string }
   | { type: ActionEnum.DELETE_QUESTION; id: string }
+  | { type: ActionEnum.DURATION_CHANGE; value: number }
   | { type: ActionEnum.QUESTIONS_CHANGE; id: string; content: string }
   | {
       type: ActionEnum.OTHER_FIELD_CHANGE;
@@ -45,7 +47,7 @@ export type State = {
 export const initialState = (type: AssessmentEnum): State => ({
   file: {
     name: ``,
-    language: `nodejs`,
+    language: ``,
     lastModified: new Date(),
     data: ``,
     versionIndex: 3,
@@ -56,8 +58,7 @@ export const initialState = (type: AssessmentEnum): State => ({
   dueDate: type === AssessmentEnum.ASSIGNMENT ? new Date() : undefined,
   startDate: type === AssessmentEnum.QUIZ ? new Date() : undefined,
   duration: type === AssessmentEnum.QUIZ ? 15 : undefined,
-  durationUnit:
-    type === AssessmentEnum.QUIZ ? DurationUnitEnum.MINUTES : undefined,
+  durationUnit: DurationUnitEnum.MINUTES,
 });
 
 export const reducer = (state: State, action: Action): State => {
@@ -65,13 +66,27 @@ export const reducer = (state: State, action: Action): State => {
     case ActionEnum.VERSION_INDEX_FILE_CHANGE: {
       return {
         ...state,
-        file: { ...state.file, [action.property]: action.value },
+        file: {
+          ...state.file,
+          lastModified: new Date(),
+          [action.property]: action.value,
+        },
+      };
+    }
+    case ActionEnum.DURATION_CHANGE: {
+      return {
+        ...state,
+        duration: action.value,
       };
     }
     case ActionEnum.OTHER_FILE_CHANGE: {
       return {
         ...state,
-        file: { ...state.file, [action.property]: action.value },
+        file: {
+          ...state.file,
+          lastModified: new Date(),
+          [action.property]: action.value,
+        },
       };
     }
     case ActionEnum.ADD_QUESTION: {

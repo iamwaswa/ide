@@ -1,0 +1,138 @@
+[
+  {
+    "language": "java",
+    "languageDisplay": "Java",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "JDK 1.8.0_66" },
+      { "versionIndex": 1, "versionDisplay": "JDK 9.0.1" },
+      { "versionIndex": 2, "versionDisplay": "JDK 10.0.1" },
+      { "versionIndex": 3, "versionDisplay": "JDK 11.04" }
+    ]
+  },
+  {
+    "language": "c",
+    "languageDisplay": "C",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "GCC 5.3.0" },
+      { "versionIndex": 1, "versionDisplay": "Zapcc 5.0.0" },
+      { "versionIndex": 2, "versionDisplay": "GCC 7.2.0" },
+      { "versionIndex": 3, "versionDisplay": "GCC 8.1.0" },
+      { "versionIndex": 4, "versionDisplay": "GCC 9.1.0" }
+    ]
+  },
+  {
+    "language": "cpp",
+    "languageDisplay": "C++",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "GCC 5.3.0" },
+      { "versionIndex": 1, "versionDisplay": "Zapcc 5.0.0" },
+      { "versionIndex": 2, "versionDisplay": "GCC 7.2.0" },
+      { "versionIndex": 3, "versionDisplay": "GCC 8.1.0" },
+      { "versionIndex": 4, "versionDisplay": "GCC 9.1.0" }
+    ]
+  },
+  {
+    "language": "cpp14",
+    "languageDisplay": "C++ 14",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "g++ 14 GCC 5.3.0" },
+      { "versionIndex": 1, "versionDisplay": "g++ 14 GCC 7.2.0" },
+      { "versionIndex": 2, "versionDisplay": "g++ 14 GCC 8.1.0" },
+      { "versionIndex": 3, "versionDisplay": "g++ 14 GCC 9.1.0" }
+    ]
+  },
+  {
+    "language": "cpp17",
+    "languageDisplay": "C++ 17",
+    "versions": [{ "versionIndex": 0, "versionDisplay": "g++ 17 GCC 9.10" }]
+  },
+  {
+    "language": "php",
+    "languageDisplay": "PHP",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "5.6.16" },
+      { "versionIndex": 1, "versionDisplay": "7.1.11" },
+      { "versionIndex": 2, "versionDisplay": "7.2.5" },
+      { "versionIndex": 3, "versionDisplay": "7.3.10" }
+    ]
+  },
+  {
+    "language": "python2",
+    "languageDisplay": "Python 2",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "2.7.11" },
+      { "versionIndex": 1, "versionDisplay": "2.7.15" },
+      { "versionIndex": 2, "versionDisplay": "2.7.16" }
+    ]
+  },
+  {
+    "language": "python3",
+    "languageDisplay": "Python 3",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "3.5.1" },
+      { "versionIndex": 1, "versionDisplay": "3.6.3" },
+      { "versionIndex": 2, "versionDisplay": "3.6.5" },
+      { "versionIndex": 3, "versionDisplay": "3.7.4" }
+    ]
+  },
+  {
+    "language": "ruby",
+    "languageDisplay": "Ruby",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "2.2.4" },
+      { "versionIndex": 1, "versionDisplay": "2.4.2p198" },
+      { "versionIndex": 2, "versionDisplay": "2.5.1p57" },
+      { "versionIndex": 3, "versionDisplay": "2.6.5" }
+    ]
+  },
+  {
+    "language": "go",
+    "languageDisplay": "GO Lang",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "1.5.2" },
+      { "versionIndex": 1, "versionDisplay": "1.9.2" },
+      { "versionIndex": 2, "versionDisplay": "1.10.2" },
+      { "versionIndex": 3, "versionDisplay": "1.13.1" }
+    ]
+  },
+  {
+    "language": "scala",
+    "languageDisplay": "Scala",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "2.12.0" },
+      { "versionIndex": 1, "versionDisplay": "2.12.4" },
+      { "versionIndex": 2, "versionDisplay": "2.12.5" },
+      { "versionIndex": 3, "versionDisplay": "2.13.0" }
+    ]
+  },
+  {
+    "language": "sql",
+    "languageDisplay": "SQL",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "SQLite 3.9.2" },
+      { "versionIndex": 1, "versionDisplay": "SQLite 3.21.0" },
+      { "versionIndex": 2, "versionDisplay": "SQLite 3.23.1" },
+      { "versionIndex": 3, "versionDisplay": "SQLite 3.29.0" }
+    ]
+  },
+  {
+    "language": "csharp",
+    "languageDisplay": "C#",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "mono 4.2.2" },
+      { "versionIndex": 1, "versionDisplay": "mono 5.0.0" },
+      { "versionIndex": 2, "versionDisplay": "mono 5.10.1" },
+      { "versionIndex": 3, "versionDisplay": "mono 6.0.0" }
+    ]
+  },
+  {
+    "language": "nodejs",
+    "languageDisplay": "NodeJS",
+    "versions": [
+      { "versionIndex": 0, "versionDisplay": "6.3.1" },
+      { "versionIndex": 1, "versionDisplay": "9.2.0" },
+      { "versionIndex": 2, "versionDisplay": "10.1.0" },
+      { "versionIndex": 3, "versionDisplay": "12.11.1" }
+    ]
+  }
+]

@@ -9,13 +9,11 @@ interface IProps {
     string,
     Callback<React.ChangeEvent<HTMLInputElement>, void>
   >;
-  disabled?: boolean;
   type?: string;
   value?: string | number;
 }
 
 export const TextItem: React.FC<IProps> = ({
-  disabled = false,
   type = `text`,
   handleChange,
   ...props
@@ -24,7 +22,6 @@ export const TextItem: React.FC<IProps> = ({
     <TextField
       {...props}
       id={props.name}
-      disabled={disabled}
       type={type}
       variant="outlined"
       onChange={handleChange(props.name)}

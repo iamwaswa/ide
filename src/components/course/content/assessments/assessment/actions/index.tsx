@@ -5,6 +5,7 @@ import { Delete } from './delete';
 import GroupIcon from '@material-ui/icons/Group';
 import React from 'react';
 import { useAuthContext } from '@context/auth/hooks';
+import { useStyles } from './styles';
 
 interface IProps {
   type: AssessmentEnum;
@@ -18,14 +19,15 @@ export const Actions: React.FC<IProps> = ({
   setShowSubmissions,
 }) => {
   const { role } = useAuthContext();
+  const classes = useStyles();
 
-  const toggleShowSubmissions = () =>
+  const toggleShowSubmissions = (): void =>
     setShowSubmissions(
       (showingSubmissions: boolean): boolean => !showingSubmissions
     );
 
   return role === RoleEnum.INSTRUCTOR ? (
-    <TableCell>
+    <TableCell className={classes.actions}>
       <Tooltip
         placement="top"
         title={`${showSubmissions ? `Hide` : `View`} submissions`}
@@ -34,9 +36,7 @@ export const Actions: React.FC<IProps> = ({
           <GroupIcon color="primary" />
         </IconButton>
       </Tooltip>
-      <Tooltip placement="top" title={`Delete ${type}`}>
-        <Delete />
-      </Tooltip>
+      <Delete type={type} />
     </TableCell>
   ) : null;
 };

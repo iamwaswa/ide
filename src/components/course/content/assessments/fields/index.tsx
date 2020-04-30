@@ -29,6 +29,16 @@ export const Fields: React.FC<IProps> = ({ type }) => {
   const [fields, updateFields] = React.useReducer(reducer, initialState(type));
   const classes = useStyles();
 
+  const handleDurationChange = (): Callback<
+    React.ChangeEvent<HTMLInputElement>,
+    void
+  > => (event: React.ChangeEvent<HTMLInputElement>): void => {
+    updateFields({
+      type: ActionEnum.DURATION_CHANGE,
+      value: Number(event.target.value),
+    });
+  };
+
   const handleChange = (
     field: string
   ): Callback<React.ChangeEvent<HTMLInputElement>, void> => (
@@ -48,7 +58,7 @@ export const Fields: React.FC<IProps> = ({ type }) => {
         <Box className={classes.input}>
           <TextItem
             label="Name"
-            name={`${title} name`}
+            name="name"
             value={fields.name}
             handleChange={handleChange}
           />
@@ -61,26 +71,24 @@ export const Fields: React.FC<IProps> = ({ type }) => {
             updateFields={updateFields}
           />
           {quiz && (
-            <>
+            <Box>
               <TextItem
-                disabled={type !== AssessmentEnum.QUIZ}
-                label="Duration (minutes)"
+                label="Duration"
                 name="duration"
                 value={fields.duration}
                 type="number"
-                handleChange={handleChange}
+                handleChange={handleDurationChange}
               />
               <DurationUnitItem
                 addMarginClassName={classes.addMargin}
                 value={fields.durationUnit}
                 updateFields={updateFields}
               />
-            </>
+            </Box>
           )}
           <FileItem
-            addMargin={classes.addMargin}
+            addMarginClassName={classes.addMargin}
             file={fields.file}
-            type={type}
             updateFields={updateFields}
           />
           <ScriptItem
@@ -93,7 +101,7 @@ export const Fields: React.FC<IProps> = ({ type }) => {
             updateFields={updateFields}
           />
         </Box>
-        <SubmitPrompt fields={fields} />
+        <SubmitPrompt fields={fields} type={type} />
       </Box>
     </Fade>
   );

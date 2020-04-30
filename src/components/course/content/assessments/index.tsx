@@ -3,8 +3,10 @@ import { Fade, Table, TableBody } from '@material-ui/core';
 
 import { AssessmentEnum } from '@enums';
 import { AssessmentItem } from './assessment';
+import { Fields } from './fields';
 import { Headers } from './headers';
 import React from 'react';
+import { ToggleAssessmentView } from './toggleAsessmentView';
 import { useStyles } from './styles';
 
 interface IProps {
@@ -14,6 +16,11 @@ interface IProps {
 
 export const Assessments: React.FC<IProps> = ({ assessments, type }) => {
   const classes = useStyles();
+  const [showCreate, setShowCreate] = React.useState<boolean>(false);
+
+  React.useEffect((): void => {
+    setShowCreate(false);
+  }, [type]);
 
   const renderAssessments = (): JSX.Element => {
     const assessmentsToDisplay: Array<JSX.Element> = [];
@@ -28,11 +35,37 @@ export const Assessments: React.FC<IProps> = ({ assessments, type }) => {
   };
 
   return (
-    <Fade in={true} timeout={600} mountOnEnter unmountOnExit>
-      <Table className={classes.root}>
-        <Headers type={type} />
-        <TableBody>{renderAssessments()}</TableBody>
-      </Table>
+    <Fade in={true} timeout={500} mountOnEnter={true} unmountOnExit={true}>
+      <>
+        <ToggleAssessmentView
+          showCreate={showCreate}
+          setShowCreate={setShowCreate}
+          type={type}
+        />
+        {showCreate && (
+          <Fade
+            in={showCreate}
+            timeout={500}
+            mountOnEnter={true}
+            unmountOnExit={true}
+          >
+            <Fields type={type} />
+          </Fade>
+        )}
+        {!showCreate && (
+          <Fade
+            in={!showCreate}
+            timeout={500}
+            mountOnEnter={true}
+            unmountOnExit={true}
+          >
+            <Table className={classes.table}>
+              <Headers type={type} />
+              <TableBody>{renderAssessments()}</TableBody>
+            </Table>
+          </Fade>
+        )}
+      </>
     </Fade>
   );
 };

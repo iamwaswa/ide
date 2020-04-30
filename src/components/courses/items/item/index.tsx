@@ -8,7 +8,7 @@ import {
 
 import React from 'react';
 import { RoutesEnum } from '@enums';
-import { createNavigationPath } from '@utils';
+import { Utils } from '@utils';
 import { navigate } from 'gatsby';
 import { useAuthContext } from '@context/auth/hooks';
 import { useStyles } from './styles';
@@ -34,7 +34,7 @@ export const Item: React.FC<IProps> = ({ id, title, subTitle, image }) => {
   React.useEffect((): void => {
     if (readyToNavigate && uid && courseId && courseTitle) {
       navigate(
-        createNavigationPath({ route: RoutesEnum.COURSE, uid, courseId })
+        Utils.createNavigationPath({ route: RoutesEnum.COURSE, uid, courseId })
       );
       return;
     }

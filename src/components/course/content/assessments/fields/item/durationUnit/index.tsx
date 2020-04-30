@@ -38,9 +38,9 @@ export const DurationUnitItem: React.FC<IProps> = ({
         {Object.values(DurationUnitEnum).map(
           (durationUnit: DurationUnitEnum): JSX.Element => (
             <MenuItem key={durationUnit} value={durationUnit}>
-              <em>{`${durationUnit
+              {`${durationUnit
                 .substring(0, 1)
-                .toUpperCase()}${durationUnit.substring(1).toLowerCase()}`}</em>
+                .toUpperCase()}${durationUnit.substring(1).toLowerCase()}`}
             </MenuItem>
           )
         )}
