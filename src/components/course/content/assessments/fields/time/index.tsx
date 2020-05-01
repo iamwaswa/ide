@@ -1,7 +1,7 @@
 import { Action, ActionEnum } from '../reducer';
 import { AssessmentEnum, DurationUnitEnum } from '@enums';
-import { Box, Typography } from '@material-ui/core';
 
+import { Box } from '@material-ui/core';
 import { Callback } from '@types';
 import { DateItem } from './date';
 import { DurationUnitItem } from './durationUnit';

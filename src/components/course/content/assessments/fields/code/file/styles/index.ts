@@ -1,12 +1,9 @@
 import { Theme, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) => ({
-  codeContainer: {
+  container: {
     display: `flex`,
-    flexDirection: `column`,
-  },
-  uploadContainer: {
-    margin: theme.spacing(2, 0, 0, 0),
+    flexWrap: `wrap`,
     [`& > *`]: {
       margin: theme.spacing(0, 2, 2, 0),
     },

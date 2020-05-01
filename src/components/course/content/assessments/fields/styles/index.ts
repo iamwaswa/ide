@@ -5,6 +5,6 @@ export const useStyles = makeStyles((theme) => ({
     display: `flex`,
     flexDirection: `column`,
     alignItems: `flex-start`,
-    padding: theme.spacing(2, 0),
+    margin: theme.spacing(0, 0, 0, 2),
   },
 }));

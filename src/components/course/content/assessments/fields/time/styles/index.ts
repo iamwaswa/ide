@@ -4,7 +4,7 @@ export const useStyles = makeStyles((theme) => ({
   timeContainer: {
     display: `flex`,
     flexWrap: `wrap`,
-    padding: theme.spacing(4, 0),
+    padding: theme.spacing(4, 0, 0, 0),
     [`& > *`]: {
       margin: theme.spacing(0, 2, 2, 0),
     },

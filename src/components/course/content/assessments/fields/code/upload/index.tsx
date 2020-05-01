@@ -1,5 +1,6 @@
 import { Button } from '@material-ui/core';
 import { Callback } from '@types';
+import CheckRoundedIcon from '@material-ui/icons/CheckRounded';
 import React from 'react';
 import { Utils } from '@utils';
 import { useStyles } from './styles';
@@ -54,12 +55,16 @@ export const Upload: React.FC<IProps> = ({
         onChange={handleFileChange}
       />
       <Button
+        className={classes.uploadButton}
         classes={{ label: classes.buttonLabel }}
-        color="secondary"
+        color="inherit"
         disabled={uploading}
-        variant="contained"
+        variant="outlined"
         onClick={handleFileInputClick}
       >
+        {updatedButtonText ? (
+          <CheckRoundedIcon color="inherit" fontSize="small" />
+        ) : null}
         {uploading
           ? `Uploading...`
           : `${updatedButtonText ? `${name}: ` : ``}${buttonText}`}

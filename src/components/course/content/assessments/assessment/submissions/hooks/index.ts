@@ -13,6 +13,7 @@ interface IArgs {
 export const useNavigateToGrading = (
   args: IArgs
 ): ((submission?: Submission) => void) => {
+  console.log(args);
   const { uid, courseId, assessmentId } = useAuthContext();
   const [readyToNavigate, setReadyToNavigate] = React.useState(() => false);
 
@@ -30,6 +31,7 @@ export const useNavigateToGrading = (
   }, [assessmentId, courseId, readyToNavigate, uid]);
 
   const handleNavigation = (submission?: Submission): void => {
+    console.log(submission);
     /*const fileContents =
         submission.feedback && submission.feedback.file
           ? submission.feedback.file

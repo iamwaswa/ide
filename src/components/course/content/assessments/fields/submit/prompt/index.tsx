@@ -1,4 +1,5 @@
 import {
+  Box,
   Button,
   Dialog,
   DialogActions,
@@ -10,6 +11,7 @@ import {
 import { AssessmentEnum } from '@enums';
 import React from 'react';
 import { State } from '../../reducer';
+import { useStyles } from './styles';
 
 interface IProps {
   fields: State;
@@ -17,6 +19,8 @@ interface IProps {
 }
 
 export const SubmitPrompt: React.FC<IProps> = ({ fields, type }) => {
+  console.log(fields);
+  const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const lowerCaseType = React.useMemo(
     (): string => type.substring(0).toLowerCase(),
@@ -43,7 +47,7 @@ export const SubmitPrompt: React.FC<IProps> = ({ fields, type }) => {
   const handleClose = (): void => setOpen(false);
 
   return (
-    <>
+    <Box className={classes.submit}>
       <Button variant="contained" color="primary" onClick={handleOpen}>
         Create {lowerCaseType}
       </Button>
@@ -68,6 +72,6 @@ export const SubmitPrompt: React.FC<IProps> = ({ fields, type }) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </>
+    </Box>
   );
 };

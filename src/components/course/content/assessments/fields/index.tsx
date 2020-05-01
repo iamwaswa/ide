@@ -59,8 +59,8 @@ export const Fields: React.FC<IProps> = ({ type }) => {
             questions={fields.questions}
             updateFields={updateFields}
           />
+          <SubmitPrompt fields={fields} type={type} />
         </Box>
-        <SubmitPrompt fields={fields} type={type} />
       </>
     </Fade>
   );

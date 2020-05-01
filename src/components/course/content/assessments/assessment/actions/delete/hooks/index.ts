@@ -7,6 +7,7 @@ export const useDeleteAssessment = () => {
 
   // const [removeAssessmentAsync] = useMutation(DELETE_ASSESSMENT_MUTATION);
   const removeAssessmentAsync = async (args: any): Promise<void> => {
+    console.log(args);
     return;
   };
 
