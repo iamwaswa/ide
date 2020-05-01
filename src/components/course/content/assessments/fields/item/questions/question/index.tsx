@@ -1,5 +1,6 @@
 import { Action, ActionEnum } from '../../../reducer';
 import { Box, FormControlLabel, IconButton, Tooltip } from '@material-ui/core';
+import { formats, modules } from './utils';
 
 import { Callback } from '@types';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
@@ -50,48 +51,8 @@ export const Question: React.FC<IProps> = ({
           control={
             <ReactQuill
               bounds={classes.container}
-              formats={[
-                `align`,
-                `background`,
-                `blockquote`,
-                `bold`,
-                `bullet`,
-                `code`,
-                `code-block`,
-                `color`,
-                `direction`,
-                `font`,
-                `formula`,
-                `header`,
-                `image`,
-                `italic`,
-                `indent`,
-                `link`,
-                `list`,
-                `script`,
-                `size`,
-                `strike`,
-                `underline`,
-                `video`,
-              ]}
-              modules={{
-                toolbar: [
-                  [{ font: [] }],
-                  [{ size: [`small`, false, `large`, `huge`] }],
-                  [{ header: [1, 2, 3, 4, 5, 6, false] }],
-                  [{ align: [] }],
-                  [`bold`, `italic`, `underline`, `strike`],
-                  [`blockquote`, `code-block`],
-                  [{ list: `ordered` }, { list: `bullet` }],
-                  [{ script: `sub` }, { script: `super` }],
-                  [{ indent: `-1` }, { indent: `+1` }],
-                  [{ direction: `rtl` }],
-                  [{ color: [] }],
-                  [{ background: [] }],
-                  [`link`, `image`, `video`],
-                  [`clean`],
-                ],
-              }}
+              formats={formats}
+              modules={modules}
               placeholder="Write detailed instructions for students to follow"
               theme="snow"
               value={question}

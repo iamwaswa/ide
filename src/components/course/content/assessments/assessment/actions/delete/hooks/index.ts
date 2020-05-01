@@ -6,21 +6,17 @@ export const useDeleteAssessment = () => {
   const { courseId, assessmentId } = useAuthContext();
 
   // const [removeAssessmentAsync] = useMutation(DELETE_ASSESSMENT_MUTATION);
-  const removeAssessmentAsync = async (args: any): Promise<void> => {
-    console.log(args);
-    return;
-  };
 
   const deleteAssessmentAsync = async (handleClose: () => void) => {
     if (courseId && assessmentId) {
-      await removeAssessmentAsync({
+      /*await removeAssessmentAsync({
         variables: {
           deleteAssessmentInput: {
             courseReference: courseId,
             assessmentReference: assessmentId,
           },
         },
-      });
+      });*/
       handleClose();
     }
   };

@@ -25,6 +25,7 @@ export const useStyles = makeStyles((theme: Theme) => {
       },
       [`& .ql-snow.ql-toolbar`]: {
         ...sharedStyles,
+        display: `block`,
         borderTopLeftRadius: radius,
         borderTopRightRadius: radius,
       },

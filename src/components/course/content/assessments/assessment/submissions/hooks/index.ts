@@ -1,19 +1,15 @@
-import { Assignment, Quiz, Submission } from '@types';
-
 import React from 'react';
 import { RoutesEnum } from '@enums';
+import { Submission } from '@types';
 import { Utils } from '@utils';
 import { navigate } from 'gatsby';
 import { useAuthContext } from '@context/auth/hooks';
 
-interface IArgs {
+/*interface IArgs {
   assessment: Assignment | Quiz;
-}
+}*/
 
-export const useNavigateToGrading = (
-  args: IArgs
-): ((submission?: Submission) => void) => {
-  console.log(args);
+export const useNavigateToGrading = (): ((submission?: Submission) => void) => {
   const { uid, courseId, assessmentId } = useAuthContext();
   const [readyToNavigate, setReadyToNavigate] = React.useState(() => false);
 
@@ -30,8 +26,7 @@ export const useNavigateToGrading = (
     }
   }, [assessmentId, courseId, readyToNavigate, uid]);
 
-  const handleNavigation = (submission?: Submission): void => {
-    console.log(submission);
+  const handleNavigation = (): void => {
     /*const fileContents =
         submission.feedback && submission.feedback.file
           ? submission.feedback.file

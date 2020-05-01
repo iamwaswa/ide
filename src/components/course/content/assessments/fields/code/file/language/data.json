@@ -40,10 +40,6 @@
     "languageDisplay": "GO Lang"
   },
   {
-    "language": "scala",
-    "languageDisplay": "Scala"
-  },
-  {
     "language": "sql",
     "languageDisplay": "SQL"
   },

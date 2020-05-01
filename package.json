@@ -42,6 +42,7 @@
     "gatsby-theme-material-ui": "^1.0.8",
     "gatsby-transformer-sharp": "^2.4.7",
     "gsap": "^3.2.6",
+    "highlight.js": "^10.0.1",
     "mui-datatables": "^2.14.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -50,6 +51,7 @@
     "uuid": "^8.0.0"
   },
   "devDependencies": {
+    "@types/highlight.js": "^9.12.3",
     "@types/material-ui": "^0.21.7",
     "@types/mui-datatables": "^2.13.7",
     "@types/react": "^16.9.34",

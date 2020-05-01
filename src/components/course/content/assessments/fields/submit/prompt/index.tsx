@@ -18,8 +18,7 @@ interface IProps {
   type: AssessmentEnum;
 }
 
-export const SubmitPrompt: React.FC<IProps> = ({ fields, type }) => {
-  console.log(fields);
+export const SubmitPrompt: React.FC<IProps> = ({ type }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   const lowerCaseType = React.useMemo(

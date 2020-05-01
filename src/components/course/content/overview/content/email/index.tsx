@@ -1,4 +1,4 @@
-import { Callback, EmailData, User } from '@types';
+import { Callback, User } from '@types';
 
 import { EmailForm } from './form';
 import React from 'react';
@@ -16,7 +16,7 @@ export const EmailClient: React.FC<IProps> = ({
   instructor,
   teachingAssistants,
 }) => {
-  const sendEmailAsync = async (emailData: EmailData) => {
+  const sendEmailAsync = async () => {
     // TODO: Send email
     /*await sendEmail({
       variables: {
@@ -31,7 +31,6 @@ export const EmailClient: React.FC<IProps> = ({
       },
     });*/
     setTimeout(() => {
-      console.log(emailData);
       setOpenEmailClient(false);
     }, 1000);
   };
