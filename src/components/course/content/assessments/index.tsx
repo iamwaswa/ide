@@ -1,5 +1,5 @@
 import { Assignment, Quiz } from '@types';
-import { Fade, Table, TableBody } from '@material-ui/core';
+import { Box, Fade, Table, TableBody } from '@material-ui/core';
 
 import { AssessmentEnum } from '@enums';
 import { AssessmentItem } from './assessment';
@@ -36,7 +36,7 @@ export const Assessments: React.FC<IProps> = ({ assessments, type }) => {
 
   return (
     <Fade in={true} timeout={500} mountOnEnter={true} unmountOnExit={true}>
-      <>
+      <Box className={classes.container}>
         <ToggleAssessmentView
           showCreate={showCreate}
           setShowCreate={setShowCreate}
@@ -59,13 +59,13 @@ export const Assessments: React.FC<IProps> = ({ assessments, type }) => {
             mountOnEnter={true}
             unmountOnExit={true}
           >
-            <Table className={classes.table}>
+            <Table>
               <Headers type={type} />
               <TableBody>{renderAssessments()}</TableBody>
             </Table>
           </Fade>
         )}
-      </>
+      </Box>
     </Fade>
   );
 };

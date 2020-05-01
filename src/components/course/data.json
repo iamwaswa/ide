@@ -30,7 +30,7 @@
   },
   "assignments": [
     {
-      "id": "Assignment1",
+      "id": "0",
       "name": "Assignment 1",
       "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "type": "ASSIGNMENT",
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "id": "Assignment2",
+      "id": "1",
       "name": "Assignment 2",
       "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "type": "ASSIGNMENT",
@@ -99,7 +99,7 @@
       "submissions": []
     },
     {
-      "id": "Assignment3",
+      "id": "2",
       "name": "Assignment 3",
       "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "type": "ASSIGNMENT",
@@ -115,7 +115,7 @@
       "submissions": []
     },
     {
-      "id": "Assignment4",
+      "id": "3",
       "name": "Assignment 4",
       "dueDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "type": "ASSIGNMENT",
@@ -133,9 +133,9 @@
   ],
   "quizzes": [
     {
-      "id": "Quiz1",
+      "id": "0",
       "name": "Quiz 1",
-      "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
+      "startDate": "Sat May 2 2021 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "durationInSeconds": 600,
       "type": "QUIZ",
       "script": "Script goes here...",
@@ -150,7 +150,7 @@
       "submissions": []
     },
     {
-      "id": "Quiz2",
+      "id": "1",
       "name": "Quiz 2",
       "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "durationInSeconds": 600,
@@ -167,7 +167,7 @@
       "submissions": []
     },
     {
-      "id": "Quiz3",
+      "id": "2",
       "name": "Quiz 3",
       "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "durationInSeconds": 600,
@@ -184,7 +184,7 @@
       "submissions": []
     },
     {
-      "id": "Quiz4",
+      "id": "3",
       "name": "Quiz 4",
       "startDate": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
       "durationInSeconds": 600,

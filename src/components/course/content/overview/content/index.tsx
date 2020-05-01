@@ -1,11 +1,9 @@
-import { Box, Typography } from '@material-ui/core';
-import { CourseOverview, User } from '@types';
-
-import { Contact } from './contact';
-import { ContentComponent } from './component';
+import { Box } from '@material-ui/core';
+import { CourseOverview } from '@types';
 import { EmailClient } from './email';
+import { LeftContent } from './left';
 import React from 'react';
-import { ToggleEmail } from './email/toggle';
+import { RightContent } from './right';
 import { useStyles } from './styles';
 
 interface IProps {
@@ -13,43 +11,26 @@ interface IProps {
   overview: CourseOverview;
 }
 
-export const Content: React.FC<IProps> = ({
-  subTitle,
-  overview: { courseDetails, instructor, syllabus, teachingAssistants },
-}) => {
+export const Content: React.FC<IProps> = ({ subTitle, overview }) => {
   const [openEmailClient, setOpenEmailClient] = React.useState<boolean>(false);
   const classes = useStyles();
 
   return (
     <>
       <Box className={classes.container}>
-        <Typography variant="h4" gutterBottom={true}>
-          {subTitle}
-        </Typography>
-        <ContentComponent title="Instructor">
-          <Contact contact={instructor} />
-        </ContentComponent>
-        <ContentComponent
-          extraContentClassName={classes.teachingAssistants}
-          title="Teaching assistants"
-        >
-          {teachingAssistants.map(
-            ({ email, displayName, id }: User): JSX.Element => (
-              <Contact key={id} contact={{ id, email, displayName }} />
-            )
-          )}
-        </ContentComponent>
-        <ToggleEmail setOpenEmailClient={setOpenEmailClient} />
-        <ContentComponent title="Syllabus">{syllabus}</ContentComponent>
-        <ContentComponent title="Course details">
-          {courseDetails}
-        </ContentComponent>
+        <LeftContent
+          containerClassName={classes.child}
+          overview={overview}
+          subTitle={subTitle}
+          setOpenEmailClient={setOpenEmailClient}
+        />
+        <RightContent containerClassName={classes.child} overview={overview} />
       </Box>
       <EmailClient
         openEmailClient={openEmailClient}
         setOpenEmailClient={setOpenEmailClient}
-        instructor={instructor}
-        teachingAssistants={teachingAssistants}
+        instructor={overview.instructor}
+        teachingAssistants={overview.teachingAssistants}
       />
     </>
   );

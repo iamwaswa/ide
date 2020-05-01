@@ -1,6 +1,6 @@
 import { AssessmentEnum, RoutesEnum } from '@enums';
 import { Assignment, Quiz } from '@types';
-import { Box, Link, TableCell } from '@material-ui/core';
+import { Link, TableCell } from '@material-ui/core';
 
 import React from 'react';
 import { Utils } from '@utils';
@@ -14,7 +14,15 @@ interface IProps {
 }
 
 export const AssessmentLink: React.FC<IProps> = ({ assessment }) => {
-  const { assessmentId, courseId, uid } = useAuthContext();
+  const [readyToNavigate, setReadyToNavigate] = React.useState<boolean>(false);
+  const {
+    assessmentId,
+    assessmentTitle,
+    courseId,
+    uid,
+    setAssessmentId,
+    setAssessmentTitle,
+  } = useAuthContext();
   const disabledAssessment = useAssessmentLink({
     startDate:
       assessment.type === AssessmentEnum.QUIZ
@@ -24,52 +32,37 @@ export const AssessmentLink: React.FC<IProps> = ({ assessment }) => {
   });
   const classes = useStyles();
 
-  const goToAssessmentPage = () => {
-    if (uid && courseId && assessmentId) {
+  React.useEffect((): void => {
+    if (readyToNavigate && uid && courseId && assessmentId && assessmentTitle) {
       navigate(
         Utils.createNavigationPath({
           route: RoutesEnum.ASSESSMENT,
           uid,
           courseId,
           assessmentId,
-        })
+        }),
+        { state: assessment }
       );
     }
-    /*setAssessment({
-      id: props.id,
-      durationInSeconds: props.durationInSeconds,
-      dueDate: props.dueDate,
-      name: props.name,
-      type: props.type,
-      script: props.script,
-      student: props.submissions[0].student,
-      file:
-        props.submissions.length === 1 && props.submissions[0].file.props
-          ? props.submissions[0].file
-          : props.file,
-      questions: props.questions,
-      studentTestCases:
-        props.submissions.length === 1 && props.submissions[0].testCases
-          ? props.submissions[0].testCases
-          : [],
-      overlay: false,
-      start: false,
-    });*/
+  }, [assessmentId, assessmentTitle, courseId, readyToNavigate, uid]);
+
+  const goToAssessmentPage = (): void => {
+    setReadyToNavigate(true);
+    setAssessmentId(assessment.id);
+    setAssessmentTitle(assessment.name);
   };
 
   return (
     <TableCell>
-      <Box>
-        <Link
-          className={disabledAssessment ? classes.disabled : ``}
-          disabled={disabledAssessment}
-          component="button"
-          variant="body2"
-          onClick={goToAssessmentPage}
-        >
-          {assessment.name}
-        </Link>
-      </Box>
+      <Link
+        className={disabledAssessment ? classes.disabled : ``}
+        disabled={disabledAssessment}
+        component="button"
+        variant="body2"
+        onClick={goToAssessmentPage}
+      >
+        {assessment.name}
+      </Link>
     </TableCell>
   );
 };

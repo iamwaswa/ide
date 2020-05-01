@@ -2,14 +2,20 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme) => ({
   container: {
-    margin: theme.spacing(0, `auto`, 1, 0),
-    maxWidth: theme.breakpoints.values.lg,
+    display: `grid`,
+    gridTemplateColumns: `1fr`,
+    margin: theme.spacing(0, `auto`),
+    maxWidth: theme.breakpoints.values.md,
+    [theme.breakpoints.up(`md`)]: {
+      gridTemplateColumns: `repeat(auto-fit, minmax(300px, 1fr))`,
+    },
   },
-  teachingAssistants: {
-    display: `flex`,
-    flexWrap: `wrap`,
-    [`& p`]: {
-      marginInlineEnd: `${theme.spacing(2)}px`,
+  child: {
+    margin: theme.spacing(0, 0, 2, 0),
+    minWidth: 300,
+    width: `70%`,
+    [theme.breakpoints.up(`md`)]: {
+      width: `100%`,
     },
   },
 }));

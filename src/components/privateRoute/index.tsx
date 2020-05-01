@@ -4,6 +4,9 @@ import { navigate } from 'gatsby';
 import { useAuthContext } from '@context/auth/hooks';
 
 interface IRouteProps {
+  location?: {
+    state?: any;
+  };
   path: RoutesEnum;
 }
 
