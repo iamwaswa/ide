@@ -7,7 +7,7 @@
   "author": "Waswa Olunga <olungaw@gmail.com>",
   "scripts": {
     "build": "gatsby build",
-    "develop": "gatsby develop --open --port 8080",
+    "start": "gatsby develop --open --port 8080",
     "serve": "gatsby serve",
     "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
@@ -46,6 +46,7 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.0.0",
+    "react-quill": "^1.3.5",
     "typescript": "^3.8.3",
     "uuid": "^8.0.0"
   },

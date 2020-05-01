@@ -1,9 +1,10 @@
 import { Action, ActionEnum } from '../../reducer';
-import { Box, Fab, IconButton, TextField, Tooltip } from '@material-ui/core';
+import { Box, Fab, IconButton, Tooltip } from '@material-ui/core';
 
 import AddIcon from '@material-ui/icons/Add';
 import { Callback } from '@types';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
+import { Question } from './question';
 import React from 'react';
 import { v4 as uniqueId } from 'uuid';
 import { useStyles } from './styles';
@@ -23,18 +24,6 @@ export const QuestionsItem: React.FC<IProps> = ({
     updateFields({ type: ActionEnum.ADD_QUESTION, id: uniqueId() });
   };
 
-  const handleUpdateQuestion = (
-    id: string
-  ): Callback<React.ChangeEvent<{ value: unknown }>, void> => (
-    event: React.ChangeEvent<{ value: unknown }>
-  ): void => {
-    updateFields({
-      type: ActionEnum.QUESTIONS_CHANGE,
-      id,
-      content: event.target.value as string,
-    });
-  };
-
   const handleDeleteQuestion = (id: string): (() => void) => (): void => {
     updateFields({ type: ActionEnum.DELETE_QUESTION, id });
   };
@@ -49,14 +38,11 @@ export const QuestionsItem: React.FC<IProps> = ({
                 <DeleteRoundedIcon color="secondary" />
               </IconButton>
             </Tooltip>
-            <TextField
-              helperText="Write detailed instructions for students to follow"
+            <Question
+              id={id}
               label={`Question ${index + 1}`}
-              multiline={true}
-              rows={5}
-              value={question}
-              variant="outlined"
-              onChange={handleUpdateQuestion(id)}
+              question={question}
+              updateFields={updateFields}
             />
           </Box>
         )
