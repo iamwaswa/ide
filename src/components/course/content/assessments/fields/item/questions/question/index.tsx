@@ -1,12 +1,10 @@
 import { Action, ActionEnum } from '../../../reducer';
-import { Box, FormControlLabel, IconButton, Tooltip } from '@material-ui/core';
-import { formats, modules } from './utils';
+import { IconButton, Tooltip } from '@material-ui/core';
 
 import { Callback } from '@types';
 import DeleteRoundedIcon from '@material-ui/icons/DeleteRounded';
-import { Helmet } from 'react-helmet';
+import { Quill } from '@components/quill';
 import React from 'react';
-import ReactQuill from 'react-quill';
 import { useStyles } from './styles';
 
 interface IProps {
@@ -37,41 +35,26 @@ export const Question: React.FC<IProps> = ({
   };
 
   return (
-    <>
-      <Helmet>
-        <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css" />
-      </Helmet>
-      <Box className={classes.container}>
-        <FormControlLabel
-          classes={{
-            root: classes.label,
-            labelPlacementTop: classes.top,
-            label: classes.labelContent,
-          }}
-          control={
-            <ReactQuill
-              bounds={classes.container}
-              formats={formats}
-              modules={modules}
-              placeholder="Write detailed instructions for students to follow"
-              theme="snow"
-              value={question}
-              onChange={handleQuestionChange}
-            />
-          }
-          label={
-            <>
-              <Tooltip placement="top" title={`Delete ${label}`}>
-                <IconButton onClick={handleDeleteQuestion(id)}>
-                  <DeleteRoundedIcon color="secondary" />
-                </IconButton>
-              </Tooltip>
-              {label}
-            </>
-          }
-          labelPlacement="top"
-        />
-      </Box>
-    </>
+    <Quill
+      labelClasses={{
+        root: classes.label,
+        labelPlacementTop: classes.top,
+        label: classes.labelContent,
+      }}
+      label={
+        <>
+          <Tooltip placement="top" title={`Delete ${label}`}>
+            <IconButton onClick={handleDeleteQuestion(id)}>
+              <DeleteRoundedIcon color="secondary" />
+            </IconButton>
+          </Tooltip>
+          {label}
+        </>
+      }
+      placeholder="Write detailed instructions for students to follow"
+      question={question}
+      theme="snow"
+      onContentChange={handleQuestionChange}
+    />
   );
 };

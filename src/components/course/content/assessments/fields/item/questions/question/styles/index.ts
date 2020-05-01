@@ -8,11 +8,6 @@ export const useStyles = makeStyles((theme: Theme) => {
   };
 
   return createStyles({
-    container: {
-      [theme.breakpoints.up(`sm`)]: {
-        maxWidth: theme.breakpoints.values.sm,
-      },
-    },
     label: {
       [`& .ql-editor`]: {
         color: theme.palette.text.primary,
@@ -34,6 +29,12 @@ export const useStyles = makeStyles((theme: Theme) => {
       },
       [`& .ql-snow .ql-stroke`]: {
         stroke: theme.palette.text.primary,
+      },
+      [`& .ql-picker-item .ql-stroke`]: {
+        stroke:
+          theme.palette.type === `dark`
+            ? theme.palette.getContrastText(theme.palette.text.primary)
+            : theme.palette.text.primary,
       },
       [`& .ql-snow .ql-fill`]: {
         fill: theme.palette.text.primary,
