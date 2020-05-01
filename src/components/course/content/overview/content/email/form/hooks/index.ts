@@ -4,22 +4,26 @@ import { Callback, EmailData, User } from '@types';
 import React from 'react';
 
 interface IArgs {
+  possibleRecipients: Array<User>;
   setOpenEmailClient: Callback<boolean, void>;
   sendEmailAsync: (emailData: EmailData) => void;
 }
 
 interface IUseEmailForm {
-  recipients: Set<User>;
+  recipients: Set<string>;
   subject: string;
   message: string;
   handleRecipientsChange: Callback<React.ChangeEvent<{ value: unknown }>, void>;
-  handleSubjectChange: Callback<React.ChangeEvent<HTMLInputElement>, void>;
-  handleMessageChange: Callback<React.ChangeEvent<HTMLInputElement>, void>;
+  handleTextChange: Callback<
+    string,
+    Callback<React.ChangeEvent<HTMLInputElement>, void>
+  >;
   handleSendEmail: () => void;
   closeEmailDialog: () => void;
 }
 
 export const useEmailForm = ({
+  possibleRecipients,
   setOpenEmailClient,
   sendEmailAsync,
 }: IArgs): IUseEmailForm => {
@@ -36,33 +40,34 @@ export const useEmailForm = ({
 
   const handleRecipientsChange = (
     event: React.ChangeEvent<{ value: unknown }>
-  ) => {
-    const { options } = event.target as HTMLSelectElement;
-    updateState({ type: ActionEnum.UPDATE_RECIPIENTS, options });
-  };
-
-  const handleMessageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  ): void =>
     updateState({
-      type: ActionEnum.UPDATE_MESSAGE,
-      newMessage: event.target.value,
+      type: ActionEnum.UPDATE_RECIPIENTS,
+      emails: event.target.value as Array<string>,
     });
-  };
 
-  const handleSubjectChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTextChange = (
+    name: string
+  ): Callback<React.ChangeEvent<HTMLInputElement>, void> => (
+    event: React.ChangeEvent<HTMLInputElement>
+  ): void =>
     updateState({
-      type: ActionEnum.UPDATE_SUBJECT,
-      newSubject: event.target.value,
+      type: ActionEnum.UPDATE_TEXT,
+      name,
+      value: event.target.value,
     });
-  };
 
-  const closeEmailDialog = () => {
-    updateState({ type: ActionEnum.RESET });
-    setOpenEmailClient(false);
-  };
+  const closeEmailDialog = (): void => updateState({ type: ActionEnum.RESET });
 
   const handleSendEmail = async () => {
     updateState({ type: ActionEnum.SENDING_EMAIL });
-    sendEmailAsync({ recipients: Array.from(recipients), subject, message });
+    sendEmailAsync({
+      recipients: possibleRecipients.filter(({ email }: User): boolean =>
+        recipients.has(email)
+      ),
+      subject,
+      message,
+    });
     updateState({ type: ActionEnum.RESET });
   };
 
@@ -71,8 +76,7 @@ export const useEmailForm = ({
     subject,
     message,
     handleRecipientsChange,
-    handleSubjectChange,
-    handleMessageChange,
+    handleTextChange,
     handleSendEmail,
     closeEmailDialog,
   };

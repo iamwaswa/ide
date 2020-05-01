@@ -5,12 +5,21 @@ import { TextField } from '@material-ui/core';
 interface IProps {
   id: string;
   label: string;
-  multiline?: boolean;
-  rows?: number;
   value: string;
   onChange: Callback<React.ChangeEvent<HTMLInputElement>, void>;
+  multiline?: boolean;
+  rows?: number;
+  variant?: `standard` | `filled` | `outlined`;
 }
 
-export const Text: React.FC<IProps> = (props) => {
-  return <TextField fullWidth={true} margin="dense" type="text" {...props} />;
+export const Text: React.FC<IProps> = ({ variant = `outlined`, ...props }) => {
+  return (
+    <TextField
+      fullWidth={true}
+      margin="normal"
+      type="text"
+      variant={variant}
+      {...props}
+    />
+  );
 };

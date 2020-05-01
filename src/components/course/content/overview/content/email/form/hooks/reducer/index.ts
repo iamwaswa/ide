@@ -1,24 +1,22 @@
-import { OrNull, User } from '@types';
+import { OrNull } from '@types';
 
 export enum ActionEnum {
   UPDATE_RECIPIENTS,
-  UPDATE_MESSAGE,
-  UPDATE_SUBJECT,
+  UPDATE_TEXT,
   SENDING_EMAIL,
   ERROR,
   RESET,
 }
 
 export type Action =
-  | { type: ActionEnum.UPDATE_RECIPIENTS; options: HTMLOptionsCollection }
-  | { type: ActionEnum.UPDATE_MESSAGE; newMessage: string }
-  | { type: ActionEnum.UPDATE_SUBJECT; newSubject: string }
+  | { type: ActionEnum.UPDATE_RECIPIENTS; emails: Array<string> }
+  | { type: ActionEnum.UPDATE_TEXT; name: string; value: string }
   | { type: ActionEnum.SENDING_EMAIL }
   | { type: ActionEnum.ERROR; errorMessage: string }
   | { type: ActionEnum.RESET };
 
 export type State = {
-  recipients: Set<User>;
+  recipients: Set<string>;
   message: string;
   subject: string;
   errorMessage: OrNull<string>;
@@ -27,7 +25,7 @@ export type State = {
 };
 
 export const initialState: State = {
-  recipients: new Set<User>(),
+  recipients: new Set<string>(),
   message: ``,
   subject: ``,
   errorMessage: null,
@@ -38,24 +36,14 @@ export const initialState: State = {
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case ActionEnum.UPDATE_RECIPIENTS: {
-      const selectedOptions = Array.from(action.options).filter(
-        (option: HTMLOptionElement): boolean => option.selected
-      );
       return {
         ...state,
         resetDone: false,
-        recipients: new Set<User>(
-          selectedOptions.map(
-            ({ value }: HTMLOptionElement): User => JSON.parse(value) as User
-          )
-        ),
+        recipients: new Set<string>(action.emails),
       };
     }
-    case ActionEnum.UPDATE_MESSAGE: {
-      return { ...state, resetDone: false, message: action.newMessage };
-    }
-    case ActionEnum.UPDATE_SUBJECT: {
-      return { ...state, resetDone: false, subject: action.newSubject };
+    case ActionEnum.UPDATE_TEXT: {
+      return { ...state, resetDone: false, [action.name]: action.value };
     }
     case ActionEnum.SENDING_EMAIL: {
       return { ...state, resetDone: false, sendingEmail: true };

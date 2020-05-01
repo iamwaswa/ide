@@ -1,11 +1,19 @@
+import {
+  Box,
+  Chip,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+} from '@material-ui/core';
 import { Callback, User } from '@types';
-import { InputLabel, MenuItem, Select } from '@material-ui/core';
 
 import React from 'react';
+import { useStyles } from './styles';
 
 interface IProps {
   possibleRecipients: Array<User>;
-  recipients: Set<User>;
+  recipients: Set<string>;
   handleRecipientsChange: Callback<React.ChangeEvent<{ value: unknown }>, void>;
 }
 
@@ -14,35 +22,44 @@ export const Recipients: React.FC<IProps> = ({
   recipients,
   handleRecipientsChange,
 }) => {
+  const displayUser = React.useCallback(
+    ({ email, displayName }: User): string => `${displayName} <${email}>`,
+    []
+  );
+  const classes = useStyles();
+
   return (
-    <>
-      <InputLabel id="recipient-label" required>
-        Recipient(s)
-      </InputLabel>
+    <FormControl fullWidth={true} margin="normal">
+      <InputLabel id="recipients-label">Recipient(s)</InputLabel>
       <Select
-        required={true}
         autoFocus={true}
-        labelId="recipient-label"
-        label="Recipient(s)"
-        id="emailRecipient"
-        value={Array.from(recipients).map((recipient: User): string =>
-          JSON.stringify(recipient)
-        )}
-        onChange={handleRecipientsChange}
-        multiple={true}
         fullWidth={true}
+        id="recipients"
+        labelId="recipients-label"
+        multiple={true}
+        value={Array.from(recipients)}
+        renderValue={(): JSX.Element => (
+          <Box className={classes.recipientsContainer}>
+            {possibleRecipients
+              .filter(({ email }: User): boolean => recipients.has(email))
+              .map(
+                (user: User): JSX.Element => (
+                  <Chip key={user.email} label={displayUser(user)} />
+                )
+              )}
+          </Box>
+        )}
+        required={true}
+        onChange={handleRecipientsChange}
       >
         {possibleRecipients.map(
-          ({ displayName, email }: User): JSX.Element => (
-            <MenuItem
-              key={email}
-              value={JSON.stringify({ displayName, email })}
-            >
-              {displayName}
+          (user: User): JSX.Element => (
+            <MenuItem key={user.email} value={user.email}>
+              {displayUser(user)}
             </MenuItem>
           )
         )}
       </Select>
-    </>
+    </FormControl>
   );
 };

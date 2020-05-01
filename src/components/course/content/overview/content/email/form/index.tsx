@@ -11,6 +11,7 @@ import React from 'react';
 import { Recipients } from './recipients';
 import { Text } from './text';
 import { useEmailForm } from './hooks';
+import { useStyles } from './styles';
 
 interface IProps {
   openEmailClient: boolean;
@@ -25,52 +26,53 @@ export const EmailForm: React.FC<IProps> = ({ openEmailClient, ...props }) => {
     subject,
     message,
     handleRecipientsChange,
-    handleSubjectChange,
-    handleMessageChange,
+    handleTextChange,
     handleSendEmail,
     closeEmailDialog,
   } = useEmailForm({ ...props });
+  const classes = useStyles();
 
   return (
-    <>
-      <Dialog
-        open={openEmailClient}
-        onClose={closeEmailDialog}
-        aria-labelledby="form-dialog-title"
-      >
-        <DialogTitle>Send Email</DialogTitle>
-        <form>
-          <DialogContent>
-            <Recipients
-              possibleRecipients={props.possibleRecipients}
-              recipients={recipients}
-              handleRecipientsChange={handleRecipientsChange}
-            />
-            <Text
-              id="subject"
-              label="Subject"
-              value={subject}
-              onChange={handleSubjectChange}
-            />
-            <Text
-              id="message"
-              label="Message"
-              multiline={true}
-              rows={6}
-              value={message}
-              onChange={handleMessageChange}
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={closeEmailDialog} color="secondary">
-              Cancel
-            </Button>
-            <Button type="submit" color="primary" onClick={handleSendEmail}>
-              Send
-            </Button>
-          </DialogActions>
-        </form>
-      </Dialog>
-    </>
+    <Dialog
+      open={openEmailClient}
+      onClose={closeEmailDialog}
+      aria-labelledby="form-dialog-title"
+    >
+      <DialogTitle classes={{ root: classes.dialogTitleRoot }}>
+        Send Email
+      </DialogTitle>
+      <form onSubmit={handleSendEmail}>
+        <DialogContent classes={{ root: classes.dialogContentRoot }}>
+          <Recipients
+            possibleRecipients={props.possibleRecipients}
+            recipients={recipients}
+            handleRecipientsChange={handleRecipientsChange}
+          />
+          <Text
+            id="subject"
+            label="Subject"
+            value={subject}
+            onChange={handleTextChange(`subject`)}
+          />
+          <Text
+            id="message"
+            label="Message"
+            multiline={true}
+            rows={6}
+            value={message}
+            variant="outlined"
+            onChange={handleTextChange(`message`)}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={closeEmailDialog} color="inherit">
+            Cancel
+          </Button>
+          <Button type="submit" color="inherit">
+            Send
+          </Button>
+        </DialogActions>
+      </form>
+    </Dialog>
   );
 };
