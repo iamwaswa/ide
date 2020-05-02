@@ -57,7 +57,10 @@ export const useEmailForm = ({
       value: event.target.value,
     });
 
-  const closeEmailDialog = (): void => updateState({ type: ActionEnum.RESET });
+  const closeEmailDialog = (): void => {
+    updateState({ type: ActionEnum.RESET });
+    setOpenEmailClient(false);
+  };
 
   const handleSendEmail = async () => {
     updateState({ type: ActionEnum.SENDING_EMAIL });

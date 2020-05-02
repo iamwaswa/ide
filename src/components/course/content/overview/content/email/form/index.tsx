@@ -34,6 +34,7 @@ export const EmailForm: React.FC<IProps> = ({ openEmailClient, ...props }) => {
 
   return (
     <Dialog
+      maxWidth="sm"
       open={openEmailClient}
       onClose={closeEmailDialog}
       aria-labelledby="form-dialog-title"

@@ -34,31 +34,43 @@ export const Fields: React.FC<IProps> = ({ type }) => {
   return (
     <Fade in={true} timeout={500} mountOnEnter={true} unmountOnExit={true}>
       <>
-        <Box className={classes.fieldsContainer}>
-          <TextItem
-            helperText="Enter the name of the assignment"
-            label="Name"
-            name="name"
-            value={fields.name}
-            handleChange={handleChange}
-          />
-          <TimeItems
-            dueDate={fields.dueDate}
-            duration={fields.duration}
-            durationUnit={fields.durationUnit}
-            startDate={fields.startDate}
-            type={type}
-            updateFields={updateFields}
-          />
-          <CodeItems
-            file={fields.file}
-            type={type}
-            updateFields={updateFields}
-          />
+        <Box
+          className={`${classes.fieldsContainer} ${
+            fields.questions.size > 1 ? classes.fieldsContainerColumn : ``
+          }`}
+        >
+          <Box
+            className={`${classes.left} ${
+              fields.questions.size > 1 ? classes.leftGrow : ``
+            }`}
+          >
+            <TextItem
+              helperText="Enter the name of the assignment"
+              label="Name"
+              name="name"
+              value={fields.name}
+              handleChange={handleChange}
+            />
+            <TimeItems
+              dueDate={fields.dueDate}
+              duration={fields.duration}
+              durationUnit={fields.durationUnit}
+              startDate={fields.startDate}
+              type={type}
+              updateFields={updateFields}
+            />
+            <CodeItems
+              file={fields.file}
+              type={type}
+              updateFields={updateFields}
+            />
+          </Box>
           <QuestionsItem
             questions={fields.questions}
             updateFields={updateFields}
           />
+        </Box>
+        <Box className={classes.fieldsContainer}>
           <SubmitPrompt fields={fields} type={type} />
         </Box>
       </>

@@ -5,6 +5,7 @@ export const useStyles = makeStyles({
     paddingBlockEnd: 0,
   },
   dialogContentRoot: {
+    maxWidth: 487,
     [`&:first-child`]: {
       paddingBlockStart: 0,
     },

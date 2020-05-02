@@ -37,16 +37,24 @@ export const Recipients: React.FC<IProps> = ({
         id="recipients"
         labelId="recipients-label"
         multiple={true}
-        value={Array.from(recipients)}
+        value={recipients.size === 0 ? [``] : Array.from(recipients)}
         renderValue={(): JSX.Element => (
           <Box className={classes.recipientsContainer}>
-            {possibleRecipients
-              .filter(({ email }: User): boolean => recipients.has(email))
-              .map(
-                (user: User): JSX.Element => (
-                  <Chip key={user.email} label={displayUser(user)} />
+            {recipients.size === 0 ? (
+              <Chip label="No recipient(s) selected" />
+            ) : (
+              possibleRecipients
+                .filter(({ email }: User): boolean => recipients.has(email))
+                .map(
+                  (user: User): JSX.Element => (
+                    <Chip
+                      key={user.email}
+                      color="primary"
+                      label={displayUser(user)}
+                    />
+                  )
                 )
-              )}
+            )}
           </Box>
         )}
         required={true}

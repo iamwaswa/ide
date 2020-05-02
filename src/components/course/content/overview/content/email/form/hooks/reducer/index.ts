@@ -39,7 +39,9 @@ export const reducer = (state: State, action: Action): State => {
       return {
         ...state,
         resetDone: false,
-        recipients: new Set<string>(action.emails),
+        recipients: new Set<string>(
+          action.emails.filter((email: string): boolean => email !== ``)
+        ),
       };
     }
     case ActionEnum.UPDATE_TEXT: {
