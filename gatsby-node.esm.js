@@ -1,6 +1,19 @@
 import path from 'path';
 
-export const onCreateWebpackConfig = ({ actions }) =>
+export const onCreateWebpackConfig = ({ actions, loaders, stage }) => {
+  if (stage === `build-html`) {
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /quill/,
+            use: loaders.null(),
+          },
+        ],
+      },
+    });
+  }
+
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -16,3 +29,4 @@ export const onCreateWebpackConfig = ({ actions }) =>
       },
     },
   });
+};
