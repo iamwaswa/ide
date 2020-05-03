@@ -32,6 +32,40 @@ export const themeGenerator = (paletteType: PaletteType): Theme =>
           },
         },
       },
+      //@ts-ignore
+      MUIDataTableToolbar: {
+        left: {
+          minHeight: 67.42,
+          paddingBlockStart: `20px !important`,
+        },
+        actions: {
+          alignSelf: `flex-end`,
+          flexGrow: 0,
+        },
+      },
+      MUIDataTableSearch: {
+        searchIcon: {
+          display: `none`,
+        },
+        searchText: {
+          flexGrow: 1,
+        },
+        clearIcon: {
+          display: `none`,
+        },
+      },
+      MUIDataTableHeadCell: {
+        sortAction: {
+          position: `relative`,
+          top: 8,
+          width: 26,
+        },
+      },
+      MUIDataTableBodyRow: {
+        root: {
+          cursor: `pointer`,
+        },
+      },
     },
     palette: {
       type: paletteType,

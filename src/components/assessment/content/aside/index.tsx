@@ -8,7 +8,7 @@ import React from 'react';
 import { useAuthContext } from '@context/auth/hooks';
 import { useStyles } from './styles';
 
-export const Aside = () => {
+export const Aside: React.FC = () => {
   const { role } = useAuthContext();
   const [view, setView] = React.useState<AsideViewEnum>(AsideViewEnum.SPLIT);
   const classes = useStyles({ view });

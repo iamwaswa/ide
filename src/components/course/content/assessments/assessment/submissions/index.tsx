@@ -17,8 +17,8 @@ export const Submissions: React.FC<IProps> = ({
   show,
   submissions,
 }) => {
-  const classes = useStyles();
   const navigateToGrading = useNavigateToGrading({ assessment });
+  const classes = useStyles();
 
   return (
     <Fade in={show} timeout={500} mountOnEnter={true} unmountOnExit={true}>
