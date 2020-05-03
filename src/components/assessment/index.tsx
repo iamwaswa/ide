@@ -1,11 +1,11 @@
-import { Assignment, Quiz } from '@types';
+import { Assignment, OrUndefined, Quiz } from '@types';
 
-import { Box } from '@material-ui/core';
+import { AssessmentContextProvider } from './context';
+import { Content } from './content';
 import { PageLayout } from '@layouts/page';
 import React from 'react';
 import { navigate } from 'gatsby';
 import { useAuthContext } from '@context/auth/hooks';
-import { useStyles } from './styles';
 
 interface IProps {
   location?: {
@@ -15,7 +15,9 @@ interface IProps {
 
 export const Assessment: React.FC<IProps> = ({ location }) => {
   const { assessmentId } = useAuthContext();
-  const classes = useStyles();
+  const assessment = React.useRef<OrUndefined<Assignment | Quiz>>(
+    location?.state ?? undefined
+  );
 
   if (!assessmentId || !location?.state) {
     navigate(`/`);
@@ -24,7 +26,9 @@ export const Assessment: React.FC<IProps> = ({ location }) => {
 
   return (
     <PageLayout>
-      <Box className={classes.assessment}>Assessment page will go here...</Box>
+      <AssessmentContextProvider initialAssessment={assessment.current}>
+        <Content />
+      </AssessmentContextProvider>
     </PageLayout>
   );
 };

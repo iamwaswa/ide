@@ -4,9 +4,9 @@ import {
   CourseNavigationDrawerSection,
   Quiz,
 } from '@types';
+import { Box, Fade } from '@material-ui/core';
 
 import { AssessmentEnum } from '@enums';
-import { Box } from '@material-ui/core';
 import { Content } from './content';
 import { NavigationDrawer } from './navigationDrawer';
 import { PageLayout } from '@layouts/page';
@@ -37,25 +37,27 @@ export const Course: React.FC = () => {
 
   return (
     <PageLayout>
-      <Box className={classes.container}>
-        <NavigationDrawer
-          currentSection={currentSection}
-          setCurrentSection={setCurrentSection}
-          sections={[`overview`, `assignments`, `quizzes`]}
-        />
-        <Content
-          currentSection={currentSection}
-          course={
-            {
-              ...data,
-              overview,
-              students,
-              assignments: updatedAssignments,
-              quizzes: updatedQuizzes,
-            } as CompleteCourse
-          }
-        />
-      </Box>
+      <Fade in={true} timeout={500}>
+        <Box className={classes.container}>
+          <NavigationDrawer
+            currentSection={currentSection}
+            setCurrentSection={setCurrentSection}
+            sections={[`overview`, `assignments`, `quizzes`]}
+          />
+          <Content
+            currentSection={currentSection}
+            course={
+              {
+                ...data,
+                overview,
+                students,
+                assignments: updatedAssignments,
+                quizzes: updatedQuizzes,
+              } as CompleteCourse
+            }
+          />
+        </Box>
+      </Fade>
     </PageLayout>
   );
 };

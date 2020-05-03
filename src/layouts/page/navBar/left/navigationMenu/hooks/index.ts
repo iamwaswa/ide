@@ -4,10 +4,12 @@ import { Utils } from '@utils';
 import { useAuthContext } from '@context/auth/hooks';
 import { useParams } from '@reach/router';
 import { usePathContext } from '@context/path/hooks';
+import { useQuizContext } from '@context/quiz/hooks';
 
 export const useNavigation = (): void => {
   const { uid, courseId, courseTitle, assessmentTitle } = useAuthContext();
   const { path, setPath } = usePathContext();
+  const { setStart } = useQuizContext();
   const params = useParams();
 
   React.useEffect((): void => {
@@ -18,6 +20,7 @@ export const useNavigation = (): void => {
           return currentPath;
         }
       );
+      setStart(false);
     } else if (
       uid &&
       courseTitle &&
@@ -34,6 +37,7 @@ export const useNavigation = (): void => {
           return currentPath.set(courseTitle, ``);
         }
       );
+      setStart(false);
     } else if (
       uid &&
       courseId &&
@@ -61,5 +65,5 @@ export const useNavigation = (): void => {
         }
       );
     }
-  }, [params, path, setPath]);
+  }, [params, path, setPath, setStart]);
 };

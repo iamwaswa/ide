@@ -10,7 +10,7 @@ import {
 
 import { AssessmentEnum } from '@enums';
 import React from 'react';
-import { State } from '../../reducer';
+import { State } from '../reducer';
 import { useStyles } from './styles';
 
 interface IProps {

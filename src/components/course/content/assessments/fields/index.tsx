@@ -6,7 +6,7 @@ import { Callback } from '@types';
 import { CodeItems } from './code';
 import { QuestionsItem } from './item/questions';
 import React from 'react';
-import { SubmitPrompt } from './submit/prompt';
+import { SubmitPrompt } from './submitPrompt';
 import { TextItem } from './item/text';
 import { TimeItems } from './time';
 import { useStyles } from './styles';

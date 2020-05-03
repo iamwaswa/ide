@@ -19,3 +19,9 @@ export enum RoutesEnum {
   COURSE = '/session/:uid/courses/:courseId',
   ASSESSMENT = '/session/:uid/courses/:courseId/:assessmentId',
 }
+
+export enum AsideViewEnum {
+  SPLIT = 'SPLIT',
+  GRADING = 'GRADING',
+  QUESTIONS = 'QUESTIONS',
+}
