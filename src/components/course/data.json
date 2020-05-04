@@ -42,7 +42,11 @@
         "versionIndex": 3,
         "data": "Fake data here"
       },
-      "questions": ["Question 1", "Question 2", "Question 3"],
+      "questions": [
+        "<p>Insert code below:</p><pre class='ql-syntax' spellcheck='false'><span class='hljs-keyword'>const</span> example = <span class='hljs-function'><span class='hljs-params'>()</span> =&gt;</span> {\n\t<span class='hljs-comment'>// Enter code here...</span>\n};</pre><h1><strong><u>This is a test</u></strong></h1><p class='ql-align-center'>Pulling out all the stops</p><ol><li class='ql-indent-1'><s>This is </s></li></ol><ul><li><s>A point</s></li></ul><p>a<sub>2</sub><sup>4</sup></p>",
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quia vero itaque laudantium, excepturi minima. Facilis ea eius dignissimos dolor officia perferendis quia deleniti, ab, consequatur magni distinctio quam incidunt eum tempore quae obcaecati sequi aspernatur harum deserunt earum molestiae laudantium? Reiciendis soluta tempore nobis voluptate voluptatem fugit quod quidem!",
+        "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Animi quia vero itaque laudantium, excepturi minima. Facilis ea eius dignissimos dolor officia perferendis quia deleniti, ab, consequatur magni distinctio quam incidunt eum tempore quae obcaecati sequi aspernatur harum deserunt earum molestiae laudantium? Reiciendis soluta tempore nobis voluptate voluptatem fugit quod quidem!"
+      ],
       "submissions": [
         {
           "id": "0",

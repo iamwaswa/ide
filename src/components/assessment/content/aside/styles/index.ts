@@ -14,8 +14,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
     marginBlockEnd: `${theme.spacing()}px`,
   },
   asideElement: {
-    width: 300,
+    maxWidth: 300,
     flexBasis: `50%`,
-    marginInlineEnd: `${theme.spacing()}px`,
+    marginInlineEnd: `${theme.spacing(4)}px`,
   },
 }));

@@ -19,27 +19,19 @@ highlight.configure({
 
 export const formats = [
   `align`,
-  `background`,
   `blockquote`,
   `bold`,
   `bullet`,
   `code`,
   `code-block`,
-  `color`,
   `direction`,
-  `font`,
-  `formula`,
   `header`,
-  `image`,
   `italic`,
   `indent`,
-  `link`,
   `list`,
   `script`,
-  `size`,
   `strike`,
   `underline`,
-  `video`,
 ];
 
 export const modules = {
@@ -54,7 +46,5 @@ export const modules = {
     [`blockquote`, `code-block`],
     [{ list: `ordered` }, { list: `bullet` }],
     [{ script: `sub` }, { script: `super` }],
-    [`link`, `image`, `video`],
-    [`clean`],
   ],
 };

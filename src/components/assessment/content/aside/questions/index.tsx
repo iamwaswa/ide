@@ -1,8 +1,9 @@
 import { AsideViewEnum, RoleEnum } from '@enums';
-import { Box, Fade, Paper, Typography } from '@material-ui/core';
+import { Box, Fade, Typography } from '@material-ui/core';
 
 import { QuestionNavigation } from './navigation';
 import { Quill } from '@components/quill';
+import { QuillLoader } from '@components/quill/loader';
 import React from 'react';
 import { useAssessmentContext } from '@components/assessment/context/hooks';
 import { useAuthContext } from '@context/auth/hooks';
@@ -28,14 +29,19 @@ export const Questions: React.FC<IProps> = ({ rootStyle, view }) => {
       mountOnEnter={true}
       unmountOnExit={true}
     >
-      <Paper className={`${rootStyle} ${classes.questionsContainer}`}>
+      <Box className={`${rootStyle} ${classes.questionsContainer}`}>
         <Box className={classes.question}>
+          <QuillLoader load={true} />
           <Quill
             label={
               <Typography variant="h6">{`Question ${
                 currentQuestionIndex + 1
               }`}</Typography>
             }
+            labelClasses={{
+              root: classes.labelRoot,
+              labelPlacementTop: classes.labelPlacementTop,
+            }}
             question={assessment.questions[currentQuestionIndex]}
             theme="bubble"
           />
@@ -47,7 +53,7 @@ export const Questions: React.FC<IProps> = ({ rootStyle, view }) => {
             maxNumQuestions={assessment.questions.length}
           />
         )}
-      </Paper>
+      </Box>
     </Fade>
   ) : null;
 };
