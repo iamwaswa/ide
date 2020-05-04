@@ -20,7 +20,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
     marginBlockStart: `${theme.spacing(0.5)}px`,
     maxHeight: `78vh`,
     overflow: `scroll`,
-    position: `relative`,
     wordBreak: `break-word`,
   },
   labelRoot: {

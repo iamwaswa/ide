@@ -4,20 +4,21 @@ import React from 'react';
 import { useStyles } from './styles';
 
 interface IProps {
-  load?: boolean;
+  showLoader: boolean;
+  hideLoader: () => void;
   timeout?: number;
 }
 
 export const QuillLoader: React.FC<IProps> = ({
-  load = false,
-  timeout = 2000,
+  showLoader,
+  hideLoader,
+  timeout = 1000,
 }) => {
-  const [showLoader, setShowLoader] = React.useState<boolean>(load);
   const classes = useStyles();
 
   React.useEffect((): void => {
     setTimeout(() => {
-      setShowLoader(false);
+      hideLoader();
     }, timeout);
   }, [timeout]);
 

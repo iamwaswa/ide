@@ -3,7 +3,6 @@ import { Box, Fade, Typography } from '@material-ui/core';
 
 import { QuestionNavigation } from './navigation';
 import { Quill } from '@components/quill';
-import { QuillLoader } from '@components/quill/loader';
 import React from 'react';
 import { useAssessmentContext } from '@components/assessment/context/hooks';
 import { useAuthContext } from '@context/auth/hooks';
@@ -31,7 +30,6 @@ export const Questions: React.FC<IProps> = ({ rootStyle, view }) => {
     >
       <Box className={`${rootStyle} ${classes.questionsContainer}`}>
         <Box className={classes.question}>
-          <QuillLoader load={true} />
           <Quill
             label={
               <Typography variant="h6">{`Question ${
@@ -42,6 +40,7 @@ export const Questions: React.FC<IProps> = ({ rootStyle, view }) => {
               root: classes.labelRoot,
               labelPlacementTop: classes.labelPlacementTop,
             }}
+            load={true}
             question={assessment.questions[currentQuestionIndex]}
             theme="bubble"
           />
