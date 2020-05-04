@@ -1,5 +1,6 @@
 import { Theme, createMuiTheme } from '@material-ui/core/styles';
 
+import { EditorThemeEnum } from '@enums';
 import { PaletteType } from '@material-ui/core';
 
 export const themeGenerator = (paletteType: PaletteType): Theme =>
@@ -82,3 +83,19 @@ export const themeGenerator = (paletteType: PaletteType): Theme =>
       },
     },
   });
+
+const editorDarkThemeColor = `rgb(32,33,36)`;
+const editorLightThemeColor = `rgb(255,255,254)`;
+
+export const getEditorBackgroundColor = (theme: EditorThemeEnum): string => {
+  switch (theme) {
+    case EditorThemeEnum.DARK: {
+      return editorDarkThemeColor;
+    }
+    case EditorThemeEnum.LIGHT: {
+      return editorLightThemeColor;
+    }
+    default:
+      throw new Error(`Unknown editor theme: ${theme}`);
+  }
+};

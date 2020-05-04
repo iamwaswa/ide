@@ -40,14 +40,6 @@
     "languageDisplay": "GO Lang"
   },
   {
-    "language": "sql",
-    "languageDisplay": "SQL"
-  },
-  {
-    "language": "csharp",
-    "languageDisplay": "C#"
-  },
-  {
     "language": "nodejs",
     "languageDisplay": "NodeJS"
   }

@@ -3,18 +3,7 @@ import 'highlight.js/styles/vs2015.css';
 import highlight from 'highlight.js';
 
 highlight.configure({
-  languages: [
-    `java`,
-    `c`,
-    `cpp`,
-    `php`,
-    `python`,
-    `ruby`,
-    `go`,
-    `sql`,
-    `csharp`,
-    `javascript`,
-  ],
+  languages: [`java`, `c`, `cpp`, `php`, `python`, `ruby`, `go`, `javascript`],
 });
 
 export const formats = [

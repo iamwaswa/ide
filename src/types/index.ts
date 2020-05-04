@@ -1,4 +1,4 @@
-import { AssessmentEnum } from '@enums';
+import { AssessmentEnum, ConsoleTabEnum, EditorLanguageEnum } from '@enums';
 
 export type Callback<T, U> = (args: T) => U;
 
@@ -26,7 +26,7 @@ export type Grade = {
 
 export type AssessmentFile = {
   name: string;
-  language: string;
+  language: EditorLanguageEnum;
   lastModified: Date;
   versionIndex: number;
   data: string;
@@ -67,7 +67,7 @@ export type Submission = {
   id: string;
   student: User;
   feedback?: Feedback;
-  file?: File;
+  file?: AssessmentFile;
   grade?: Grade;
   testCases?: Array<TestCase>;
 };
@@ -75,6 +75,7 @@ export type Submission = {
 export type Assessment = {
   id: string;
   name: string;
+  testCaseSchema: TestCase;
   type: AssessmentEnum;
   script: string;
   file: AssessmentFile;
@@ -108,3 +109,11 @@ export type EmailData = {
   subject: string;
   message: string;
 };
+
+export type UseUpdateTestCase = [
+  boolean,
+  string | undefined,
+  (testCase: TestCase) => void
+];
+
+export type ConsoleTab = { title: ConsoleTabEnum; component: JSX.Element };

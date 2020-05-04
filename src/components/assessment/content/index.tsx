@@ -1,6 +1,8 @@
 import { Aside } from './aside';
 import { AssessmentEnum } from '@enums';
 import { Fade } from '@material-ui/core';
+import { IDE } from './ide';
+import { IDEStylesContextProvider } from './ide/context';
 import { QuizPrompt } from './quizPrompt';
 import React from 'react';
 import { useAssessmentContext } from '../context/hooks';
@@ -27,6 +29,9 @@ export const Content: React.FC = () => {
           unmountOnExit={true}
         >
           <Aside />
+          <IDEStylesContextProvider>
+            <IDE />
+          </IDEStylesContextProvider>
         </Fade>
       )}
     </>
