@@ -6,12 +6,18 @@ import { TabEnum } from '../context/reducer';
 import { useGradingContext } from '../context/hooks';
 
 interface IProps {
+  constrainWidthClassName: string;
   show: boolean;
   tab: TabEnum;
   view: AsideViewEnum;
 }
 
-export const Comments: React.FC<IProps> = ({ show, tab, view }) => {
+export const Comments: React.FC<IProps> = ({
+  constrainWidthClassName,
+  show,
+  tab,
+  view,
+}) => {
   const { comments, updateComments } = useGradingContext();
 
   return show ? (
@@ -21,9 +27,11 @@ export const Comments: React.FC<IProps> = ({ show, tab, view }) => {
       aria-labelledby={`${tab}-tab`}
     >
       <TextField
-        autoFocus
-        fullWidth
-        multiline
+        className={constrainWidthClassName}
+        autoFocus={true}
+        color="secondary"
+        fullWidth={true}
+        multiline={true}
         placeholder="Enter comments here..."
         rows={view === AsideViewEnum.GRADING ? 25 : 9}
         size="medium"

@@ -1,13 +1,12 @@
 import { ActionEnum, TabEnum, initialState, reducer } from './reducer';
 
-import { OrNull } from '@types';
 import React from 'react';
 
 export interface IUseGradingContext {
   annotate: boolean;
-  comments: OrNull<string>;
-  score: OrNull<number>;
-  total: OrNull<number>;
+  comments: string;
+  score: number;
+  total: number;
   tab: TabEnum;
   toggleAnnotate: () => void;
   updateComments: (event: React.ChangeEvent<HTMLInputElement>) => void;

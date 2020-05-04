@@ -10,10 +10,17 @@ import { useStyles } from './styles';
 
 interface IProps {
   rootStyle: string;
+  showLoader: boolean;
+  hideLoader: () => void;
   view: AsideViewEnum;
 }
 
-export const Questions: React.FC<IProps> = ({ rootStyle, view }) => {
+export const Questions: React.FC<IProps> = ({
+  rootStyle,
+  showLoader,
+  hideLoader,
+  view,
+}) => {
   const { assessment } = useAssessmentContext();
   const { role } = useAuthContext();
   const classes = useStyles({ view, student: role === RoleEnum.STUDENT });
@@ -28,7 +35,11 @@ export const Questions: React.FC<IProps> = ({ rootStyle, view }) => {
       mountOnEnter={true}
       unmountOnExit={true}
     >
-      <Box className={`${rootStyle} ${classes.questionsContainer}`}>
+      <Box
+        className={`${rootStyle} ${classes.questionsContainer} ${
+          view === AsideViewEnum.SPLIT ? classes.extraMargin : ``
+        }`}
+      >
         <Box className={classes.question}>
           <Quill
             label={
@@ -40,7 +51,8 @@ export const Questions: React.FC<IProps> = ({ rootStyle, view }) => {
               root: classes.labelRoot,
               labelPlacementTop: classes.labelPlacementTop,
             }}
-            load={true}
+            showQuillLoader={showLoader}
+            hideQuillLoader={hideLoader}
             question={assessment.questions[currentQuestionIndex]}
             theme="bubble"
           />

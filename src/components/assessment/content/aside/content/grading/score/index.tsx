@@ -7,11 +7,16 @@ import { useScore } from './hooks';
 import { useStyles } from './styles';
 
 interface IProps {
+  constrainWidthClassName: string;
   show: boolean;
   tab: TabEnum;
 }
 
-export const Score: React.FC<IProps> = ({ show, tab }) => {
+export const Score: React.FC<IProps> = ({
+  constrainWidthClassName,
+  show,
+  tab,
+}) => {
   const { score, total, updateScore, updateTotal } = useGradingContext();
   const classes = useStyles();
   const { displayText, getAriaValueText } = useScore();
@@ -22,23 +27,28 @@ export const Score: React.FC<IProps> = ({ show, tab }) => {
       id={`tab-panel-${tab}`}
       aria-labelledby={`${tab}-tab`}
     >
-      <Box className={classes.variants}>
-        <TextField
-          label="Total"
-          size="medium"
-          type="number"
-          value={total}
-          variant="outlined"
-          onChange={updateTotal}
-        />
-      </Box>
-      <Typography id="slider" gutterBottom>
+      <TextField
+        className={`${classes.total} ${constrainWidthClassName}`}
+        autoFocus={true}
+        color="secondary"
+        fullWidth={true}
+        helperText="What is the highest score?"
+        label="Total"
+        size="medium"
+        type="number"
+        value={total}
+        variant="outlined"
+        onChange={updateTotal}
+      />
+      <Typography id="slider" gutterBottom={true}>
         {`${displayText}`}
       </Typography>
       <Slider
+        classes={{ root: constrainWidthClassName }}
+        color="secondary"
         min={0}
-        max={total ?? 0}
-        value={score ?? 0}
+        max={total}
+        value={score}
         onChange={updateScore}
         getAriaValueText={getAriaValueText}
         aria-labelledby="slider"

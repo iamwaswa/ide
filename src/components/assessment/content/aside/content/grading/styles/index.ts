@@ -12,13 +12,16 @@ export const useStyles = makeStyles((theme: Theme) => ({
       view === AsideViewEnum.QUESTIONS ? `none` : `block`,
     flexGrow: ({ view }: IStylesProps): number =>
       view === AsideViewEnum.GRADING ? 1 : 0,
-    marginBlockStart: ({ view }: IStylesProps): number | string =>
-      view === AsideViewEnum.GRADING ? 0 : `${theme.spacing()}px`,
+    marginBlockStart: 0,
+    minWidth: 300,
   },
   tabRoot: {
     minWidth: `inherit`,
   },
   content: {
-    padding: theme.spacing(),
+    marginBlockStart: `${theme.spacing(3)}px`,
+  },
+  constrainWidth: {
+    width: `85%`,
   },
 }));

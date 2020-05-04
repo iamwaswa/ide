@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGradingContext } from './../../context/hooks';
+import { useGradingContext } from '../../context/hooks';
 
 interface IUseScore {
   displayText: string;

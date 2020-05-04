@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { GradingContext, IUseGradingContext } from '../';
+import { GradingContext, IUseGradingContext } from '..';
 
 export const useGradingContext = (): IUseGradingContext => {
   const {

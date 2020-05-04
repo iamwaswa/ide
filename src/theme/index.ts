@@ -29,6 +29,11 @@ export const themeGenerator = (paletteType: PaletteType): Theme =>
             display: `flex`,
             flexDirection: `column`,
             height: `100%`,
+            [`& > div`]: {
+              height: `100%`,
+              display: `flex`,
+              flexDirection: `column`,
+            },
           },
         },
       },

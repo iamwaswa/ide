@@ -13,7 +13,6 @@ export const useStyles = makeStyles((theme: Theme) => ({
       view === AsideViewEnum.GRADING ? `none` : `block`,
     flexGrow: ({ student, view }: IStylesProps) =>
       student || view === AsideViewEnum.QUESTIONS ? 1 : 0,
-    padding: theme.spacing(2),
   },
   question: {
     margin: 0,
@@ -30,5 +29,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
   },
   labelPlacementTop: {
     alignItems: `flex-start`,
+  },
+  extraMargin: {
+    marginBlockEnd: `${theme.spacing(2)}px`,
   },
 }));

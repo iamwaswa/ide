@@ -18,8 +18,9 @@ interface IProps {
     label?: string;
   };
   placeholder?: string;
-  load?: boolean;
+  showQuillLoader?: boolean;
   timeout?: number;
+  hideQuillLoader?: () => void;
   onContentChange?: Callback<string, void>;
 }
 
@@ -29,14 +30,12 @@ export const Quill: React.FC<IProps> = ({
   theme,
   labelClasses,
   placeholder,
-  load = false,
+  showQuillLoader = false,
+  hideQuillLoader,
   timeout,
   onContentChange,
 }) => {
-  const [showLoader, setShowLoader] = React.useState<boolean>(load);
   const classes = useStyles();
-
-  const hideLoader = (): void => setShowLoader(false);
 
   return (
     <>
@@ -47,11 +46,11 @@ export const Quill: React.FC<IProps> = ({
         />
       </Helmet>
       <QuillLoader
-        showLoader={showLoader}
-        hideLoader={hideLoader}
+        showLoader={showQuillLoader}
+        hideLoader={hideQuillLoader}
         timeout={timeout}
       />
-      <Fade in={!showLoader} timeout={500}>
+      <Fade in={!showQuillLoader} timeout={500}>
         <Box className={classes.container}>
           <FormControlLabel
             classes={labelClasses}

@@ -5,7 +5,7 @@ import { useStyles } from './styles';
 
 interface IProps {
   showLoader: boolean;
-  hideLoader: () => void;
+  hideLoader?: () => void;
   timeout?: number;
 }
 
@@ -18,7 +18,7 @@ export const QuillLoader: React.FC<IProps> = ({
 
   React.useEffect((): void => {
     setTimeout(() => {
-      hideLoader();
+      hideLoader?.();
     }, timeout);
   }, [timeout]);
 

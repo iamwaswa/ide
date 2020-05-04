@@ -1,4 +1,4 @@
-import { Box, Fade, Paper, Tab, Tabs } from '@material-ui/core';
+import { Box, Fade, Tab, Tabs } from '@material-ui/core';
 
 import { Annotate } from './annotate';
 import { AsideViewEnum } from '@enums';
@@ -22,16 +22,11 @@ export const Grading: React.FC<IProps> = ({ rootStyle, view }) => {
     <Fade
       in={view !== AsideViewEnum.QUESTIONS}
       timeout={500}
-      mountOnEnter
-      unmountOnExit
+      mountOnEnter={true}
+      unmountOnExit={true}
     >
-      <Paper className={`${rootStyle} ${classes.gradingContainer}`}>
-        <Tabs
-          centered
-          value={tab}
-          onChange={updateTab}
-          aria-label="grading-tabs"
-        >
+      <Box className={`${rootStyle} ${classes.gradingContainer}`}>
+        <Tabs value={tab} onChange={updateTab} aria-label="grading-tabs">
           {Object.values(TabEnum).map(
             (tabOption: TabEnum): JSX.Element => (
               <Tab
@@ -48,15 +43,24 @@ export const Grading: React.FC<IProps> = ({ rootStyle, view }) => {
           )}
         </Tabs>
         <Box className={classes.content}>
-          <Score show={tab === TabEnum.SCORE} tab={TabEnum.SCORE} />
+          <Score
+            constrainWidthClassName={classes.constrainWidth}
+            show={tab === TabEnum.SCORE}
+            tab={TabEnum.SCORE}
+          />
           <Comments
+            constrainWidthClassName={classes.constrainWidth}
             view={view}
             show={tab === TabEnum.COMMENTS}
             tab={TabEnum.COMMENTS}
           />
-          <Annotate show={tab === TabEnum.ANNOTATE} tab={TabEnum.ANNOTATE} />
+          <Annotate
+            constrainWidthClassName={classes.constrainWidth}
+            show={tab === TabEnum.ANNOTATE}
+            tab={TabEnum.ANNOTATE}
+          />
         </Box>
-      </Paper>
+      </Box>
     </Fade>
   );
 };
