@@ -1,6 +1,6 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { Theme, makeStyles } from '@material-ui/core/styles';
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme: Theme) => ({
   [`@keyframes dotAnimation`]: {
     [`0%`]: {
       opacity: 0.2,
@@ -18,6 +18,7 @@ export const useStyles = makeStyles({
     animationIterationCount: `infinite`,
     animationFillMode: `both`,
     animationTimingFunction: `ease-in-out`,
+    color: theme.palette.grey[700],
   },
   secondDot: {
     animationDelay: `0.2s`,
@@ -25,4 +26,4 @@ export const useStyles = makeStyles({
   thirdDot: {
     animationDelay: `0.4s`,
   },
-});
+}));

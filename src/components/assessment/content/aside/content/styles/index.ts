@@ -7,13 +7,22 @@ interface IStylesProps {
 }
 
 export const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    flexGrow: 1,
+  wrapper: {
     display: `flex`,
+    flexDirection: `column`,
+    [`& > div:first-of-type`]: {
+      margin: theme.spacing(2, 0, 0, 2),
+    },
+    width: 300,
+  },
+  container: {
+    display: `flex`,
+    flex: `0 1 300px`,
     flexDirection: `column`,
     alignItems: `stretch`,
     justifyContent: `stretch`,
     height: `100%`,
+    minWidth: 300,
     padding: theme.spacing(2),
   },
   buttonGroup: {

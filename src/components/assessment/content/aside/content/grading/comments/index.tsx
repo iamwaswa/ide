@@ -33,7 +33,7 @@ export const Comments: React.FC<IProps> = ({
         fullWidth={true}
         multiline={true}
         placeholder="Enter comments here..."
-        rows={view === AsideViewEnum.GRADING ? 25 : 9}
+        rows={view === AsideViewEnum.GRADING ? 25 : 5}
         size="medium"
         type="text"
         value={comments}

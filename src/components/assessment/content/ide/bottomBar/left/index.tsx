@@ -44,20 +44,19 @@ export const BottomBarLeft: React.FC<IProps> = ({
   };
 
   return (
-    <Box className={classes.root}>
+    <Box className={classes.container}>
       <Button
         color="primary"
-        variant="outlined"
-        endIcon={showConsole ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
+        variant="contained"
+        startIcon={showConsole ? <ArrowDropDownIcon /> : <ArrowDropUpIcon />}
         onClick={handleToggleConsole}
       >
         Console
       </Button>
       <Button
-        className={classes.downloadFile}
         color="secondary"
-        variant="outlined"
-        endIcon={<CloudDownloadIcon />}
+        variant="contained"
+        startIcon={<CloudDownloadIcon />}
         onClick={downloadFile}
       >
         Download file

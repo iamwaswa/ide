@@ -4,12 +4,14 @@ import { Questions } from './questions';
 import React from 'react';
 import { useStyles } from './content/styles';
 
-export const Aside: React.FC = () => {
-  const [showLoader, setShowLoader] = React.useState<boolean>(true);
+interface IProps {
+  showLoader: boolean;
+  hideLoader: () => void;
+}
+
+export const Aside: React.FC<IProps> = ({ showLoader, hideLoader }) => {
   const [view, setView] = React.useState<AsideViewEnum>(AsideViewEnum.SPLIT);
   const classes = useStyles({ view });
-
-  const hideLoader = (): void => setShowLoader(false);
 
   return (
     <Content showLoader={showLoader} view={view} setView={setView}>

@@ -7,5 +7,9 @@ export const useStyles = makeStyles((theme: Theme) => ({
     justifyContent: `space-between`,
     paddingRight: theme.spacing(0.125),
     backgroundColor: theme.palette.grey[300],
+    color: theme.palette.grey[900],
+  },
+  icon: {
+    color: theme.palette.grey[600],
   },
 }));

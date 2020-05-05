@@ -1,11 +1,12 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { Theme, makeStyles } from '@material-ui/core/styles';
 
 interface IStylesProps {
   expandConsole: boolean;
 }
 
-export const useStyles = makeStyles({
+export const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    backgroundColor: theme.palette.grey[100],
     display: `flex`,
     flexGrow: ({ expandConsole }: IStylesProps): number =>
       expandConsole ? 1 : 0,
@@ -14,6 +15,7 @@ export const useStyles = makeStyles({
     flexDirection: `column`,
     justifyContent: `flex-start`,
     alignItems: `stretch`,
+    padding: theme.spacing(),
   },
   rootDefault: {
     display: `none`,
@@ -23,4 +25,4 @@ export const useStyles = makeStyles({
     alignItems: `stretch`,
     height: `100%`,
   },
-});
+}));

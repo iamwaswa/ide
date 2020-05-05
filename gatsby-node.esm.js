@@ -1,3 +1,4 @@
+import MonacoWebpackPlugin from 'monaco-editor-webpack-plugin';
 import path from 'path';
 
 export const onCreateWebpackConfig = ({ actions, loaders, stage }) => {
@@ -15,6 +16,11 @@ export const onCreateWebpackConfig = ({ actions, loaders, stage }) => {
   }
 
   actions.setWebpackConfig({
+    plugins: [
+      new MonacoWebpackPlugin({
+        languages: ['cpp', 'go', 'java', 'javascript', 'php', 'python', 'ruby'],
+      }),
+    ],
     resolve: {
       alias: {
         /* eslint-disable */

@@ -2,6 +2,7 @@ import { Theme, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) => ({
   root: {
+    color: theme.palette.grey[700],
     marginBlockEnd: `${theme.spacing()}px`,
   },
   testCaseTitle: {

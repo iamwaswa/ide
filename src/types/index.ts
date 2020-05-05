@@ -1,4 +1,6 @@
-import { AssessmentEnum, ConsoleTabEnum, EditorLanguageEnum } from '@enums';
+import { AssessmentEnum, ConsoleTabEnum, LanguageEnum } from '@enums';
+
+import monacoEditor from 'monaco-editor';
 
 export type Callback<T, U> = (args: T) => U;
 
@@ -26,7 +28,7 @@ export type Grade = {
 
 export type AssessmentFile = {
   name: string;
-  language: EditorLanguageEnum;
+  language: LanguageEnum;
   lastModified: Date;
   versionIndex: number;
   data: string;
@@ -117,3 +119,5 @@ export type UseUpdateTestCase = [
 ];
 
 export type ConsoleTab = { title: ConsoleTabEnum; component: JSX.Element };
+
+export type Editor = monacoEditor.editor.IStandaloneCodeEditor;

@@ -1,10 +1,7 @@
 import { Theme, makeStyles } from '@material-ui/core/styles';
 
 export const useStyles = makeStyles((theme: Theme) => ({
-  container: {
-    display: `flex`,
-    [`& button + button`]: {
-      marginInlineStart: `${theme.spacing()}px`,
-    },
+  add: {
+    margin: theme.spacing(0.5, 0, 0, 0),
   },
 }));

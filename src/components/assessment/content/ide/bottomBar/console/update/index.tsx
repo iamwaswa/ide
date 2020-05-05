@@ -12,6 +12,7 @@ interface IProps {
   testCase: TestCase;
   updating: boolean;
   updateTriggerAsync: (testCase: TestCase) => void;
+  add?: boolean;
   error?: string;
   testCaseNumber?: number;
 }
@@ -21,6 +22,7 @@ export const Update: React.FC<IProps> = ({
   testCaseNumber,
   updating,
   error,
+  add,
   updateTriggerAsync,
 }) => {
   const {
@@ -68,7 +70,7 @@ export const Update: React.FC<IProps> = ({
           updating={updating}
         />
       </Dialog>
-      <Trigger handleShowDialog={handleToggleDialog(true)} />
+      <Trigger add={add} handleShowDialog={handleToggleDialog(true)} />
     </>
   );
 };

@@ -81,6 +81,16 @@
               "id": "0",
               "inputs": [{ "name": "a", "value": "8" }],
               "output": "true"
+            },
+            {
+              "id": "1",
+              "inputs": [{ "name": "a", "value": "8" }],
+              "output": "true"
+            },
+            {
+              "id": "2",
+              "inputs": [{ "name": "a", "value": "8" }],
+              "output": "true"
             }
           ]
         }

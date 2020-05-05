@@ -1,17 +1,25 @@
 // import { MAKE_STUDENT_SUBMISSION_MUTATION } from '../../../graphql';
-import { OrNull } from '@types';
+import { Editor, OrNull } from '@types';
+
 import React from 'react';
 import { useAssessmentContext } from '@components/assessment/context/hooks';
+
 // import { useAuthContext } from '@context/auth/hooks';
 // import { useDebounce } from '../../../../../../hooks/debounce';
 // import { useMutationGraphQL } from '../../../../../../hooks/graphql';
 // import { useUpdateMakeSubmissionCache } from '../../update';
 
 interface IArgs {
-  editor: any;
+  editor: OrNull<Editor>;
 }
 
-export const useSubmission = ({ editor }: IArgs) => {
+interface IUseSubmission {
+  getEditorValue: () => string;
+  throttledSendSubmissionAsync: () => void;
+  submittedDate: OrNull<string>;
+}
+
+export const useSubmission = ({ editor }: IArgs): IUseSubmission => {
   // const { uid, courseId, assessmentId } = useAuthContext();
   const { assessment } = useAssessmentContext();
   // const { setOptions } = useMutationGraphQL(MAKE_STUDENT_SUBMISSION_MUTATION);

@@ -1,5 +1,4 @@
-import { Box, Typography } from '@material-ui/core';
-
+import { Box } from '@material-ui/core';
 import { ConsoleComponent } from '../component';
 import React from 'react';
 import { RoleEnum } from '@enums';
@@ -29,7 +28,6 @@ export const TestCases = () => {
     <ConsoleComponent>
       {role === RoleEnum.STUDENT && (
         <>
-          <Typography className={classes.title}>Your test cases</Typography>
           <Box className={classes.testCasesContainer}>
             {testCases.map((testCase, index) => (
               <TestCaseItem
@@ -48,6 +46,7 @@ export const TestCases = () => {
           </Box>
           <Box className={classes.addMargin}>
             <Update
+              add={true}
               testCase={{ id: ``, inputs: [], output: `` }}
               updating={addingTestCase}
               error={addError}

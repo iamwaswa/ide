@@ -1,14 +1,17 @@
+import { Box, Fade } from '@material-ui/core';
+
 import { BottomBar } from './bottomBar';
-import { Box } from '@material-ui/core';
 import { CodeEditor } from './editor';
 import React from 'react';
 import { useIDE } from './hooks';
 import { useIDEStylesContext } from './context/hooks';
 import { useStyles } from './styles';
 
-export const IDE = () => {
-  const borderRadius = useIDEStylesContext();
-  const classes = useStyles({ borderRadius });
+interface IProps {
+  loading: boolean;
+}
+
+export const IDE: React.FC<IProps> = ({ loading }) => {
   const {
     editorLanguage,
     editorTheme,
@@ -16,20 +19,22 @@ export const IDE = () => {
     setEditor,
     submittedDate,
   } = useIDE();
+  const borderRadius = useIDEStylesContext();
+  const classes = useStyles({ borderRadius });
 
   return (
-    <Box className={classes.root}>
-      <Box className={classes.codeEditor}>
+    <Fade in={!loading} timeout={500} mountOnEnter={true} unmountOnExit={true}>
+      <Box className={classes.container}>
         <CodeEditor
           editorLanguage={editorLanguage}
           editorTheme={editorTheme}
           setEditor={setEditor}
         />
+        <BottomBar
+          getEditorValue={getEditorValue}
+          submittedDate={submittedDate}
+        />
       </Box>
-      <BottomBar
-        getEditorValue={getEditorValue}
-        submittedDate={submittedDate}
-      />
-    </Box>
+    </Fade>
   );
 };

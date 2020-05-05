@@ -31,7 +31,7 @@ export const Content: React.FC<IProps> = ({
     setView(newView);
 
   return (
-    <Box className={classes.container}>
+    <Box className={classes.wrapper}>
       {showInstructorContent && (
         <Fade in={true} timeout={500}>
           <ButtonGroup
@@ -54,14 +54,16 @@ export const Content: React.FC<IProps> = ({
           </ButtonGroup>
         </Fade>
       )}
-      {children}
-      {showInstructorContent && (
-        <Fade in={true} timeout={500}>
-          <GradingContextProvider>
-            <Grading rootStyle={classes.asideElement} view={view} />
-          </GradingContextProvider>
-        </Fade>
-      )}
+      <Box className={classes.container}>
+        {children}
+        {showInstructorContent && (
+          <Fade in={true} timeout={500}>
+            <GradingContextProvider>
+              <Grading rootStyle={classes.asideElement} view={view} />
+            </GradingContextProvider>
+          </Fade>
+        )}
+      </Box>
     </Box>
   );
 };

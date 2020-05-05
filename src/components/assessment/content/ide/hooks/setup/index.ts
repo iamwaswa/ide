@@ -1,10 +1,12 @@
+import { Editor, OrNull } from '@types';
 import { EditorLanguageEnum, EditorThemeEnum } from '@enums';
 
 import React from 'react';
+import { languageToEditorLanguage } from './utils';
 import { useAssessmentContext } from '@components/assessment/context/hooks';
 
 interface IArgs {
-  editor: any;
+  editor: OrNull<Editor>;
 }
 
 interface IUseIDESetup {
@@ -18,19 +20,14 @@ export const useIDESetup = ({ editor }: IArgs): IUseIDESetup => {
   const editorTheme = React.useRef<EditorThemeEnum>(EditorThemeEnum.DARK);
   const [editorLanguage, setEditorLanguage] = React.useState<
     EditorLanguageEnum
-  >(EditorLanguageEnum.NODEJS);
+  >(EditorLanguageEnum.JAVASCRIPT);
 
   React.useEffect(() => {
-    if (editorLanguage !== assessment?.file.language) {
-      setEditorLanguage(
-        (currentLanguage: EditorLanguageEnum): EditorLanguageEnum =>
-          assessment?.file.language ?? currentLanguage
-      );
-    }
+    setEditorLanguage(languageToEditorLanguage(assessment?.file?.language));
 
-    if (editor && !loadedFileData) {
-      editor.setValue(
-        assessment?.file.data
+    if (!loadedFileData && assessment) {
+      editor?.setValue(
+        assessment.file.data
           .replace(/\\n/g, `\n`)
           .replace(/\\t/g, `\t`)
           .replace(/\\b/g, `\b`)

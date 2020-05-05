@@ -1,13 +1,23 @@
-import { OrNull } from '@types';
+import { Callback, Editor, OrNull } from '@types';
+import { EditorLanguageEnum, EditorThemeEnum, RoleEnum } from '@enums';
+
 import React from 'react';
-import { RoleEnum } from '@enums';
 import { useAuthContext } from '@context/auth/hooks';
 import { useIDESetup } from './setup';
 import { useSubmission } from './submission';
 
-export const useIDE = () => {
+interface IUseIDE {
+  editor: OrNull<Editor>;
+  getEditorValue: () => string;
+  setEditor: Callback<OrNull<Editor>, void>;
+  editorLanguage: EditorLanguageEnum;
+  editorTheme: EditorThemeEnum;
+  submittedDate: OrNull<string>;
+}
+
+export const useIDE = (): IUseIDE => {
   const { role } = useAuthContext();
-  const [editor, setEditor] = React.useState<OrNull<any>>(null);
+  const [editor, setEditor] = React.useState<OrNull<Editor>>(null);
   const {
     getEditorValue,
     throttledSendSubmissionAsync,
@@ -16,7 +26,7 @@ export const useIDE = () => {
   const { editorLanguage, editorTheme } = useIDESetup({ editor });
 
   React.useEffect(() => {
-    editor?.onDidChangeModelContent(() => {
+    editor?.onDidChangeModelContent((): void => {
       if (role === RoleEnum.STUDENT) {
         throttledSendSubmissionAsync();
       }

@@ -1,14 +1,16 @@
+import { Callback, Editor } from '@types';
+
 import { Box } from '@material-ui/core';
-import { Callback } from '@types';
 import { EditorThemeEnum } from '@enums';
-import MonacoEditor from '@monaco-editor/react';
+import MonacoEditor from 'react-monaco-editor';
 import React from 'react';
+import { useIDEStylesContext } from '../context/hooks';
 import { useStyles } from './styles';
 
 interface IProps {
   editorTheme: EditorThemeEnum;
   editorLanguage: string;
-  setEditor: Callback<any, void>;
+  setEditor: Callback<Editor, void>;
 }
 
 export const CodeEditor: React.FC<IProps> = ({
@@ -16,29 +18,20 @@ export const CodeEditor: React.FC<IProps> = ({
   editorLanguage,
   editorTheme,
 }) => {
-  const [editorLoaded, setEditorLoaded] = React.useState<boolean>(false);
-  const [containerHeight, setContainerHeight] = React.useState<number>(0);
+  const borderRadius = useIDEStylesContext();
   const classes = useStyles({
-    editorTheme,
+    borderRadius,
   });
   const containerRef = React.useRef<HTMLElement>(null);
 
-  React.useEffect(() => {
-    if (!editorLoaded && containerRef.current) {
-      setContainerHeight(containerRef.current.offsetHeight);
-    }
-  }, [containerRef, editorLoaded]);
-
-  const handleEditorDidMount = (_: () => string, editor: any): void => {
-    setEditorLoaded(true);
-    setEditor(editor);
-  };
+  const handleEditorDidMount = (editor: Editor): void => setEditor(editor);
 
   return (
     <Box className={classes.container}>
       <section className={classes.editorContainer} ref={containerRef}>
         <MonacoEditor
-          height={editorLoaded ? `${containerHeight}px` : `98%`}
+          height="100%"
+          width="100%"
           language={editorLanguage}
           theme={editorTheme}
           editorDidMount={handleEditorDidMount}

@@ -27,25 +27,34 @@ export enum AsideViewEnum {
 }
 
 export enum EditorThemeEnum {
-  DARK = 'dark',
-  LIGHT = 'light',
+  DARK = 'vs-dark',
+  LIGHT = 'vs',
 }
 
-export enum EditorLanguageEnum {
-  C = 'c',
+export enum LanguageEnum {
   CPP = 'cpp',
   CPP14 = 'cpp14',
   CPP17 = 'cpp17',
   GO = 'go',
   JAVA = 'java',
-  NODEJS = 'javascript',
+  NODEJS = 'nodejs',
   PHP = 'php',
-  PYTHON3 = 'python',
-  PYTHON2 = 'python',
+  PYTHON2 = 'python2',
+  PYTHON3 = 'python3',
+  RUBY = 'ruby',
+}
+
+export enum EditorLanguageEnum {
+  CPP = 'cpp',
+  GO = 'go',
+  JAVA = 'java',
+  JAVASCRIPT = 'javascript',
+  PHP = 'php',
+  PYTHON = 'python',
   RUBY = 'ruby',
 }
 
 export enum ConsoleTabEnum {
-  OUTPUT,
-  TEST_CASES,
+  OUTPUT = 'Output',
+  TEST_CASES = 'Test cases',
 }

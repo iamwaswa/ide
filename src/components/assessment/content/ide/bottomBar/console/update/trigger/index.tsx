@@ -4,18 +4,22 @@ import AddIcon from '@material-ui/icons/Add';
 import EditRoundedIcon from '@material-ui/icons/EditRounded';
 import { Fab } from '@material-ui/core';
 import React from 'react';
+import { useStyles } from './styles';
 
 interface IProps {
   handleShowDialog: () => void;
-  schema?: boolean;
+  add?: boolean;
 }
 
 export const Trigger: React.FC<IProps> = ({
   handleShowDialog,
-  schema = false,
-}) =>
-  schema ? (
+  add = false,
+}) => {
+  const classes = useStyles();
+
+  return add ? (
     <Fab
+      className={classes.add}
       color="primary"
       aria-label="add"
       variant="extended"
@@ -31,3 +35,4 @@ export const Trigger: React.FC<IProps> = ({
       </IconButton>
     </Tooltip>
   );
+};

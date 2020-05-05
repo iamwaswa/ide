@@ -11,7 +11,7 @@ export const useStyles = makeStyles({
   },
   collapse: {
     position: `absolute`,
-    bottom: `55px`,
+    bottom: 41,
     left: 0,
     right: 0,
     height: ({ expandConsole }: IStylesProps): string =>

@@ -4,6 +4,7 @@ import { ConsoleComponent } from '../component';
 import { Dots } from './dots';
 import { OutputDisplay } from './display';
 import React from 'react';
+import { useStyles } from './styles';
 
 interface IProps {
   runningCode: boolean;
@@ -11,10 +12,12 @@ interface IProps {
 }
 
 export const Output: React.FC<IProps> = ({ compilerResult, runningCode }) => {
+  const classes = useStyles();
+
   const consoleOutput = React.useMemo<JSX.Element>((): JSX.Element => {
     if (runningCode) {
       return (
-        <Typography>
+        <Typography className={classes.color}>
           Running
           <Dots />
         </Typography>
@@ -24,12 +27,12 @@ export const Output: React.FC<IProps> = ({ compilerResult, runningCode }) => {
     return compilerResult ? (
       <OutputDisplay compileCode={compilerResult?.compileCode} />
     ) : (
-      <Box>
+      <Box className={classes.color}>
         Click{' '}
-        <Box component="span" fontWeight="bold">
+        <Box className={classes.color} component="span" fontWeight="bold">
           run code
         </Box>{' '}
-        to execute your code and see the output here!
+        to execute the code above and see the output here!
       </Box>
     );
   }, [runningCode, compilerResult]);

@@ -1,8 +1,10 @@
+import { ConsoleTabEnum, RoleEnum } from '@enums';
+
 import { ConsoleTab } from '@types';
-import { ConsoleTabEnum } from '@enums';
 import { Output } from '../output';
 import React from 'react';
 import { TestCases } from '../testCases';
+import { useAuthContext } from '@context/auth/hooks';
 
 interface IArgs {
   runningCode: boolean;
@@ -27,22 +29,32 @@ export const useConsole = ({
   showOutput,
   compilerResult,
 }: IArgs): IUseConsole => {
+  const { role } = useAuthContext();
   const [consoleTab, setConsoleTab] = React.useState<ConsoleTabEnum>(
-    ConsoleTabEnum.TEST_CASES
+    role === RoleEnum.STUDENT
+      ? ConsoleTabEnum.TEST_CASES
+      : ConsoleTabEnum.OUTPUT
   );
   const [expandConsole, setExpandConsole] = React.useState<boolean>(true);
-  const tabs = React.useMemo<Array<ConsoleTab>>(
-    (): Array<ConsoleTab> => [
-      { title: ConsoleTabEnum.TEST_CASES, component: <TestCases /> },
+  const tabs = React.useMemo<Array<ConsoleTab>>((): Array<ConsoleTab> => {
+    const allTabs = [
       {
         title: ConsoleTabEnum.OUTPUT,
         component: (
           <Output compilerResult={compilerResult} runningCode={runningCode} />
         ),
       },
-    ],
-    [compilerResult, runningCode]
-  );
+    ];
+
+    if (role === RoleEnum.STUDENT) {
+      allTabs.unshift({
+        title: ConsoleTabEnum.TEST_CASES,
+        component: <TestCases />,
+      });
+    }
+
+    return allTabs;
+  }, [compilerResult, role, runningCode]);
 
   React.useEffect(() => {
     if (showOutput) {
@@ -50,12 +62,6 @@ export const useConsole = ({
       setConsoleTab(ConsoleTabEnum.OUTPUT);
     }
   }, [showOutput, setShowConsole]);
-
-  React.useEffect(() => {
-    if (!showOutput && showConsole) {
-      setConsoleTab(ConsoleTabEnum.TEST_CASES);
-    }
-  }, [showConsole, showOutput]);
 
   return {
     tabs,

@@ -11,7 +11,8 @@ export const useStyles = makeStyles((theme: Theme) => ({
     display: ({ view }: IStylesProps): string =>
       view === AsideViewEnum.QUESTIONS ? `none` : `block`,
     flexGrow: ({ view }: IStylesProps): number =>
-      view === AsideViewEnum.GRADING ? 1 : 0,
+      // view === AsideViewEnum.GRADING ? 1 : 0,
+      1,
     marginBlockStart: 0,
     minWidth: 300,
   },

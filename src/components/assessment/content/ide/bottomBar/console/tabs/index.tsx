@@ -38,8 +38,10 @@ export const ConsoleTabs: React.FC<IProps> = ({
     setShowOutput(false);
   };
 
-  const handleTabChange = (_, newValue: ConsoleTabEnum): void =>
-    setConsoleTab(newValue);
+  const handleTabChange = (
+    _: React.ChangeEvent<{}>,
+    newValue: ConsoleTabEnum
+  ): void => setConsoleTab(newValue);
 
   return (
     <Box className={classes.root}>
@@ -66,12 +68,16 @@ export const ConsoleTabs: React.FC<IProps> = ({
           title={expandConsole ? `Shrink view` : `Expand view`}
         >
           <IconButton onClick={handleExpandConsole}>
-            {expandConsole ? <FullscreenExitIcon /> : <FullscreenIcon />}
+            {expandConsole ? (
+              <FullscreenExitIcon className={classes.icon} />
+            ) : (
+              <FullscreenIcon className={classes.icon} />
+            )}
           </IconButton>
         </Tooltip>
         <Tooltip placement="top" title="Minimize console">
           <IconButton onClick={handleCloseConsole}>
-            <ArrowDropDownIcon />
+            <ArrowDropDownIcon className={classes.icon} />
           </IconButton>
         </Tooltip>
       </Box>
