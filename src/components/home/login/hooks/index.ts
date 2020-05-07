@@ -43,8 +43,8 @@ export const useLogin = (): IUseLogin => {
     updateState({ type: ActionEnum.INSTRUCTOR_LOGGING_IN });
 
     loginAsync({
-      email: process.env.INSTRUCTOR_EMAIL as string,
-      password: process.env.INSTRUCTOR_PASSWORD as string,
+      email: process.env.GATSBY_INSTRUCTOR_EMAIL as string,
+      password: process.env.GATSBY_INSTRUCTOR_PASSWORD as string,
       onLoggedIn: (uid?: string): void =>
         handleLogin({ action: ActionEnum.LOGIN_AS_INSTRUCTOR, uid }),
       onError: ({ message }: Error): void =>
@@ -56,8 +56,8 @@ export const useLogin = (): IUseLogin => {
     updateState({ type: ActionEnum.STUDENT_LOGGING_IN });
 
     loginAsync({
-      email: process.env.STUDENT_EMAIL as string,
-      password: process.env.STUDENT_PASSWORD as string,
+      email: process.env.GATSBY_STUDENT_EMAIL as string,
+      password: process.env.GATSBY_STUDENT_PASSWORD as string,
       onLoggedIn: (uid?: string): void =>
         handleLogin({ action: ActionEnum.LOGIN_AS_STUDENT, uid }),
       onError: ({ message }: Error): void =>

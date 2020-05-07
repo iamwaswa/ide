@@ -12,7 +12,6 @@ export const loginAsync = async ({
   onError,
 }: IArgs): Promise<void> => {
   try {
-    console.log(email, password);
     const response = await fetch(`/.netlify/functions/login`, {
       method: `POST`,
       body: JSON.stringify({

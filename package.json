@@ -12,7 +12,7 @@
     "start:app": "gatsby develop --open --port 8080",
     "start:functions": "netlify-lambda serve functions",
     "start": "run-p start:**",
-    "serve": "gatsby serve",
+    "serve": "gatsby serve --port 8080",
     "test": "echo 'Write tests! -> https://gatsby.dev/unit-testing'",
     "prettier": "prettier --write 'src/**/*.{ts,tsx}'",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
