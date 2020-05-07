@@ -2,8 +2,13 @@ import { ActionEnum, initialState, reducer } from './reducer';
 import { Callback, OrNull } from '@types';
 
 import React from 'react';
-import firebase from 'gatsby-plugin-firebase';
+import dotenv from 'dotenv';
+import { loginAsync } from './utils';
 import { useAuthContext } from '@context/auth/hooks';
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV}`,
+});
 
 interface IUseLogin {
   errorMessage: OrNull<string>;
@@ -12,6 +17,11 @@ interface IUseLogin {
   clearErrorMessage: () => void;
   loginAsInstructorAsync: Callback<React.MouseEvent, void>;
   loginAsStudentAsync: Callback<React.MouseEvent, void>;
+}
+
+interface IHandleLoginArgs {
+  action: ActionEnum.LOGIN_AS_INSTRUCTOR | ActionEnum.LOGIN_AS_STUDENT;
+  uid?: string;
 }
 
 export const useLogin = (): IUseLogin => {
@@ -28,43 +38,40 @@ export const useLogin = (): IUseLogin => {
     }
   }, [role, uid]);
 
-  const onLoggedInAsync = (
-    action: ActionEnum.LOGIN_AS_INSTRUCTOR | ActionEnum.LOGIN_AS_STUDENT
-  ): Callback<firebase.auth.UserCredential, Promise<void>> => async ({
-    user,
-  }: firebase.auth.UserCredential): Promise<void> => {
-    if (user) {
-      updateState({ type: action, uid: user.uid });
+  const handleLogin = ({ action, uid }: IHandleLoginArgs): void => {
+    if (uid) {
+      updateState({ type: action, uid });
     }
   };
 
-  const loginAsInstructorAsync = () => {
+  const loginAsInstructorAsync = async (): Promise<void> => {
     updateState({ type: ActionEnum.INSTRUCTOR_LOGGING_IN });
 
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(`instructor@email.ca`, `instructor`)
-      .then(onLoggedInAsync(ActionEnum.LOGIN_AS_INSTRUCTOR))
-      .catch(({ message }: Error): void =>
-        updateState({ type: ActionEnum.SET_ERROR, message })
-      );
+    loginAsync({
+      email: process.env.INSTRUCTOR_EMAIL as string,
+      password: process.env.INSTRUCTOR_PASSWORD as string,
+      onLoggedIn: (uid?: string): void =>
+        handleLogin({ action: ActionEnum.LOGIN_AS_INSTRUCTOR, uid }),
+      onError: ({ message }: Error): void =>
+        updateState({ type: ActionEnum.SET_ERROR, message }),
+    });
   };
 
-  const loginAsStudentAsync = () => {
+  const loginAsStudentAsync = async (): Promise<void> => {
     updateState({ type: ActionEnum.STUDENT_LOGGING_IN });
 
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(`student@email.ca`, `student`)
-      .then(onLoggedInAsync(ActionEnum.LOGIN_AS_STUDENT))
-      .catch(({ message }: Error): void =>
-        updateState({ type: ActionEnum.SET_ERROR, message })
-      );
+    loginAsync({
+      email: process.env.STUDENT_EMAIL as string,
+      password: process.env.STUDENT_PASSWORD as string,
+      onLoggedIn: (uid?: string): void =>
+        handleLogin({ action: ActionEnum.LOGIN_AS_STUDENT, uid }),
+      onError: ({ message }: Error): void =>
+        updateState({ type: ActionEnum.SET_ERROR, message }),
+    });
   };
 
-  const clearErrorMessage = () => {
+  const clearErrorMessage = (): void =>
     updateState({ type: ActionEnum.CLEAR_ERROR });
-  };
 
   return {
     errorMessage,
