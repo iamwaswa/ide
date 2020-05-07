@@ -75,3 +75,5 @@ sanity/dist
 # Local Netlify folder
 .netlify
 .env.production
+netlify.toml
+lambda

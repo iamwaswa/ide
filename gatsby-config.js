@@ -2,7 +2,20 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const { createProxyMiddleware } = require('http-proxy-middleware');
+
 module.exports = {
+  developMiddleware: app => {
+    app.use(
+      `/.netlify/functions`,
+      createProxyMiddleware({
+        target: 'http://localhost:8000',
+        pathRewrite: {
+          [`^/\\.netlify/functions`]: ''
+        }
+      })
+    )
+  },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
