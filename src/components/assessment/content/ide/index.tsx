@@ -25,13 +25,11 @@ export const IDE: React.FC<IProps> = ({ loading }) => {
   return (
     <Fade in={!loading} timeout={500} mountOnEnter={true} unmountOnExit={true}>
       <Box className={classes.container}>
-        {typeof window === `undefined` ? null : (
-          <CodeEditor
-            editorLanguage={editorLanguage}
-            editorTheme={editorTheme}
-            setEditor={setEditor}
-          />
-        )}
+        <CodeEditor
+          editorLanguage={editorLanguage}
+          editorTheme={editorTheme}
+          setEditor={setEditor}
+        />
         <BottomBar
           getEditorValue={getEditorValue}
           submittedDate={submittedDate}

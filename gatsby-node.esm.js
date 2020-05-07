@@ -10,6 +10,10 @@ export const onCreateWebpackConfig = ({ actions, loaders, stage }) => {
             test: /quill/,
             use: loaders.null(),
           },
+          {
+            test: /react-monaco-editor/,
+            use: loaders.null(),
+          },
         ],
       },
     });
