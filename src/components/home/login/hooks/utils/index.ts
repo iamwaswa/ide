@@ -24,8 +24,8 @@ export const loginAsync = async ({
     if (response.status.toString().startsWith(`4`)) {
       throw new Error(message);
     } else {
-      const { user } = message as firebase.auth.UserCredential;
-      onLoggedIn(user?.uid);
+      const { uid } = message as { uid?: string };
+      onLoggedIn(uid);
     }
   } catch (error) {
     onError(error);
