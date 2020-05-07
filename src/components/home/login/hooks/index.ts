@@ -2,13 +2,8 @@ import { ActionEnum, initialState, reducer } from './reducer';
 import { Callback, OrNull } from '@types';
 
 import React from 'react';
-import dotenv from 'dotenv';
 import { loginAsync } from './utils';
 import { useAuthContext } from '@context/auth/hooks';
-
-dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
 
 interface IUseLogin {
   errorMessage: OrNull<string>;

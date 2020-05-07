@@ -7,12 +7,12 @@ import { useLogout } from './hooks/logout';
 
 export const NavBarRight: React.FC = () => {
   const { uid } = useAuthContext();
-  const { logoutAsync, ...error } = useLogout();
+  const { logout, ...error } = useLogout();
 
   return (
     <>
       <ErrorToast {...error} />
-      <Box>{uid && <Button onClick={logoutAsync}>Logout</Button>}</Box>
+      <Box>{uid && <Button onClick={logout}>Logout</Button>}</Box>
     </>
   );
 };
