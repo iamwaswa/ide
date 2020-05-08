@@ -121,3 +121,8 @@ export type UseUpdateTestCase = [
 export type ConsoleTab = { title: ConsoleTabEnum; component: JSX.Element };
 
 export type Editor = monacoEditor.editor.IStandaloneCodeEditor;
+
+export type ServerResponse<T = any> = {
+  data: T;
+  error?: string;
+};

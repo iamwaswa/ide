@@ -1,3 +1,5 @@
+import { ServerResponse } from '@types';
+
 interface IArgs {
   email: string;
   password: string;
@@ -20,12 +22,11 @@ export const loginAsync = async ({
       }),
     });
 
-    const { message } = await response.json();
-    if (response.status.toString().startsWith(`4`)) {
-      throw new Error(message);
+    const { data, error } = (await response.json()) as ServerResponse<string>;
+    if (error) {
+      throw new Error(error);
     } else {
-      const { uid } = message as { uid?: string };
-      onLoggedIn(uid);
+      onLoggedIn(data);
     }
   } catch (error) {
     onError(error);

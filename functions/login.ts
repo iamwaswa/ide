@@ -61,7 +61,7 @@ export const handler: Handler = async (
         [`Content-Type`]: `application/json`,
       },
       statusCode: 200,
-      body: JSON.stringify({ message: user }),
+      body: JSON.stringify({ data: user.uid }),
     });
   } catch (error) {
     console.error(error);
@@ -70,7 +70,7 @@ export const handler: Handler = async (
         [`Content-Type`]: `application/json`,
       },
       statusCode: 400,
-      body: JSON.stringify({ message: error.message }),
+      body: JSON.stringify({ error: error.message }),
     });
   }
 };
