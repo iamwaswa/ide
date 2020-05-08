@@ -4,16 +4,13 @@ import { AsideViewEnum } from '@enums';
 
 interface IStylesProps {
   view: AsideViewEnum;
-  student: boolean;
 }
 
 export const useStyles = makeStyles((theme: Theme) => ({
   questionsContainer: {
     display: ({ view }: IStylesProps): string =>
       view === AsideViewEnum.GRADING ? `none` : `block`,
-    flexGrow: ({ student, view }: IStylesProps) =>
-      // student || view === AsideViewEnum.QUESTIONS ? 1 : 0,
-      1,
+    flexGrow: 1,
   },
   question: {
     margin: 0,

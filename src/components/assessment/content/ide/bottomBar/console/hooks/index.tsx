@@ -8,7 +8,6 @@ import { useAuthContext } from '@context/auth/hooks';
 
 interface IArgs {
   runningCode: boolean;
-  showConsole: boolean;
   setShowConsole: React.Dispatch<React.SetStateAction<boolean>>;
   showOutput: boolean;
   compilerResult?: any;
@@ -24,7 +23,6 @@ interface IUseConsole {
 
 export const useConsole = ({
   runningCode,
-  showConsole,
   setShowConsole,
   showOutput,
   compilerResult,

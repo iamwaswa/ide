@@ -3,16 +3,11 @@ import 'firebase/auth';
 import { APIGatewayEvent, Callback, Context, Handler } from 'aws-lambda';
 
 import Request from 'xmlhttprequest';
-import dotenv from 'dotenv';
 import { headers } from './utils/headers';
 import { signInAsync } from './utils/login';
 
 //@ts-ignore
 global[`XMLHttpRequest`] = Request.XMLHttpRequest;
-
-dotenv.config({
-  path: `.env.${process.env.NODE_ENV}`,
-});
 
 interface IBody {
   email?: string;

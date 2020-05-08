@@ -1,11 +1,10 @@
-import { AsideViewEnum, RoleEnum } from '@enums';
 import { Box, Fade, Typography } from '@material-ui/core';
 
+import { AsideViewEnum } from '@enums';
 import { QuestionNavigation } from './navigation';
 import { Quill } from '@components/quill';
 import React from 'react';
 import { useAssessmentContext } from '@components/assessment/context/hooks';
-import { useAuthContext } from '@context/auth/hooks';
 import { useStyles } from './styles';
 
 interface IProps {
@@ -22,8 +21,7 @@ export const Questions: React.FC<IProps> = ({
   view,
 }) => {
   const { assessment } = useAssessmentContext();
-  const { role } = useAuthContext();
-  const classes = useStyles({ view, student: role === RoleEnum.STUDENT });
+  const classes = useStyles({ view });
   const [currentQuestionIndex, setCurrentQuestionIndex] = React.useState<
     number
   >(0);

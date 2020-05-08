@@ -34,7 +34,6 @@ export const Console: React.FC<IProps> = ({
   } = useConsole({
     compilerResult,
     runningCode,
-    showConsole,
     setShowConsole,
     showOutput,
   });
