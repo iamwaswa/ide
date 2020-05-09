@@ -11,7 +11,7 @@ export type OrUndefined<T> = T | undefined;
 export type BasicCourse = {
   id: string;
   title: string;
-  subTitle: string;
+  subtitle: string;
 };
 
 export type CourseOverview = {
@@ -30,7 +30,6 @@ export type AssessmentFile = {
   name: string;
   language: LanguageEnum;
   lastModified: Date;
-  versionIndex: number;
   data: string;
 };
 

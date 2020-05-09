@@ -16,11 +16,11 @@ import { useStyles } from './styles';
 interface IProps {
   id: string;
   title: string;
-  subTitle: string;
+  subtitle: string;
   image?: string;
 }
 
-export const Item: React.FC<IProps> = ({ id, title, subTitle, image }) => {
+export const Item: React.FC<IProps> = ({ id, title, subtitle, image }) => {
   const [readyToNavigate, setReadyToNavigate] = React.useState<boolean>(false);
   const {
     uid,
@@ -56,7 +56,7 @@ export const Item: React.FC<IProps> = ({ id, title, subTitle, image }) => {
         />
         <CardContent>
           <Typography gutterBottom variant="body1" component="h2">
-            {subTitle}
+            {subtitle}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
             {title}

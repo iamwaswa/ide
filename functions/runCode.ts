@@ -9,7 +9,6 @@ interface IBody {
   courseReference?: string;
   language?: string;
   testCases?: Array<ITestCase>;
-  versionIndex?: number;
 }
 
 export const handler: Handler = async (
@@ -27,7 +26,6 @@ export const handler: Handler = async (
       courseReference,
       language,
       testCases,
-      versionIndex,
     } = JSON.parse(event.body ?? `{}`) as IBody;
 
     const script = await getAssessmentScriptAsync({
@@ -35,9 +33,9 @@ export const handler: Handler = async (
       courseReference,
     });
 
-    const promises = testCases?.map(
-      runTestCaseAsync({ language, script, versionIndex })
-    );
+    const runCodeAsync = runTestCaseAsync({ language, script });
+
+    const promises = testCases?.map(runCodeAsync);
 
     const data = await Promise.all(promises ?? []);
 

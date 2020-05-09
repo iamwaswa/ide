@@ -39,7 +39,6 @@ export const useRunCode = ({
       //       assessmentReference: assessmentId,
       //       hasScript: assessment.script !== null,
       //       language: assessment.file.language,
-      //       versionIndex: assessment.file.versionIndex,
       //       script:
       //         assessment.script === null
       //           ? getEditorValue()

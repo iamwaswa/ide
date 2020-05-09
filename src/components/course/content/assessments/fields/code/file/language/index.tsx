@@ -2,6 +2,7 @@ import { Action, ActionEnum } from '../../../reducer';
 import { AssessmentFile, Callback } from '@types';
 import { FormControl, InputLabel, MenuItem, Select } from '@material-ui/core';
 
+import { LanguageEnum } from '@enums';
 import React from 'react';
 import items from './data.json';
 import { useStyles } from './styles';
@@ -24,7 +25,7 @@ export const FileLanguageItem: React.FC<IProps> = ({ file, updateFields }) => {
   ): void => {
     updateFields({
       type: ActionEnum.LANGUAGE_FILE_CHANGE,
-      value: event.target.value as string,
+      value: event.target.value as LanguageEnum,
     });
   };
 

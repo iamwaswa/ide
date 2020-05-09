@@ -9,14 +9,14 @@ import { useStyles } from './styles';
 
 interface IProps {
   containerClassName: string;
-  subTitle: string;
+  subtitle: string;
   overview: CourseOverview;
   setOpenEmailClient: Callback<boolean, void>;
 }
 
 export const LeftContent: React.FC<IProps> = ({
   containerClassName,
-  subTitle,
+  subtitle,
   overview: { instructor, teachingAssistants },
   setOpenEmailClient,
 }) => {
@@ -25,7 +25,7 @@ export const LeftContent: React.FC<IProps> = ({
   return (
     <Box className={containerClassName}>
       <Typography variant="h4" gutterBottom={true}>
-        {subTitle}
+        {subtitle}
       </Typography>
       <ContentComponent title="Instructor">
         <Contact contact={instructor} />

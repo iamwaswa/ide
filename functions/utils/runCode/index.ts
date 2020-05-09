@@ -40,13 +40,11 @@ interface IRunCodeResponse extends IJDoodleResponse {
 interface IRunTestCaseArgs {
   script: string;
   language?: string;
-  versionIndex?: number;
 }
 
 export const runTestCaseAsync = ({
   script,
   language,
-  versionIndex,
 }: IRunTestCaseArgs): ((
   testCase: ITestCase
 ) => Promise<IRunCodeResponse>) => async ({
@@ -60,7 +58,7 @@ export const runTestCaseAsync = ({
       script,
       language,
       stdin: stringifyInputs(inputs),
-      versionIndex: versionIndex?.toString(10),
+      versionIndex: 3,
     },
     url: `https://api.jdoodle.com/v1/execute`,
     timeout: 5000,

@@ -27,8 +27,7 @@ export const SubmitPrompt: React.FC<IProps> = ({ type }) => {
   );
 
   const submitAssessment = () => {
-    /*const { language, versionIndex } = JSON.parse(fields.file.language);
-    {
+    /*{
       ...fields,
       type,
       script: fields.script,
@@ -37,7 +36,7 @@ export const SubmitPrompt: React.FC<IProps> = ({ type }) => {
         fields.duration,
         fields.durationUnit
       ) : undefined,
-      file: { ...fields.file, language, versionIndex },
+      file: fields.file,
     }*/
   };
 

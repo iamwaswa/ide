@@ -19,7 +19,7 @@ export const Content: React.FC<IProps> = ({ currentSection, course }) => {
     section: CourseNavigationDrawerSection
   ): OrNull<JSX.Element> => {
     if (section === `overview`) {
-      return <Overview overview={course.overview} subTitle={course.subTitle} />;
+      return <Overview overview={course.overview} subtitle={course.subtitle} />;
     }
 
     if (section === `assignments` || section === `quizzes`) {

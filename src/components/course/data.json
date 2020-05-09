@@ -1,7 +1,7 @@
 {
   "id": "0",
   "title": "CS100",
-  "subTitle": "Intro To Programming",
+  "subtitle": "Intro To Programming",
   "overview": {
     "instructor": {
       "id": "instructor",
@@ -39,7 +39,6 @@
         "name": "Assignment1.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": [
@@ -61,7 +60,6 @@
               "name": "Assignment1.js",
               "language": "nodejs",
               "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-              "versionIndex": 3,
               "data": "Fake data here"
             }
           },
@@ -69,7 +67,6 @@
             "name": "Assignment1.js",
             "language": "nodejs",
             "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-            "versionIndex": 3,
             "data": "Fake data here"
           },
           "grade": {
@@ -106,7 +103,6 @@
         "name": "Assignment2.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
@@ -122,7 +118,6 @@
         "name": "Assignment3.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
@@ -138,7 +133,6 @@
         "name": "Assignment4.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
@@ -157,7 +151,6 @@
         "name": "Quiz1.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
@@ -174,7 +167,6 @@
         "name": "Quiz2.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
@@ -191,7 +183,6 @@
         "name": "Quiz3.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],
@@ -208,7 +199,6 @@
         "name": "Quiz4.js",
         "language": "nodejs",
         "lastModified": "Tue Apr 28 2020 00:17:31 GMT-0700 (Pacific Daylight Time)",
-        "versionIndex": 3,
         "data": "Fake data here"
       },
       "questions": ["Question 1", "Question 2", "Question 3"],

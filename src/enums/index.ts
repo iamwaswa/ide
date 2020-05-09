@@ -33,13 +33,10 @@ export enum EditorThemeEnum {
 
 export enum LanguageEnum {
   CPP = 'cpp',
-  CPP14 = 'cpp14',
-  CPP17 = 'cpp17',
   GO = 'go',
   JAVA = 'java',
   NODEJS = 'nodejs',
   PHP = 'php',
-  PYTHON2 = 'python2',
   PYTHON3 = 'python3',
   RUBY = 'ruby',
 }

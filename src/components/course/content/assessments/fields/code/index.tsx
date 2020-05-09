@@ -3,7 +3,7 @@ import { AssessmentFile, Callback } from '@types';
 
 import { AssessmentEnum } from '@enums';
 import { Box } from '@material-ui/core';
-import { LanguageAndVersion } from './file';
+import { Language } from './file';
 import React from 'react';
 import { ScriptItem } from './script';
 import { Upload } from './upload';
@@ -36,7 +36,7 @@ export const CodeItems: React.FC<IProps> = (props) => {
 
   return (
     <Box className={classes.codeContainer}>
-      <LanguageAndVersion {...props} />
+      <Language {...props} />
       <Box className={classes.uploadContainer}>
         <Upload
           defaultButtonText={`Upload ${props.type.toLowerCase()} file`}

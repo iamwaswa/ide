@@ -5,11 +5,11 @@ import React from 'react';
 
 interface IProps {
   overview: CourseOverview;
-  subTitle: string;
+  subtitle: string;
 }
 
-export const Overview: React.FC<IProps> = ({ overview, subTitle }) => (
+export const Overview: React.FC<IProps> = ({ overview, subtitle }) => (
   <Fade in={true} timeout={600} mountOnEnter unmountOnExit>
-    <Content overview={overview} subTitle={subTitle} />
+    <Content overview={overview} subtitle={subtitle} />
   </Fade>
 );

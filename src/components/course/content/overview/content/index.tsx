@@ -7,11 +7,11 @@ import { RightContent } from './right';
 import { useStyles } from './styles';
 
 interface IProps {
-  subTitle: string;
+  subtitle: string;
   overview: CourseOverview;
 }
 
-export const Content: React.FC<IProps> = ({ subTitle, overview }) => {
+export const Content: React.FC<IProps> = ({ subtitle, overview }) => {
   const [openEmailClient, setOpenEmailClient] = React.useState<boolean>(false);
   const classes = useStyles();
 
@@ -21,7 +21,7 @@ export const Content: React.FC<IProps> = ({ subTitle, overview }) => {
         <LeftContent
           containerClassName={classes.child}
           overview={overview}
-          subTitle={subTitle}
+          subtitle={subtitle}
           setOpenEmailClient={setOpenEmailClient}
         />
         <RightContent containerClassName={classes.child} overview={overview} />

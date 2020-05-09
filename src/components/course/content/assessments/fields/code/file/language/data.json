@@ -8,20 +8,8 @@
     "languageDisplay": "C++"
   },
   {
-    "language": "cpp14",
-    "languageDisplay": "C++ 14"
-  },
-  {
-    "language": "cpp17",
-    "languageDisplay": "C++ 17"
-  },
-  {
     "language": "php",
     "languageDisplay": "PHP"
-  },
-  {
-    "language": "python2",
-    "languageDisplay": "Python 2"
   },
   {
     "language": "python3",

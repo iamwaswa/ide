@@ -2,16 +2,16 @@
   {
     "id": "0",
     "title": "CS100",
-    "subTitle": "Intro to Programming"
+    "subtitle": "Intro to Programming"
   },
   {
     "id": "1",
     "title": "CS101",
-    "subTitle": "Intro to Data Structures"
+    "subtitle": "Intro to Data Structures"
   },
   {
     "id": "2",
     "title": "CS102",
-    "subTitle": "Intro to Algorithms"
+    "subtitle": "Intro to Algorithms"
   }
 ]

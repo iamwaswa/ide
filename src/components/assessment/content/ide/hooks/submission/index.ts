@@ -42,7 +42,6 @@ export const useSubmission = ({ editor }: IArgs): IUseSubmission => {
       //       file: {
       //         name: assessment.file.name,
       //         language: assessment.file.language,
-      //         versionIndex: assessment.file.versionIndex,
       //         lastModified: new Date(),
       //         data: getEditorValue(),
       //       },

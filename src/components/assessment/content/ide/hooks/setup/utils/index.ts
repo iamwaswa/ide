@@ -7,9 +7,7 @@ export const languageToEditorLanguage = (
     case undefined: {
       return EditorLanguageEnum.JAVASCRIPT;
     }
-    case LanguageEnum.CPP:
-    case LanguageEnum.CPP14:
-    case LanguageEnum.CPP17: {
+    case LanguageEnum.CPP: {
       return EditorLanguageEnum.CPP;
     }
     case LanguageEnum.GO: {
@@ -21,7 +19,6 @@ export const languageToEditorLanguage = (
     case LanguageEnum.NODEJS: {
       return EditorLanguageEnum.JAVASCRIPT;
     }
-    case LanguageEnum.PYTHON2:
     case LanguageEnum.PYTHON3: {
       return EditorLanguageEnum.PYTHON;
     }
