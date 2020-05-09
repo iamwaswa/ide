@@ -11,7 +11,8 @@
     "test": "sanity check",
     "deploy": "sanity deploy",
     "graphql:dev": "sanity graphql deploy --dataset development",
-    "graphql:prod": "sanity graphql deploy --dataset production"
+    "graphql:prod": "sanity graphql deploy --dataset production --no-playground",
+    "graphql": "run-p graphql:**"
   },
   "keywords": [
     "sanity"
@@ -30,5 +31,8 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/iamwaswa/ide.git"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
   }
 }
